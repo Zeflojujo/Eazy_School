@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gradient-bg-hero {
+  background-color: #151c25;
+  background-image: radial-gradient(
+      at 0% 0%,
+      hsl(302deg 25% 18%) 0,
+      transparent 50%
+    ),
+    radial-gradient(at 50% 0%, hsl(246, 81%, 48%) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgb(54, 24, 224) 0, transparent 50%);
+}
+
+.gradient-bg-artworks {
+  background-color: #0f0e13;
+  background-image: radial-gradient(
+      at 50% 50%,
+      hsl(302deg 25% 18%) 0,
+      transparent 50%
+    ),
+    radial-gradient(at 0% 0%, rgb(69, 64, 95) 0, transparent 50%),
+    radial-gradient(at 50% 50%, rgb(56, 29, 231) 0, transparent 50%);
+}
+
+.gradient-bg-footer {
+  background-color: #151c25;
+  background-image: radial-gradient(
+      at 0% 100%,
+      hsl(0deg 39% 30%) 0,
+      transparent 53%
+    ),
+    radial-gradient(at 50% 150%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+}
+
+.text-gradient {
+  background: -webkit-linear-gradient(#141414, #a5a0f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+}
+.lds-dual-ring:after {
+  content: ' ';
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.react-chatbot-kit-chat-container {
+  width: 60vw !important;
+  /* height: 80vh !important; */
+  box-shadow: '0px 30px 10px 0px rgba(0,0,0,0.1)' !important;
+}
+.react-chatbot-kit-chat-header {
+  font-size: larger !important;
+}
+.react-chatbot-kit-chat-bot-message {
+  margin-left: 10px !important;
+}
+
+.react-chatbot-kit-chat-inner-container {
+  height: 80vh !important;
+}
+
+.react-chatbot-kit-chat-btn-send {
+  background-color: dodgerblue !important;
+}
+
+.react-chatbot-kit-chat-message-container {
+  height: 70vh !important;
+}
+
+/* 
+
+.react-chatbot-kit-chat-header {
+}
+
+.react-chatbot-kit-chat-input-container {
+}
+
+.react-chatbot-kit-chat-message-container {
+}
+
+.react-chatbot-kit-chat-input {
+}
+
+.react-chatbot-kit-chat-input-form {
+}
+
+.react-chatbot-kit-chat-input::placeholder {
+}
+
+.react-chatbot-kit-chat-btn-send {
+}
+
+.react-chatbot-kit-chat-bot-message-container {
+}
+
+.react-chatbot-kit-chat-bot-avatar-container {
+}
+
+.react-chatbot-kit-chat-bot-avatar-icon {
+}
+
+.react-chatbot-kit-chat-bot-avatar-letter {
+}
+
+.
+
+.react-chatbot-kit-chat-bot-message-arrow {
+}
+
+.react-chatbot-kit-chat-bot-loading-icon-container {
+}
+
+.chatbot-loader-container {
+}
+
+#chatbot-loader #chatbot-loader-dot1 {
+}
+
+#chatbot-loader #chatbot-loader-dot2 {
+}
+
+#chatbot-loader #chatbot-loader-dot3 {
+}
+
+.react-chatbot-kit-error {
+}
+
+.react-chatbot-kit-error-container {
+}
+
+.react-chatbot-kit-error-header {
+}
+
+.react-chatbot-kit-error-docs {
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* a {
+      @apply text-blue-600 hover:text-purple-500 transition decoration-wavy underline-offset-2; 
+  }
+  a.active {
+      @apply w-full p-5 bg-light-white text-gray-900 duration-300 dark:text-blue-300
+  } */
+}

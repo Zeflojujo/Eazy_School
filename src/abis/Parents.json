@@ -1,0 +1,75 @@
+{
+  "contractName": "Parents",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Parents.sol\":\"Parents\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"project:/contracts/Parents.sol\":{\"keccak256\":\"0x2f43b95802b6348a59dcd5c3d0b11fa9f7920004e56fc13fc2604c2b63ac763c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7cdfede053b02c1d887d3519e6272459ced27e19478dd0c518e7ef3bfb2ac630\",\"dweb:/ipfs/QmWiXukX3RBTtaqSpvPxvwoqig7CwKqHUpDjs5ZP9ugMDU\"]}},\"version\":1}",
+  "bytecode": "0x60808060405234601357603a908160198239f35b600080fdfe600080fdfea26469706673582212201f8adb8631eb76919d52e0c1eb5331cac1d1ddc6b916a47f71b727c616e9086764736f6c63430008130033",
+  "deployedBytecode": "0x600080fdfea26469706673582212201f8adb8631eb76919d52e0c1eb5331cac1d1ddc6b916a47f71b727c616e9086764736f6c63430008130033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "58:21:3:-:0;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "58:21:3:-:0;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\n\ncontract Parents {\n\n}",
+  "sourcePath": "/home/zeflojujo/school_management_system/client/contracts/Parents.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Parents.sol",
+    "exportedSymbols": {
+      "Parents": [
+        18
+      ]
+    },
+    "id": 19,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 17,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:3"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Parents",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 18,
+        "linearizedBaseContracts": [
+          18
+        ],
+        "name": "Parents",
+        "nameLocation": "67:7:3",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 19,
+        "src": "58:21:3",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:47:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-04-17T23:46:26.445Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

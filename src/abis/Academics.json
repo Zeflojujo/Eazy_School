@@ -1,0 +1,169 @@
+{
+  "contractName": "Academics",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Academics.sol\":\"Academics\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"project:/contracts/Academics.sol\":{\"keccak256\":\"0x06066307bddef60cb9fcb1d3bf908fe4d761a97a1f0a78a574f6ebaef741124e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://99f797d353ed7c714ab0c1270a02690c283a534760e498eaa54b662129a8abc2\",\"dweb:/ipfs/QmRDXrEZjt3sEaEWf55AxQ5tKKhX27FKfyWFzALhrYgqJ6\"]}},\"version\":1}",
+  "bytecode": "0x60808060405234601357603a908160198239f35b600080fdfe600080fdfea2646970667358221220db5a4c9416dc0e1e3542b92bd7d670c43fea2fe0816ea4226c66837d0ac80d0d64736f6c63430008130033",
+  "deployedBytecode": "0x600080fdfea2646970667358221220db5a4c9416dc0e1e3542b92bd7d670c43fea2fe0816ea4226c66837d0ac80d0d64736f6c63430008130033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "58:144:0:-:0;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "58:144:0:-:0;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\n\ncontract Academics {\n    string ac_teacher_name;\n\n    struct ac_teacher {\n        string ac_name;\n        uint256 phone_number;\n        \n    }\n}",
+  "sourcePath": "/home/zeflojujo/school_management_system/client/contracts/Academics.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Academics.sol",
+    "exportedSymbols": {
+      "Academics": [
+        9
+      ]
+    },
+    "id": 10,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:0"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Academics",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 9,
+        "linearizedBaseContracts": [
+          9
+        ],
+        "name": "Academics",
+        "nameLocation": "67:9:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 3,
+            "mutability": "mutable",
+            "name": "ac_teacher_name",
+            "nameLocation": "90:15:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 9,
+            "src": "83:22:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 2,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "83:6:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "Academics.ac_teacher",
+            "id": 8,
+            "members": [
+              {
+                "constant": false,
+                "id": 5,
+                "mutability": "mutable",
+                "name": "ac_name",
+                "nameLocation": "147:7:0",
+                "nodeType": "VariableDeclaration",
+                "scope": 8,
+                "src": "140:14:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 4,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "140:6:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 7,
+                "mutability": "mutable",
+                "name": "phone_number",
+                "nameLocation": "172:12:0",
+                "nodeType": "VariableDeclaration",
+                "scope": 8,
+                "src": "164:20:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 6,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "164:7:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "ac_teacher",
+            "nameLocation": "119:10:0",
+            "nodeType": "StructDefinition",
+            "scope": 9,
+            "src": "112:88:0",
+            "visibility": "public"
+          }
+        ],
+        "scope": 10,
+        "src": "58:144:0",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:170:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-04-17T23:46:26.441Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

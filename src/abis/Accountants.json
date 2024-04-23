@@ -1,0 +1,184 @@
+{
+  "contractName": "Accountants",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Accountants.sol\":\"Accountants\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"project:/contracts/AccessControl.sol\":{\"keccak256\":\"0x3e54102edc7547122bbd6f55ab5bf6958af86248404d866bdee71a81ba31f994\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e6305179a5d7c2d47b2a6028637a8710481d590c1f4e133329915200217f4eb\",\"dweb:/ipfs/QmQpZRaYoPhQoUt9HwpjVcsHqYn4bxSYxgUL2iVMYFuTkc\"]},\"project:/contracts/Accountants.sol\":{\"keccak256\":\"0x320233d9033b01c817e08dd35c323abf37e81197c6b163be0018415709671ec1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://46370143b80658d2c4813c387f702810e608a635640110da2c2016a97ef443df\",\"dweb:/ipfs/QmNZzzCpQ58f3gFcTUhTk2EdG7ArR7MEzfvF4KR251NEhp\"]}},\"version\":1}",
+  "bytecode": "0x60808060405234601357603a908160198239f35b600080fdfe600080fdfea2646970667358221220a81797fd56436d7c474676a1ef04acbb5471220487e99f2edb0f5a9aed78069864736f6c63430008130033",
+  "deployedBytecode": "0x600080fdfea2646970667358221220a81797fd56436d7c474676a1ef04acbb5471220487e99f2edb0f5a9aed78069864736f6c63430008130033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "88:127:2:-:0;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "88:127:2:-:0;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\nimport \"./AccessControl.sol\";\n\ncontract Accountants {\n\n    struct Accountant {\n        string acc_address;\n        string name;\n        string salary;\n    }\n}\n",
+  "sourcePath": "/home/zeflojujo/school_management_system/client/contracts/Accountants.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Accountants.sol",
+    "exportedSymbols": {
+      "AccessControl": [
+        101
+      ],
+      "Accountants": [
+        112
+      ]
+    },
+    "id": 113,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 103,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:2"
+      },
+      {
+        "absolutePath": "project:/contracts/AccessControl.sol",
+        "file": "./AccessControl.sol",
+        "id": 104,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 113,
+        "sourceUnit": 102,
+        "src": "57:29:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Accountants",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 112,
+        "linearizedBaseContracts": [
+          112
+        ],
+        "name": "Accountants",
+        "nameLocation": "97:11:2",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Accountants.Accountant",
+            "id": 111,
+            "members": [
+              {
+                "constant": false,
+                "id": 106,
+                "mutability": "mutable",
+                "name": "acc_address",
+                "nameLocation": "151:11:2",
+                "nodeType": "VariableDeclaration",
+                "scope": 111,
+                "src": "144:18:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 105,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "144:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 108,
+                "mutability": "mutable",
+                "name": "name",
+                "nameLocation": "179:4:2",
+                "nodeType": "VariableDeclaration",
+                "scope": 111,
+                "src": "172:11:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 107,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "172:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 110,
+                "mutability": "mutable",
+                "name": "salary",
+                "nameLocation": "200:6:2",
+                "nodeType": "VariableDeclaration",
+                "scope": 111,
+                "src": "193:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 109,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "193:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Accountant",
+            "nameLocation": "123:10:2",
+            "nodeType": "StructDefinition",
+            "scope": 112,
+            "src": "116:97:2",
+            "visibility": "public"
+          }
+        ],
+        "scope": 113,
+        "src": "88:127:2",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:184:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-04-21T15:12:56.252Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
