@@ -13,6 +13,8 @@ const { setGlobalState, useGlobalState, getGlobalState } = createGlobalState({
   students: [],
   teacher: [],
   teachers: [],
+  accountant: [],
+  accountants: [],
   studentResult: "",
   contract: null,
   smartcontractError: "Transporter Registration failed...",

@@ -4,8 +4,10 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./+homedirectory/pages/Home";
 
 import {
-  displayStudents,
   isWallectConnected,
+  displayStudents,
+  displayTeachers,
+  displayAccountants
 } from "./BlockchainService";
 
 import { useGlobalState } from "./store";
@@ -19,23 +21,24 @@ import AccountantLogin from "./accountant/pages/authentication/AccountantLogin";
 import AccountantDashboard from "./accountant/pages/AccountantDashboard";
 import SchoolLogin from "./school/pages/authentication/SchoolLogin";
 import SchoolDashboard from "./school/pages/SchoolDashboard";
-import Student from "./school/pages/RegisterStudent";
 import RegisterStudent from "./school/pages/RegisterStudent";
 import RegisterTeacher from "./school/pages/RegisterTeacher";
 import ChatbotApp from "./chatbot/ChatbotApp";
+import RegisterAccountant from "./school/pages/RegisterAccountant";
 
 function App() {
   const [connectedAccount] = useGlobalState("connectedAccount")
   const [connctAccount, setConntAccount] = useState("")
-  const [medicalCenter, setMedicalCenter] = useState("");
 
   useEffect(() => {
     const isConnected = async () => {
       await isWallectConnected();
       await displayStudents();
+      await displayTeachers();
+      await displayAccountants();
     };
     isConnected();
-  }, [connectedAccount, connctAccount, medicalCenter]);
+  }, [connectedAccount, connctAccount]);
 
   useEffect(()=> {
     setConntAccount(connectedAccount);
@@ -50,6 +53,7 @@ function App() {
         <Route path="/school/dashboard" element={<SchoolDashboard />} />
         <Route path="/school/student" element={<RegisterStudent />} />
         <Route path="/school/teacher" element={<RegisterTeacher />} />
+        <Route path="/school/accountant" element={<RegisterAccountant />} />
         
         {/* teacher Routes */}
         <Route path="/teacher/login" element={<TeacherLogin />} />

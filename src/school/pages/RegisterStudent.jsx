@@ -57,6 +57,7 @@ const RegisterStudent = () => {
                     icon: "success",  
                     button: "Okay",  
                 });  
+                window.location.reload()
                 // setAlert('Student is registered successfully...', 'green')
             } else {
                 throw Error

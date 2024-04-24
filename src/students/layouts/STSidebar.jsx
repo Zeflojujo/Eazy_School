@@ -1,15 +1,9 @@
 import React from "react"
 // import { FaAngleLeft } from "react-icons/fa6";
 import { MdBloodtype, MdDashboard } from "react-icons/md"
-import { FaBook, FaBookOpen, FaChartPie, FaRecordVinyl } from "react-icons/fa"
-import { FaUser } from "react-icons/fa"
-import { FaWineBottle } from "react-icons/fa"
-import { BsDatabaseFillAdd, BsQrCode } from "react-icons/bs"
+import { FaBook } from "react-icons/fa"
 import { IoIosArrowForward } from "react-icons/io"
-import { FaKeycdn } from "react-icons/fa6"
 import { NavLink } from "react-router-dom"
-import { MdAddHomeWork } from "react-icons/md";
-import { FaCableCar } from "react-icons/fa6";
 
 // import "./Sidebar.css"
 
@@ -38,7 +32,7 @@ const STSidebar = ({ isOpen, toggleSidebar }) => {
                         className={`text-white origin-left font-medium text-2xl duration-300 ${!isOpen && "scale-0"
                             } dark:text-gray-300`}
                     >
-                        Damu Salama
+                        Eazy-School
                     </h1>
                 </div>
                 <ul className="pt-6 mr-0">

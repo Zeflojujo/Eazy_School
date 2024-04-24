@@ -1,7 +1,6 @@
 import React from "react"
 // import { FaAngleLeft } from "react-icons/fa6";
 import { MdDashboard } from "react-icons/md"
-import { FaUser } from "react-icons/fa"
 import { IoIosArrowForward } from "react-icons/io"
 import { NavLink } from "react-router-dom"
 import { FaGraduationCap } from "react-icons/fa";

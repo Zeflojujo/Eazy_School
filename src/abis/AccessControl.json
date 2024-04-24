@@ -16,7 +16,7 @@
   "sourceMap": "58:577:1:-:0;;;;;;;175:10;167:18;;58:577;;;;;;167:18;58:577;;;;;;;;",
   "deployedSourceMap": "58:577:1:-:0;;",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\n\ncontract AccessControl {\n    address immutable internal owner;\n    bool locked;\n\n    constructor() {\n        owner = msg.sender;\n    }\n\n    modifier onlyOwner() {\n        require(msg.sender == owner, \"Restricted to system owner only\");\n        _;\n    }\n\n    modifier noReentrancy() {\n        require(!locked, \"Reentrant call.\");\n        locked = true;\n        _;\n        locked = false;\n    }\n\n    function compareString(string memory _a, string memory _b) internal pure returns(bool) {\n        return keccak256(abi.encodePacked(_a)) == keccak256(abi.encodePacked(_b));\n    }\n}",
-  "sourcePath": "/home/zeflojujo/school_management_system/client/contracts/AccessControl.sol",
+  "sourcePath": "/home/zeflojujo/school_management_system/Eazy_School/contracts/AccessControl.sol",
   "ast": {
     "absolutePath": "project:/contracts/AccessControl.sol",
     "exportedSymbols": {
@@ -918,7 +918,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-04-21T15:12:56.249Z",
+  "updatedAt": "2024-04-24T10:47:32.136Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

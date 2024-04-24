@@ -5,6 +5,8 @@ import "./AccessControl.sol";
 contract Students is AccessControl {
     
     enum Combination {Science, Arts, Business, None}
+
+    event deletedStudent(address indexed teacherAddress);
     
     struct SubjectScores {
         uint256 biology;
@@ -55,6 +57,15 @@ contract Students is AccessControl {
         studentAddressArray.push(_studentAddress);
     }
 
+    function deleteStudent(address _studentAddress) external {
+        require(!students[_studentAddress].isDeleted, "Teacher does not exist");
+        Student storage student = students[_studentAddress];
+        student.isDeleted = true;
+        delete(student.studentAddress);
+        // students[_studentAddress] = student;
+        emit deletedStudent(_studentAddress);
+    }
+
     function  studentLogin(address _studentAddress, string memory _password) external {
         require(students[_studentAddress].isRegistered == true, "Your not registered yet!");
         // require(students[_studentAddress].isLogin == false, "Your Already login");
@@ -86,7 +97,15 @@ contract Students is AccessControl {
         return studentAddressArray;
     }
 
-    function getStudent(address _studentAddress) external view returns(address studentAddress, string memory fullName, string memory examNumber, string memory classLevel, uint256 age, string memory phoneNumber ) {
+    function getStudent(address _studentAddress) external view returns(
+        address studentAddress, 
+        string memory fullName, 
+        string memory examNumber, 
+        string memory classLevel, 
+        uint256 age, 
+        string memory phoneNumber,
+        bool isDeleted 
+        ) {
         Student storage student = students[_studentAddress];
         studentAddress = student.studentAddress;
         fullName = student.fullName;
@@ -94,6 +113,8 @@ contract Students is AccessControl {
         classLevel = student.standardLevel;
         age = student.age;
         phoneNumber = student.phoneNumber;
+        isDeleted = student.isDeleted;
+
     }
 
     function calculateAverageAndGrade(address _studentAddress, uint8 _term) private {

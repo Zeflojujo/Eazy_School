@@ -1,32 +1,216 @@
 {
   "contractName": "Accountants",
-  "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Accountants.sol\":\"Accountants\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"project:/contracts/AccessControl.sol\":{\"keccak256\":\"0x3e54102edc7547122bbd6f55ab5bf6958af86248404d866bdee71a81ba31f994\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e6305179a5d7c2d47b2a6028637a8710481d590c1f4e133329915200217f4eb\",\"dweb:/ipfs/QmQpZRaYoPhQoUt9HwpjVcsHqYn4bxSYxgUL2iVMYFuTkc\"]},\"project:/contracts/Accountants.sol\":{\"keccak256\":\"0x320233d9033b01c817e08dd35c323abf37e81197c6b163be0018415709671ec1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://46370143b80658d2c4813c387f702810e608a635640110da2c2016a97ef443df\",\"dweb:/ipfs/QmNZzzCpQ58f3gFcTUhTk2EdG7ArR7MEzfvF4KR251NEhp\"]}},\"version\":1}",
-  "bytecode": "0x60808060405234601357603a908160198239f35b600080fdfe600080fdfea2646970667358221220a81797fd56436d7c474676a1ef04acbb5471220487e99f2edb0f5a9aed78069864736f6c63430008130033",
-  "deployedBytecode": "0x600080fdfea2646970667358221220a81797fd56436d7c474676a1ef04acbb5471220487e99f2edb0f5a9aed78069864736f6c63430008130033",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "accountantAddress",
+          "type": "address"
+        }
+      ],
+      "name": "deletedAccountant",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "accountants",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "accountantAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "phoneNumber",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "password",
+          "type": "string"
+        },
+        {
+          "internalType": "bool",
+          "name": "isRegistered",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isLogin",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isDeleted",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_accountantAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_email",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_phoneNumber",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_password",
+          "type": "string"
+        }
+      ],
+      "name": "registerAccountant",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_accountantAddress",
+          "type": "address"
+        }
+      ],
+      "name": "deleteAccountant",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_accountantAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_password",
+          "type": "string"
+        }
+      ],
+      "name": "accountantLogin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAccountantArray",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_accountantAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getAccountant",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "accountantAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "phoneNumber",
+          "type": "string"
+        },
+        {
+          "internalType": "bool",
+          "name": "isDeleted",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"accountantAddress\",\"type\":\"address\"}],\"name\":\"deletedAccountant\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_accountantAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_password\",\"type\":\"string\"}],\"name\":\"accountantLogin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"accountants\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"accountantAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"phoneNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"password\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isRegistered\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isLogin\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isDeleted\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_accountantAddress\",\"type\":\"address\"}],\"name\":\"deleteAccountant\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_accountantAddress\",\"type\":\"address\"}],\"name\":\"getAccountant\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"accountantAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"phoneNumber\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isDeleted\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAccountantArray\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_accountantAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_phoneNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_password\",\"type\":\"string\"}],\"name\":\"registerAccountant\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Accountants.sol\":\"Accountants\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"project:/contracts/AccessControl.sol\":{\"keccak256\":\"0x3e54102edc7547122bbd6f55ab5bf6958af86248404d866bdee71a81ba31f994\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e6305179a5d7c2d47b2a6028637a8710481d590c1f4e133329915200217f4eb\",\"dweb:/ipfs/QmQpZRaYoPhQoUt9HwpjVcsHqYn4bxSYxgUL2iVMYFuTkc\"]},\"project:/contracts/Accountants.sol\":{\"keccak256\":\"0x45aa6318af8faefd15d7e4d638c9be8fdd4e9c52ad81b4bb7e2c5ab224ded138\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://67374eaad36df714a41600dd0c77e09cf8d0e767b4326c4131511bfdff157f3a\",\"dweb:/ipfs/QmUUArkS2LPpbdYiBAAe8pGqiD4bQSFje7uREVK4jQK6aF\"]}},\"version\":1}",
+  "bytecode": "0x60a080604052346100205733608052610eac90816100268239608051815050f35b600080fdfe604060808152600436101561001357600080fd5b7c0100000000000000000000000000000000000000000000000000000000600035048063124b3c21146105c75780633568ecfa146104d557806344dc7515146103365780636535ffc31461022b578063d7258396146101655763f707fb4a1461007b57600080fd5b3461016057602036600319011261016057600160a060020a03908161009e610c89565b16600052600160205280600020918254169060ff620100006100c260018601610dd1565b928261013e6100d360028901610dd1565b976101306100e360038301610dd1565b61012260056100f460048601610dd1565b9401549680519c8d9c8d528c6101166101009d8e806020850152830190610d58565b92818403910152610d58565b908a820360608c0152610d58565b9088820360808a0152610d58565b94818316151560a0880152820416151560c08601520416151560e08301520390f35b600080fd5b50346101605760003660031901126101605780519081600254908181526020809101809260026000527f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace9060005b81811061020e57505050846101c9910385610cbc565b8251818152935181850181905284938401929160005b8281106101ee57505050500390f35b8351600160a060020a0316855286955093810193928101926001016101df565b8254600160a060020a0316845292840192600192830192016101b3565b503461016057602036600319011261016057600160a060020a03908161024f610c89565b1660005260016020528060002061032c82519161026b83610c9f565b84815416835261031e61028060018301610dd1565b946020850195865261029460028401610dd1565b9681860197885260ff6201000060056102af60038801610dd1565b9660608a019788526102c360048201610dd1565b60808b01520154828116151560a08a015282610100820416151560c08a015204161515958660e08201525116955196519251926103118251988998895260a060208a015260a0890190610d58565b9187830390880152610d58565b908482036060860152610d58565b9060808301520390f35b503461016057806003193601126101605761034f610c89565b60243567ffffffffffffffff811161016057610377600160a060020a03913690600401610cde565b91168060005260209160018352600160ff6005866000200154161515036104785781600052600183526103af60048560002001610dd1565b84516103d78582816103ca8183019687815193849201610d35565b8101038084520182610cbc565b5190209084516103f68582816103ca8183019687815193849201610d35565b5190200361041b576000908152600190915220600501805461ff001916610100179055005b5060649151907f08c379a00000000000000000000000000000000000000000000000000000000082526004820152601b60248201527f496e76616c69642061646472657373206f722070617373776f726400000000006044820152fd5b6064838551907f08c379a00000000000000000000000000000000000000000000000000000000082526004820152601860248201527f596f7572206e6f742072656769737465726564207965742100000000000000006044820152fd5b503461016057602036600319011261016057600160a060020a036104f7610c89565b1690816000526001602052620100009060ff826005836000200154041661056a5782600052600160205260002090600582019062ff000019825416179055600160a060020a031981541690557fcf38c1769d07df6073cd3eb8a861eccbe972dc6dc43b04d4a0f62177a53ce2a2600080a2005b606490517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601660248201527f5465616368657220646f6573206e6f74206578697374000000000000000000006044820152fd5b50346101605760a0366003190112610160576105e1610c89565b9060243567ffffffffffffffff811161016057610602903690600401610cde565b9060443567ffffffffffffffff811161016057610623903690600401610cde565b9160643567ffffffffffffffff811161016057610644903690600401610cde565b9160843567ffffffffffffffff811161016057610665903690600401610cde565b81519361067185610c9f565b600160a060020a03958688168652602086019485528386015260608501526080840152600160a0840152600060c0840152600060e08401528385166000526001602052806000209184845116600160a060020a03198454161783555180519067ffffffffffffffff821161091c5781906106ee6001860154610d7d565b601f8111610c36575b50602090601f8311600114610bc257600092610bb7575b5050816002029160080260020a6000190419161760018301555b82015180519067ffffffffffffffff821161091c57819061074c6002850154610d7d565b601f8111610b64575b50602090601f8311600114610af057600092610ae5575b5050816002029160080260020a6000190419161760028201555b606082015180519067ffffffffffffffff821161091c5781906107ac6003850154610d7d565b601f8111610a92575b50602090601f8311600114610a1e57600092610a13575b5050816002029160080260020a6000190419161760038201555b608082015180519067ffffffffffffffff821161091c5761080a6004840154610d7d565b601f81116109cc575b50602090601f83116001146109565760059392916000918361094b575b5050816002029160080260020a6000190419161760048201555b019060a0810151151590825460ff62ff00006201000060e061ff0061010060c0880151151502169501511515021693169062ffffff191617171790556002546801000000000000000081101561091c5760018101806002558110156108ed577f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace01805473ffffffffffffffffffffffffffffffffffffffff191691909216179055005b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b015190503880610830565b906004840160005260206000209160005b601f19851681106109b45750926001926002926005969583601f19811610610999575b5050500201600482015561084a565b01516008601f841602840a600019041916905538808061098a565b91926020600181928685015181550194019201610967565b6004840160005260206000206020601f850104810160208510610a0c575b6020601f84010482018110610a00575050610813565b600081556001016109ea565b50806109ea565b0151905038806107cc565b91506003840160005260206000209160005b601f1985168110610a7a5750918391600293600195601f19811610610a5f575b505050020160038201556107e6565b01516008601f841602840a6000190419169055388080610a50565b91926020600181928685015181550194019201610a30565b9091506003840160005260206000206020601f850104810160208510610ade575b90849392915b6020601f84010482018110610acf5750506107b5565b60008155859450600101610ab9565b5080610ab3565b01519050388061076c565b91506002840160005260206000209160005b601f1985168110610b4c5750918391600293600195601f19811610610b31575b50505002016002820155610786565b01516008601f841602840a6000190419169055388080610b22565b91926020600181928685015181550194019201610b02565b9091506002840160005260206000206020601f850104810160208510610bb0575b90849392915b6020601f84010482018110610ba1575050610755565b60008155859450600101610b8b565b5080610b85565b01519050388061070e565b91506001850160005260206000209160005b601f1985168110610c1e5750918391600293600195601f19811610610c03575b50505002016001830155610728565b01516008601f841602840a6000190419169055388080610bf4565b91926020600181928685015181550194019201610bd4565b9091506001850160005260206000206020601f850104810160208510610c82575b90849392915b6020601f84010482018110610c735750506106f7565b60008155859450600101610c5d565b5080610c57565b60043590600160a060020a038216820361016057565b610100810190811067ffffffffffffffff82111761091c57604052565b90601f8019910116810190811067ffffffffffffffff82111761091c57604052565b81601f820112156101605780359067ffffffffffffffff821161091c5760405192610d13601f8401601f191660200185610cbc565b8284526020838301011161016057816000926020809301838601378301015290565b60005b838110610d485750506000910152565b8181015183820152602001610d38565b90602091610d7181518092818552858086019101610d35565b601f01601f1916010190565b9060016002830492168015610dc7575b6020831014610d9857565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b91607f1691610d8d565b9060405191826000825492610de584610d7d565b908184526001948581169081600014610e545750600114610e11575b5050610e0f92500383610cbc565b565b9093915060005260209081600020936000915b818310610e3c575050610e0f93508201013880610e01565b85548884018501529485019487945091830191610e24565b915050610e0f94506020925060ff191682840152151581028201013880610e0156fea2646970667358221220def4876af74dc3e4e066f252b82d31e189d26ae9945b0a6af5e49ba3aa0caa6e64736f6c63430008130033",
+  "deployedBytecode": "0x604060808152600436101561001357600080fd5b7c0100000000000000000000000000000000000000000000000000000000600035048063124b3c21146105c75780633568ecfa146104d557806344dc7515146103365780636535ffc31461022b578063d7258396146101655763f707fb4a1461007b57600080fd5b3461016057602036600319011261016057600160a060020a03908161009e610c89565b16600052600160205280600020918254169060ff620100006100c260018601610dd1565b928261013e6100d360028901610dd1565b976101306100e360038301610dd1565b61012260056100f460048601610dd1565b9401549680519c8d9c8d528c6101166101009d8e806020850152830190610d58565b92818403910152610d58565b908a820360608c0152610d58565b9088820360808a0152610d58565b94818316151560a0880152820416151560c08601520416151560e08301520390f35b600080fd5b50346101605760003660031901126101605780519081600254908181526020809101809260026000527f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace9060005b81811061020e57505050846101c9910385610cbc565b8251818152935181850181905284938401929160005b8281106101ee57505050500390f35b8351600160a060020a0316855286955093810193928101926001016101df565b8254600160a060020a0316845292840192600192830192016101b3565b503461016057602036600319011261016057600160a060020a03908161024f610c89565b1660005260016020528060002061032c82519161026b83610c9f565b84815416835261031e61028060018301610dd1565b946020850195865261029460028401610dd1565b9681860197885260ff6201000060056102af60038801610dd1565b9660608a019788526102c360048201610dd1565b60808b01520154828116151560a08a015282610100820416151560c08a015204161515958660e08201525116955196519251926103118251988998895260a060208a015260a0890190610d58565b9187830390880152610d58565b908482036060860152610d58565b9060808301520390f35b503461016057806003193601126101605761034f610c89565b60243567ffffffffffffffff811161016057610377600160a060020a03913690600401610cde565b91168060005260209160018352600160ff6005866000200154161515036104785781600052600183526103af60048560002001610dd1565b84516103d78582816103ca8183019687815193849201610d35565b8101038084520182610cbc565b5190209084516103f68582816103ca8183019687815193849201610d35565b5190200361041b576000908152600190915220600501805461ff001916610100179055005b5060649151907f08c379a00000000000000000000000000000000000000000000000000000000082526004820152601b60248201527f496e76616c69642061646472657373206f722070617373776f726400000000006044820152fd5b6064838551907f08c379a00000000000000000000000000000000000000000000000000000000082526004820152601860248201527f596f7572206e6f742072656769737465726564207965742100000000000000006044820152fd5b503461016057602036600319011261016057600160a060020a036104f7610c89565b1690816000526001602052620100009060ff826005836000200154041661056a5782600052600160205260002090600582019062ff000019825416179055600160a060020a031981541690557fcf38c1769d07df6073cd3eb8a861eccbe972dc6dc43b04d4a0f62177a53ce2a2600080a2005b606490517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601660248201527f5465616368657220646f6573206e6f74206578697374000000000000000000006044820152fd5b50346101605760a0366003190112610160576105e1610c89565b9060243567ffffffffffffffff811161016057610602903690600401610cde565b9060443567ffffffffffffffff811161016057610623903690600401610cde565b9160643567ffffffffffffffff811161016057610644903690600401610cde565b9160843567ffffffffffffffff811161016057610665903690600401610cde565b81519361067185610c9f565b600160a060020a03958688168652602086019485528386015260608501526080840152600160a0840152600060c0840152600060e08401528385166000526001602052806000209184845116600160a060020a03198454161783555180519067ffffffffffffffff821161091c5781906106ee6001860154610d7d565b601f8111610c36575b50602090601f8311600114610bc257600092610bb7575b5050816002029160080260020a6000190419161760018301555b82015180519067ffffffffffffffff821161091c57819061074c6002850154610d7d565b601f8111610b64575b50602090601f8311600114610af057600092610ae5575b5050816002029160080260020a6000190419161760028201555b606082015180519067ffffffffffffffff821161091c5781906107ac6003850154610d7d565b601f8111610a92575b50602090601f8311600114610a1e57600092610a13575b5050816002029160080260020a6000190419161760038201555b608082015180519067ffffffffffffffff821161091c5761080a6004840154610d7d565b601f81116109cc575b50602090601f83116001146109565760059392916000918361094b575b5050816002029160080260020a6000190419161760048201555b019060a0810151151590825460ff62ff00006201000060e061ff0061010060c0880151151502169501511515021693169062ffffff191617171790556002546801000000000000000081101561091c5760018101806002558110156108ed577f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace01805473ffffffffffffffffffffffffffffffffffffffff191691909216179055005b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b015190503880610830565b906004840160005260206000209160005b601f19851681106109b45750926001926002926005969583601f19811610610999575b5050500201600482015561084a565b01516008601f841602840a600019041916905538808061098a565b91926020600181928685015181550194019201610967565b6004840160005260206000206020601f850104810160208510610a0c575b6020601f84010482018110610a00575050610813565b600081556001016109ea565b50806109ea565b0151905038806107cc565b91506003840160005260206000209160005b601f1985168110610a7a5750918391600293600195601f19811610610a5f575b505050020160038201556107e6565b01516008601f841602840a6000190419169055388080610a50565b91926020600181928685015181550194019201610a30565b9091506003840160005260206000206020601f850104810160208510610ade575b90849392915b6020601f84010482018110610acf5750506107b5565b60008155859450600101610ab9565b5080610ab3565b01519050388061076c565b91506002840160005260206000209160005b601f1985168110610b4c5750918391600293600195601f19811610610b31575b50505002016002820155610786565b01516008601f841602840a6000190419169055388080610b22565b91926020600181928685015181550194019201610b02565b9091506002840160005260206000206020601f850104810160208510610bb0575b90849392915b6020601f84010482018110610ba1575050610755565b60008155859450600101610b8b565b5080610b85565b01519050388061070e565b91506001850160005260206000209160005b601f1985168110610c1e5750918391600293600195601f19811610610c03575b50505002016001830155610728565b01516008601f841602840a6000190419169055388080610bf4565b91926020600181928685015181550194019201610bd4565b9091506001850160005260206000206020601f850104810160208510610c82575b90849392915b6020601f84010482018110610c735750506106f7565b60008155859450600101610c5d565b5080610c57565b60043590600160a060020a038216820361016057565b610100810190811067ffffffffffffffff82111761091c57604052565b90601f8019910116810190811067ffffffffffffffff82111761091c57604052565b81601f820112156101605780359067ffffffffffffffff821161091c5760405192610d13601f8401601f191660200185610cbc565b8284526020838301011161016057816000926020809301838601378301015290565b60005b838110610d485750506000910152565b8181015183820152602001610d38565b90602091610d7181518092818552858086019101610d35565b601f01601f1916010190565b9060016002830492168015610dc7575b6020831014610d9857565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b91607f1691610d8d565b9060405191826000825492610de584610d7d565b908184526001948581169081600014610e545750600114610e11575b5050610e0f92500383610cbc565b565b9093915060005260209081600020936000915b818310610e3c575050610e0f93508201013880610e01565b85548884018501529485019487945091830191610e24565b915050610e0f94506020925060ff191682840152151581028201013880610e0156fea2646970667358221220def4876af74dc3e4e066f252b82d31e189d26ae9945b0a6af5e49ba3aa0caa6e64736f6c63430008130033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "88:127:2:-:0;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "88:127:2:-:0;;",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\nimport \"./AccessControl.sol\";\n\ncontract Accountants {\n\n    struct Accountant {\n        string acc_address;\n        string name;\n        string salary;\n    }\n}\n",
-  "sourcePath": "/home/zeflojujo/school_management_system/client/contracts/Accountants.sol",
+  "sourceMap": "88:2553:1:-:0;;;;;;;175:10:0;167:18;;88:2553:1;;;;;;167:18:0;88:2553:1;;;;;;;;",
+  "deployedSourceMap": "88:2553:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;-1:-1:-1;;;;;88:2553:1;;;;:::i;:::-;;;;432:49;88:2553;;;;;;;;;432:49;88:2553;;432:49;;;;;:::i;:::-;;;88:2553;432:49;;;;;:::i;:::-;;88:2553;432:49;88:2553;432:49;;;:::i;:::-;88:2553;432:49;;88:2553;432:49;;;:::i;:::-;;;88:2553;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;;;:::i;:::-;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;;;2083:22;88:2553;;;;;;;;;;;2083:22;88:2553;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;88:2553:1;;;;;-1:-1:-1;88:2553:1;;;;;;;;;;;;;;;-1:-1:-1;;;;;88:2553:1;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;-1:-1:-1;;;;;88:2553:1;;;;:::i;:::-;;;;2389:11;88:2553;;;;;;;;;;;;:::i;:::-;;;;;;;;;2389:11;88:2553;;;:::i;:::-;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2495:15;;2528:16;;2568:22;;88:2553;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;:::i;:::-;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;-1:-1:-1;;;;;88:2553:1;;;;;;:::i;:::-;;;;;;;;1629:11;88:2553;;1629:11;88:2553;1629:44;88:2553;;;1629:44;88:2553;;;;1629:52;88:2553;;;;;1629:11;88:2553;;;;;;;1834:40;88:2553;:::i;:::-;;;570:20:0;;;;88:2553:1;570:20:0;;;88:2553:1;;;;;;;;;:::i;:::-;;;570:20:0;;;;;;;:::i;:::-;88:2553:1;560:31:0;;88:2553:1;;;605:20:0;;;;88:2553:1;605:20:0;;;88:2553:1;;;;;;;;;:::i;605:20:0:-;88:2553:1;595:31:0;;560:66;88:2553:1;;;;;;1629:11;88:2553;;;;1629:44;1937:39;88:2553;;-1:-1:-1;;88:2553:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;-1:-1:-1;;;;;88:2553:1;;:::i;:::-;;;;;;1177:11;88:2553;;;;;;1177:41;88:2553;;;1177:41;88:2553;;;;;;;;1177:11;88:2553;;;;1328:20;1177:41;1328:20;;88:2553;;;;;;;;;-1:-1:-1;;;;;88:2553:1;;;;;;1473:37;88:2553;1473:37;;88:2553;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;:::i;:::-;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;:::i;:::-;-1:-1:-1;;;;;88:2553:1;;;;;;;738:287;;88:2553;;;738:287;;;88:2553;;738:287;;88:2553;;738:287;;88:2553;952:4;88:2553;738:287;;88:2553;;738:287;;;88:2553;;738:287;;;88:2553;;;;;;952:4;88:2553;;;;;;;;;;-1:-1:-1;;;;;88:2553:1;;;;;;;;;;;;;;;;;;;952:4;88:2553;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;952:4;88:2553;;;;738:287;;88:2553;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;738:287;;88:2553;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;738:287;;88:2553;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;738:287;88:2553;738:287;;88:2553;;;;;;;;;738:287;88:2553;;738:287;;;88:2553;;;;;738:287;;88:2553;;;;;;;;;;;;;;;;;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;88:2553:1;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;952:4;88:2553;;;;-1:-1:-1;88:2553:1;;;;;;;-1:-1:-1;88:2553:1;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;952:4:1;88:2553;;;;-1:-1:-1;88:2553:1;;;;;;;-1:-1:-1;88:2553:1;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;952:4:1;88:2553;;;;-1:-1:-1;88:2553:1;;;;;;;-1:-1:-1;88:2553:1;;;;;;;952:4;88:2553;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;;;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;;;;;;952:4;88:2553;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;952:4:1;88:2553;;;;-1:-1:-1;88:2553:1;;;;;;;-1:-1:-1;;;;;88:2553:1;;;;;;:::o;:::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;88:2553:1;;;;;:::i;:::-;;;;;;;;;;;;;-1:-1:-1;88:2553:1;;;;;;;;;;;;;;:::o;:::-;;;;;;;;-1:-1:-1;;88:2553:1;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;-1:-1:-1;;88:2553:1;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;88:2553:1;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;:::o;:::-;;;;;-1:-1:-1;88:2553:1;;;;-1:-1:-1;88:2553:1;;-1:-1:-1;88:2553:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;88:2553:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\nimport \"./AccessControl.sol\";\n\ncontract Accountants is AccessControl{\n\n    event deletedAccountant(address indexed accountantAddress);\n\n    struct Accountant {\n        address accountantAddress;\n        string name;\n        string email;\n        string phoneNumber;\n        string password;\n        bool isRegistered;\n        bool isLogin;\n        bool isDeleted;\n    }\n\n    mapping(address => Accountant) public accountants;\n\n    address[] private accountantAddressArray;\n\n    function registerAccountant(address _accountantAddress, string memory _name, string memory _email, string memory _phoneNumber, string memory _password) public {\n        accountants[_accountantAddress] = Accountant({\n            accountantAddress: _accountantAddress,\n            name: _name,\n            email: _email,\n            phoneNumber: _phoneNumber,\n            password: _password,\n            isRegistered: true,\n            isLogin: false,\n            isDeleted: false\n        });\n        accountantAddressArray.push(_accountantAddress);\n    }\n\n    function deleteAccountant(address _accountantAddress) external {\n        require(!accountants[_accountantAddress].isDeleted, \"Teacher does not exist\");\n        Accountant storage accountant = accountants[_accountantAddress];\n        accountant.isDeleted = true;\n        delete(accountant.accountantAddress);\n        // accountants[_accountantAddress] = accountant;\n        emit deletedAccountant(_accountantAddress);\n    }\n\n    function  accountantLogin(address _accountantAddress, string memory _password) external {\n        require(accountants[_accountantAddress].isRegistered == true, \"Your not registered yet!\");\n        // require(accountants[_accountantAddress].isLogin == false, \"Your Already login\");\n        require(compareString(accountants[_accountantAddress].password, _password), \"Invalid address or password\");\n        \n        accountants[_accountantAddress].isLogin = true;\n    }\n\n    function getAccountantArray() external view returns(address[] memory) {\n        return accountantAddressArray;\n    }\n\n    function getAccountant(address _accountantAddress) external view returns(\n        address accountantAddress,\n        string memory name,\n        string memory email,\n        string memory phoneNumber,\n        bool isDeleted\n    ) {\n        Accountant memory accountant = accountants[_accountantAddress];\n        accountantAddress = accountant.accountantAddress;\n        name = accountant.name;\n        email = accountant.email;\n        phoneNumber = accountant.phoneNumber;\n        isDeleted = accountant.isDeleted;\n    }\n}\n",
+  "sourcePath": "/home/zeflojujo/school_management_system/Eazy_School/contracts/Accountants.sol",
   "ast": {
     "absolutePath": "project:/contracts/Accountants.sol",
     "exportedSymbols": {
       "AccessControl": [
-        101
+        69
       ],
       "Accountants": [
-        112
+        269
       ]
     },
-    "id": 113,
+    "id": 270,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 103,
+        "id": 71,
         "literals": [
           "solidity",
           "^",
@@ -34,75 +218,138 @@
           ".19"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:2"
+        "src": "32:24:1"
       },
       {
         "absolutePath": "project:/contracts/AccessControl.sol",
         "file": "./AccessControl.sol",
-        "id": 104,
+        "id": 72,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 113,
-        "sourceUnit": 102,
-        "src": "57:29:2",
+        "scope": 270,
+        "sourceUnit": 70,
+        "src": "57:29:1",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "abstract": false,
-        "baseContracts": [],
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 73,
+              "name": "AccessControl",
+              "nameLocations": [
+                "112:13:1"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 69,
+              "src": "112:13:1"
+            },
+            "id": 74,
+            "nodeType": "InheritanceSpecifier",
+            "src": "112:13:1"
+          }
+        ],
         "canonicalName": "Accountants",
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 112,
+        "id": 269,
         "linearizedBaseContracts": [
-          112
+          269,
+          69
         ],
         "name": "Accountants",
-        "nameLocation": "97:11:2",
+        "nameLocation": "97:11:1",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
+            "anonymous": false,
+            "eventSelector": "cf38c1769d07df6073cd3eb8a861eccbe972dc6dc43b04d4a0f62177a53ce2a2",
+            "id": 78,
+            "name": "deletedAccountant",
+            "nameLocation": "138:17:1",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 77,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 76,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "accountantAddress",
+                  "nameLocation": "172:17:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 78,
+                  "src": "156:33:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 75,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "156:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "155:35:1"
+            },
+            "src": "132:59:1"
+          },
+          {
             "canonicalName": "Accountants.Accountant",
-            "id": 111,
+            "id": 95,
             "members": [
               {
                 "constant": false,
-                "id": 106,
+                "id": 80,
                 "mutability": "mutable",
-                "name": "acc_address",
-                "nameLocation": "151:11:2",
+                "name": "accountantAddress",
+                "nameLocation": "233:17:1",
                 "nodeType": "VariableDeclaration",
-                "scope": 111,
-                "src": "144:18:2",
+                "scope": 95,
+                "src": "225:25:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_string_storage_ptr",
-                  "typeString": "string"
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
                 },
                 "typeName": {
-                  "id": 105,
-                  "name": "string",
+                  "id": 79,
+                  "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "144:6:2",
+                  "src": "225:7:1",
+                  "stateMutability": "nonpayable",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_string_storage_ptr",
-                    "typeString": "string"
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
                   }
                 },
                 "visibility": "internal"
               },
               {
                 "constant": false,
-                "id": 108,
+                "id": 82,
                 "mutability": "mutable",
                 "name": "name",
-                "nameLocation": "179:4:2",
+                "nameLocation": "267:4:1",
                 "nodeType": "VariableDeclaration",
-                "scope": 111,
-                "src": "172:11:2",
+                "scope": 95,
+                "src": "260:11:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -110,10 +357,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 107,
+                  "id": 81,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "172:6:2",
+                  "src": "260:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -123,13 +370,13 @@
               },
               {
                 "constant": false,
-                "id": 110,
+                "id": 84,
                 "mutability": "mutable",
-                "name": "salary",
-                "nameLocation": "200:6:2",
+                "name": "email",
+                "nameLocation": "288:5:1",
                 "nodeType": "VariableDeclaration",
-                "scope": 111,
-                "src": "193:13:2",
+                "scope": 95,
+                "src": "281:12:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -137,32 +384,2383 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 109,
+                  "id": 83,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "193:6:2",
+                  "src": "281:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 86,
+                "mutability": "mutable",
+                "name": "phoneNumber",
+                "nameLocation": "310:11:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 95,
+                "src": "303:18:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 85,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "303:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 88,
+                "mutability": "mutable",
+                "name": "password",
+                "nameLocation": "338:8:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 95,
+                "src": "331:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 87,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "331:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 90,
+                "mutability": "mutable",
+                "name": "isRegistered",
+                "nameLocation": "361:12:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 95,
+                "src": "356:17:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 89,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "356:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 92,
+                "mutability": "mutable",
+                "name": "isLogin",
+                "nameLocation": "388:7:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 95,
+                "src": "383:12:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 91,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "383:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 94,
+                "mutability": "mutable",
+                "name": "isDeleted",
+                "nameLocation": "410:9:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 95,
+                "src": "405:14:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 93,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "405:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
                   }
                 },
                 "visibility": "internal"
               }
             ],
             "name": "Accountant",
-            "nameLocation": "123:10:2",
+            "nameLocation": "204:10:1",
             "nodeType": "StructDefinition",
-            "scope": 112,
-            "src": "116:97:2",
+            "scope": 269,
+            "src": "197:229:1",
             "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "f707fb4a",
+            "id": 100,
+            "mutability": "mutable",
+            "name": "accountants",
+            "nameLocation": "470:11:1",
+            "nodeType": "VariableDeclaration",
+            "scope": 269,
+            "src": "432:49:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accountant_$95_storage_$",
+              "typeString": "mapping(address => struct Accountants.Accountant)"
+            },
+            "typeName": {
+              "id": 99,
+              "keyName": "",
+              "keyNameLocation": "-1:-1:-1",
+              "keyType": {
+                "id": 96,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "440:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "432:30:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accountant_$95_storage_$",
+                "typeString": "mapping(address => struct Accountants.Accountant)"
+              },
+              "valueName": "",
+              "valueNameLocation": "-1:-1:-1",
+              "valueType": {
+                "id": 98,
+                "nodeType": "UserDefinedTypeName",
+                "pathNode": {
+                  "id": 97,
+                  "name": "Accountant",
+                  "nameLocations": [
+                    "451:10:1"
+                  ],
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 95,
+                  "src": "451:10:1"
+                },
+                "referencedDeclaration": 95,
+                "src": "451:10:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Accountant_$95_storage_ptr",
+                  "typeString": "struct Accountants.Accountant"
+                }
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 103,
+            "mutability": "mutable",
+            "name": "accountantAddressArray",
+            "nameLocation": "506:22:1",
+            "nodeType": "VariableDeclaration",
+            "scope": 269,
+            "src": "488:40:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_address_$dyn_storage",
+              "typeString": "address[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 101,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "488:7:1",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "id": 102,
+              "nodeType": "ArrayTypeName",
+              "src": "488:9:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                "typeString": "address[]"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 137,
+              "nodeType": "Block",
+              "src": "694:395:1",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 129,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 116,
+                        "name": "accountants",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 100,
+                        "src": "704:11:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accountant_$95_storage_$",
+                          "typeString": "mapping(address => struct Accountants.Accountant storage ref)"
+                        }
+                      },
+                      "id": 118,
+                      "indexExpression": {
+                        "id": 117,
+                        "name": "_accountantAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 105,
+                        "src": "716:18:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "704:31:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Accountant_$95_storage",
+                        "typeString": "struct Accountants.Accountant storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 120,
+                          "name": "_accountantAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 105,
+                          "src": "782:18:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        {
+                          "id": 121,
+                          "name": "_name",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 107,
+                          "src": "820:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 122,
+                          "name": "_email",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 109,
+                          "src": "846:6:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 123,
+                          "name": "_phoneNumber",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 111,
+                          "src": "879:12:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 124,
+                          "name": "_password",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 113,
+                          "src": "915:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "hexValue": "74727565",
+                          "id": 125,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "952:4:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "true"
+                        },
+                        {
+                          "hexValue": "66616c7365",
+                          "id": 126,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "979:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "false"
+                        },
+                        {
+                          "hexValue": "66616c7365",
+                          "id": 127,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1009:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "false"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        ],
+                        "id": 119,
+                        "name": "Accountant",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 95,
+                        "src": "738:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Accountant_$95_storage_ptr_$",
+                          "typeString": "type(struct Accountants.Accountant storage pointer)"
+                        }
+                      },
+                      "id": 128,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "nameLocations": [
+                        "763:17:1",
+                        "814:4:1",
+                        "839:5:1",
+                        "866:11:1",
+                        "905:8:1",
+                        "938:12:1",
+                        "970:7:1",
+                        "998:9:1"
+                      ],
+                      "names": [
+                        "accountantAddress",
+                        "name",
+                        "email",
+                        "phoneNumber",
+                        "password",
+                        "isRegistered",
+                        "isLogin",
+                        "isDeleted"
+                      ],
+                      "nodeType": "FunctionCall",
+                      "src": "738:287:1",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Accountant_$95_memory_ptr",
+                        "typeString": "struct Accountants.Accountant memory"
+                      }
+                    },
+                    "src": "704:321:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Accountant_$95_storage",
+                      "typeString": "struct Accountants.Accountant storage ref"
+                    }
+                  },
+                  "id": 130,
+                  "nodeType": "ExpressionStatement",
+                  "src": "704:321:1"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 134,
+                        "name": "_accountantAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 105,
+                        "src": "1063:18:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "id": 131,
+                        "name": "accountantAddressArray",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 103,
+                        "src": "1035:22:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                          "typeString": "address[] storage ref"
+                        }
+                      },
+                      "id": 133,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "1058:4:1",
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "src": "1035:27:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_address_$dyn_storage_ptr_$_t_address_$returns$__$attached_to$_t_array$_t_address_$dyn_storage_ptr_$",
+                        "typeString": "function (address[] storage pointer,address)"
+                      }
+                    },
+                    "id": 135,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1035:47:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 136,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1035:47:1"
+                }
+              ]
+            },
+            "functionSelector": "124b3c21",
+            "id": 138,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerAccountant",
+            "nameLocation": "544:18:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 114,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 105,
+                  "mutability": "mutable",
+                  "name": "_accountantAddress",
+                  "nameLocation": "571:18:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 138,
+                  "src": "563:26:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 104,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "563:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 107,
+                  "mutability": "mutable",
+                  "name": "_name",
+                  "nameLocation": "605:5:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 138,
+                  "src": "591:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 106,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "591:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 109,
+                  "mutability": "mutable",
+                  "name": "_email",
+                  "nameLocation": "626:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 138,
+                  "src": "612:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 108,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "612:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 111,
+                  "mutability": "mutable",
+                  "name": "_phoneNumber",
+                  "nameLocation": "648:12:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 138,
+                  "src": "634:26:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 110,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "634:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 113,
+                  "mutability": "mutable",
+                  "name": "_password",
+                  "nameLocation": "676:9:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 138,
+                  "src": "662:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 112,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "662:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "562:124:1"
+            },
+            "returnParameters": {
+              "id": 115,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "694:0:1"
+            },
+            "scope": 269,
+            "src": "535:554:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 174,
+              "nodeType": "Block",
+              "src": "1158:359:1",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 148,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "UnaryOperation",
+                        "operator": "!",
+                        "prefix": true,
+                        "src": "1176:42:1",
+                        "subExpression": {
+                          "expression": {
+                            "baseExpression": {
+                              "id": 144,
+                              "name": "accountants",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 100,
+                              "src": "1177:11:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accountant_$95_storage_$",
+                                "typeString": "mapping(address => struct Accountants.Accountant storage ref)"
+                              }
+                            },
+                            "id": 146,
+                            "indexExpression": {
+                              "id": 145,
+                              "name": "_accountantAddress",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 140,
+                              "src": "1189:18:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "1177:31:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Accountant_$95_storage",
+                              "typeString": "struct Accountants.Accountant storage ref"
+                            }
+                          },
+                          "id": 147,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "1209:9:1",
+                          "memberName": "isDeleted",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 94,
+                          "src": "1177:41:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "5465616368657220646f6573206e6f74206578697374",
+                        "id": 149,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1220:24:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_fcc9cef6688fd841b2e35caf5ffca2fc9584dede2cc8527dd01c612243d4cc19",
+                          "typeString": "literal_string \"Teacher does not exist\""
+                        },
+                        "value": "Teacher does not exist"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_fcc9cef6688fd841b2e35caf5ffca2fc9584dede2cc8527dd01c612243d4cc19",
+                          "typeString": "literal_string \"Teacher does not exist\""
+                        }
+                      ],
+                      "id": 143,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "1168:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 150,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1168:77:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 151,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1168:77:1"
+                },
+                {
+                  "assignments": [
+                    154
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 154,
+                      "mutability": "mutable",
+                      "name": "accountant",
+                      "nameLocation": "1274:10:1",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 174,
+                      "src": "1255:29:1",
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Accountant_$95_storage_ptr",
+                        "typeString": "struct Accountants.Accountant"
+                      },
+                      "typeName": {
+                        "id": 153,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 152,
+                          "name": "Accountant",
+                          "nameLocations": [
+                            "1255:10:1"
+                          ],
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 95,
+                          "src": "1255:10:1"
+                        },
+                        "referencedDeclaration": 95,
+                        "src": "1255:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accountant_$95_storage_ptr",
+                          "typeString": "struct Accountants.Accountant"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 158,
+                  "initialValue": {
+                    "baseExpression": {
+                      "id": 155,
+                      "name": "accountants",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 100,
+                      "src": "1287:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accountant_$95_storage_$",
+                        "typeString": "mapping(address => struct Accountants.Accountant storage ref)"
+                      }
+                    },
+                    "id": 157,
+                    "indexExpression": {
+                      "id": 156,
+                      "name": "_accountantAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 140,
+                      "src": "1299:18:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "1287:31:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Accountant_$95_storage",
+                      "typeString": "struct Accountants.Accountant storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1255:63:1"
+                },
+                {
+                  "expression": {
+                    "id": 163,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "id": 159,
+                        "name": "accountant",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 154,
+                        "src": "1328:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accountant_$95_storage_ptr",
+                          "typeString": "struct Accountants.Accountant storage pointer"
+                        }
+                      },
+                      "id": 161,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberLocation": "1339:9:1",
+                      "memberName": "isDeleted",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 94,
+                      "src": "1328:20:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 162,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1351:4:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "1328:27:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 164,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1328:27:1"
+                },
+                {
+                  "expression": {
+                    "id": 168,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "delete",
+                    "prefix": true,
+                    "src": "1365:36:1",
+                    "subExpression": {
+                      "components": [
+                        {
+                          "expression": {
+                            "id": 165,
+                            "name": "accountant",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 154,
+                            "src": "1372:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Accountant_$95_storage_ptr",
+                              "typeString": "struct Accountants.Accountant storage pointer"
+                            }
+                          },
+                          "id": 166,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": true,
+                          "memberLocation": "1383:17:1",
+                          "memberName": "accountantAddress",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 80,
+                          "src": "1372:28:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "id": 167,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "1371:30:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 169,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1365:36:1"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 171,
+                        "name": "_accountantAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 140,
+                        "src": "1491:18:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 170,
+                      "name": "deletedAccountant",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 78,
+                      "src": "1473:17:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 172,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1473:37:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 173,
+                  "nodeType": "EmitStatement",
+                  "src": "1468:42:1"
+                }
+              ]
+            },
+            "functionSelector": "3568ecfa",
+            "id": 175,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deleteAccountant",
+            "nameLocation": "1104:16:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 141,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 140,
+                  "mutability": "mutable",
+                  "name": "_accountantAddress",
+                  "nameLocation": "1129:18:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 175,
+                  "src": "1121:26:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 139,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1121:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1120:28:1"
+            },
+            "returnParameters": {
+              "id": 142,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1158:0:1"
+            },
+            "scope": 269,
+            "src": "1095:422:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 210,
+              "nodeType": "Block",
+              "src": "1611:379:1",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 188,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "baseExpression": {
+                              "id": 183,
+                              "name": "accountants",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 100,
+                              "src": "1629:11:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accountant_$95_storage_$",
+                                "typeString": "mapping(address => struct Accountants.Accountant storage ref)"
+                              }
+                            },
+                            "id": 185,
+                            "indexExpression": {
+                              "id": 184,
+                              "name": "_accountantAddress",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 177,
+                              "src": "1641:18:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "1629:31:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Accountant_$95_storage",
+                              "typeString": "struct Accountants.Accountant storage ref"
+                            }
+                          },
+                          "id": 186,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "1661:12:1",
+                          "memberName": "isRegistered",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 90,
+                          "src": "1629:44:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "hexValue": "74727565",
+                          "id": 187,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1677:4:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "true"
+                        },
+                        "src": "1629:52:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "596f7572206e6f7420726567697374657265642079657421",
+                        "id": 189,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1683:26:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_02b8fc2be2db2b99c5319ce8cade021aeb288697a0c7a962439a927def803880",
+                          "typeString": "literal_string \"Your not registered yet!\""
+                        },
+                        "value": "Your not registered yet!"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_02b8fc2be2db2b99c5319ce8cade021aeb288697a0c7a962439a927def803880",
+                          "typeString": "literal_string \"Your not registered yet!\""
+                        }
+                      ],
+                      "id": 182,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "1621:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 190,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1621:89:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 191,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1621:89:1"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "expression": {
+                              "baseExpression": {
+                                "id": 194,
+                                "name": "accountants",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 100,
+                                "src": "1834:11:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accountant_$95_storage_$",
+                                  "typeString": "mapping(address => struct Accountants.Accountant storage ref)"
+                                }
+                              },
+                              "id": 196,
+                              "indexExpression": {
+                                "id": 195,
+                                "name": "_accountantAddress",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 177,
+                                "src": "1846:18:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1834:31:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Accountant_$95_storage",
+                                "typeString": "struct Accountants.Accountant storage ref"
+                              }
+                            },
+                            "id": 197,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberLocation": "1866:8:1",
+                            "memberName": "password",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 88,
+                            "src": "1834:40:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_storage",
+                              "typeString": "string storage ref"
+                            }
+                          },
+                          {
+                            "id": 198,
+                            "name": "_password",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 179,
+                            "src": "1876:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_string_storage",
+                              "typeString": "string storage ref"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          ],
+                          "id": 193,
+                          "name": "compareString",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 68,
+                          "src": "1820:13:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_pure$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$_t_bool_$",
+                            "typeString": "function (string memory,string memory) pure returns (bool)"
+                          }
+                        },
+                        "id": 199,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1820:66:1",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "496e76616c69642061646472657373206f722070617373776f7264",
+                        "id": 200,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1888:29:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_5bd49f94198379edac2642414d6a3bbd38cc452f029ec6af1133816aa04bfc18",
+                          "typeString": "literal_string \"Invalid address or password\""
+                        },
+                        "value": "Invalid address or password"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_5bd49f94198379edac2642414d6a3bbd38cc452f029ec6af1133816aa04bfc18",
+                          "typeString": "literal_string \"Invalid address or password\""
+                        }
+                      ],
+                      "id": 192,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "1812:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 201,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1812:106:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 202,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1812:106:1"
+                },
+                {
+                  "expression": {
+                    "id": 208,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "baseExpression": {
+                          "id": 203,
+                          "name": "accountants",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 100,
+                          "src": "1937:11:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accountant_$95_storage_$",
+                            "typeString": "mapping(address => struct Accountants.Accountant storage ref)"
+                          }
+                        },
+                        "id": 205,
+                        "indexExpression": {
+                          "id": 204,
+                          "name": "_accountantAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 177,
+                          "src": "1949:18:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1937:31:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accountant_$95_storage",
+                          "typeString": "struct Accountants.Accountant storage ref"
+                        }
+                      },
+                      "id": 206,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberLocation": "1969:7:1",
+                      "memberName": "isLogin",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 92,
+                      "src": "1937:39:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 207,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1979:4:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "1937:46:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 209,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1937:46:1"
+                }
+              ]
+            },
+            "functionSelector": "44dc7515",
+            "id": 211,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "accountantLogin",
+            "nameLocation": "1533:15:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 180,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 177,
+                  "mutability": "mutable",
+                  "name": "_accountantAddress",
+                  "nameLocation": "1557:18:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 211,
+                  "src": "1549:26:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 176,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1549:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 179,
+                  "mutability": "mutable",
+                  "name": "_password",
+                  "nameLocation": "1591:9:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 211,
+                  "src": "1577:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 178,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1577:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1548:53:1"
+            },
+            "returnParameters": {
+              "id": 181,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1611:0:1"
+            },
+            "scope": 269,
+            "src": "1523:467:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 219,
+              "nodeType": "Block",
+              "src": "2066:46:1",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 217,
+                    "name": "accountantAddressArray",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 103,
+                    "src": "2083:22:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                      "typeString": "address[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 216,
+                  "id": 218,
+                  "nodeType": "Return",
+                  "src": "2076:29:1"
+                }
+              ]
+            },
+            "functionSelector": "d7258396",
+            "id": 220,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAccountantArray",
+            "nameLocation": "2005:18:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 212,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2023:2:1"
+            },
+            "returnParameters": {
+              "id": 216,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 215,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 220,
+                  "src": "2048:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 213,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2048:7:1",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 214,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2048:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2047:18:1"
+            },
+            "scope": 269,
+            "src": "1996:116:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 267,
+              "nodeType": "Block",
+              "src": "2348:291:1",
+              "statements": [
+                {
+                  "assignments": [
+                    237
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 237,
+                      "mutability": "mutable",
+                      "name": "accountant",
+                      "nameLocation": "2376:10:1",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 267,
+                      "src": "2358:28:1",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Accountant_$95_memory_ptr",
+                        "typeString": "struct Accountants.Accountant"
+                      },
+                      "typeName": {
+                        "id": 236,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 235,
+                          "name": "Accountant",
+                          "nameLocations": [
+                            "2358:10:1"
+                          ],
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 95,
+                          "src": "2358:10:1"
+                        },
+                        "referencedDeclaration": 95,
+                        "src": "2358:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accountant_$95_storage_ptr",
+                          "typeString": "struct Accountants.Accountant"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 241,
+                  "initialValue": {
+                    "baseExpression": {
+                      "id": 238,
+                      "name": "accountants",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 100,
+                      "src": "2389:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accountant_$95_storage_$",
+                        "typeString": "mapping(address => struct Accountants.Accountant storage ref)"
+                      }
+                    },
+                    "id": 240,
+                    "indexExpression": {
+                      "id": 239,
+                      "name": "_accountantAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 222,
+                      "src": "2401:18:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "2389:31:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Accountant_$95_storage",
+                      "typeString": "struct Accountants.Accountant storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2358:62:1"
+                },
+                {
+                  "expression": {
+                    "id": 245,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 242,
+                      "name": "accountantAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 225,
+                      "src": "2430:17:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 243,
+                        "name": "accountant",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 237,
+                        "src": "2450:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accountant_$95_memory_ptr",
+                          "typeString": "struct Accountants.Accountant memory"
+                        }
+                      },
+                      "id": 244,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "2461:17:1",
+                      "memberName": "accountantAddress",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 80,
+                      "src": "2450:28:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "2430:48:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 246,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2430:48:1"
+                },
+                {
+                  "expression": {
+                    "id": 250,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 247,
+                      "name": "name",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 227,
+                      "src": "2488:4:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 248,
+                        "name": "accountant",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 237,
+                        "src": "2495:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accountant_$95_memory_ptr",
+                          "typeString": "struct Accountants.Accountant memory"
+                        }
+                      },
+                      "id": 249,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "2506:4:1",
+                      "memberName": "name",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 82,
+                      "src": "2495:15:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "2488:22:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  "id": 251,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2488:22:1"
+                },
+                {
+                  "expression": {
+                    "id": 255,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 252,
+                      "name": "email",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 229,
+                      "src": "2520:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 253,
+                        "name": "accountant",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 237,
+                        "src": "2528:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accountant_$95_memory_ptr",
+                          "typeString": "struct Accountants.Accountant memory"
+                        }
+                      },
+                      "id": 254,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "2539:5:1",
+                      "memberName": "email",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 84,
+                      "src": "2528:16:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "2520:24:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  "id": 256,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2520:24:1"
+                },
+                {
+                  "expression": {
+                    "id": 260,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 257,
+                      "name": "phoneNumber",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 231,
+                      "src": "2554:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 258,
+                        "name": "accountant",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 237,
+                        "src": "2568:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accountant_$95_memory_ptr",
+                          "typeString": "struct Accountants.Accountant memory"
+                        }
+                      },
+                      "id": 259,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "2579:11:1",
+                      "memberName": "phoneNumber",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 86,
+                      "src": "2568:22:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "2554:36:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  "id": 261,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2554:36:1"
+                },
+                {
+                  "expression": {
+                    "id": 265,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 262,
+                      "name": "isDeleted",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 233,
+                      "src": "2600:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 263,
+                        "name": "accountant",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 237,
+                        "src": "2612:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accountant_$95_memory_ptr",
+                          "typeString": "struct Accountants.Accountant memory"
+                        }
+                      },
+                      "id": 264,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "2623:9:1",
+                      "memberName": "isDeleted",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 94,
+                      "src": "2612:20:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "src": "2600:32:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 266,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2600:32:1"
+                }
+              ]
+            },
+            "functionSelector": "6535ffc3",
+            "id": 268,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAccountant",
+            "nameLocation": "2127:13:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 223,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 222,
+                  "mutability": "mutable",
+                  "name": "_accountantAddress",
+                  "nameLocation": "2149:18:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 268,
+                  "src": "2141:26:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 221,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2141:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2140:28:1"
+            },
+            "returnParameters": {
+              "id": 234,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 225,
+                  "mutability": "mutable",
+                  "name": "accountantAddress",
+                  "nameLocation": "2208:17:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 268,
+                  "src": "2200:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 224,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2200:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 227,
+                  "mutability": "mutable",
+                  "name": "name",
+                  "nameLocation": "2249:4:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 268,
+                  "src": "2235:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 226,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2235:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 229,
+                  "mutability": "mutable",
+                  "name": "email",
+                  "nameLocation": "2277:5:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 268,
+                  "src": "2263:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 228,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2263:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 231,
+                  "mutability": "mutable",
+                  "name": "phoneNumber",
+                  "nameLocation": "2306:11:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 268,
+                  "src": "2292:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 230,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2292:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 233,
+                  "mutability": "mutable",
+                  "name": "isDeleted",
+                  "nameLocation": "2332:9:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 268,
+                  "src": "2327:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 232,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2327:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2190:157:1"
+            },
+            "scope": 269,
+            "src": "2118:521:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
           }
         ],
-        "scope": 113,
-        "src": "88:127:2",
+        "scope": 270,
+        "src": "88:2553:1",
         "usedErrors": []
       }
     ],
-    "src": "32:184:2"
+    "src": "32:2610:1"
   },
   "compiler": {
     "name": "solc",
@@ -170,7 +2768,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-04-21T15:12:56.252Z",
+  "updatedAt": "2024-04-24T14:55:16.529Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -58,7 +58,7 @@
   "sourceMap": "58:549:0:-:0;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "58:549:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;424:113;;;58:549;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;58:549:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;58:549:0;;;;;;;;;-1:-1:-1;;;;;58:549:0;;;;;;;;;-1:-1:-1;;;;;58:549:0;;;;;;;;;;-1:-1:-1;;;;;58:549:0;;;;;;;;;;;;;-1:-1:-1;;;;;58:549:0;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;217:64;;;;;;;;;:::i;:::-;58:549;;;;;;;217:64;;;58:549;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;58:549:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;58:549:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;217:64;;;;58:549;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;-1:-1:-1;58:549:0;;;-1:-1:-1;58:549:0;;;;;-1:-1:-1;58:549:0;:::o;:::-;-1:-1:-1;;;;;58:549:0;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;-1:-1:-1;;;;;58:549:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;-1:-1:-1;;;;;58:549:0;;;;;;;",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\n\ncontract Academic {\n    struct StudentDiscipline {\n        address studentAddress;\n        string description;\n        // Add more fields as needed\n    }\n\n    mapping(address => StudentDiscipline[]) public disciplineRecords;\n\n    function recordDiscipline(address _studentAddress, string memory _description) public {\n        disciplineRecords[_studentAddress].push(StudentDiscipline({\n            studentAddress: _studentAddress,\n            description: _description\n        }));\n    }\n\n    // Add more functions for recording student discipline\n}",
-  "sourcePath": "/home/zeflojujo/school_management_system/client/contracts/Academics.sol",
+  "sourcePath": "/home/zeflojujo/school_management_system/Eazy_School/contracts/Academics.sol",
   "ast": {
     "absolutePath": "project:/contracts/Academics.sol",
     "exportedSymbols": {
@@ -490,7 +490,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-04-23T14:11:25.010Z",
+  "updatedAt": "2024-04-24T10:47:32.134Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

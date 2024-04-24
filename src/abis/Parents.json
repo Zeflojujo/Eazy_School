@@ -7,23 +7,23 @@
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "58:21:3:-:0;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "58:21:3:-:0;;",
+  "sourceMap": "58:21:4:-:0;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "58:21:4:-:0;;",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\n\ncontract Parents {\n\n}",
-  "sourcePath": "/home/zeflojujo/school_management_system/client/contracts/Parents.sol",
+  "sourcePath": "/home/zeflojujo/school_management_system/Eazy_School/contracts/Parents.sol",
   "ast": {
     "absolutePath": "project:/contracts/Parents.sol",
     "exportedSymbols": {
       "Parents": [
-        18
+        154
       ]
     },
-    "id": 19,
+    "id": 155,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 17,
+        "id": 153,
         "literals": [
           "solidity",
           "^",
@@ -31,7 +31,7 @@
           ".19"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:3"
+        "src": "32:24:4"
       },
       {
         "abstract": false,
@@ -40,20 +40,20 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 18,
+        "id": 154,
         "linearizedBaseContracts": [
-          18
+          154
         ],
         "name": "Parents",
-        "nameLocation": "67:7:3",
+        "nameLocation": "67:7:4",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 19,
-        "src": "58:21:3",
+        "scope": 155,
+        "src": "58:21:4",
         "usedErrors": []
       }
     ],
-    "src": "32:47:3"
+    "src": "32:47:4"
   },
   "compiler": {
     "name": "solc",
@@ -61,7 +61,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-04-17T23:46:26.445Z",
+  "updatedAt": "2024-04-24T10:47:32.143Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

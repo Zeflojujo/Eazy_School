@@ -12,14 +12,13 @@ import { registerStudent, registerTeacher } from '../../BlockchainService'
 import medicalCenter from "../../assets/background.jpg"
 import Alert from "../../+homedirectory/components/Alert"
 import Loading from "../../+homedirectory/components/Loading"
-import TeacherTable from "../components/TeacherTable";
 import swal from "sweetalert";
+import AccountantTable from "../components/AccountantTable"
 
-const RegisterTeacher = () => {
+const RegisterAccountant = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(true)
     const [modal] = useGlobalState('modal')
     const [publicAddress, setPublicAddress] = useState('')
-    const [teacherSubject, setTeacherSubjects] = useState([])
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
@@ -37,7 +36,7 @@ const RegisterTeacher = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (!publicAddress || !name || !teacherSubject || !email || !phoneNumber) return
+        if (!publicAddress || !name || !email || !phoneNumber) return
 
         setGlobalState('modal', 'scale-0')
         setGlobalState('loading', { show: true, msg: 'Registering Student...' })
@@ -46,7 +45,7 @@ const RegisterTeacher = () => {
 
             setLoadingMsg('Intializing transaction...')
             const password = "12345678"
-            const result = await registerTeacher({ publicAddress, name, teacherSubject, email, phoneNumber, password })
+            const result = await registerTeacher({ publicAddress, name, email, phoneNumber, password })
             console.log("result: ", result)
 
             if (result) {
@@ -103,9 +102,9 @@ const RegisterTeacher = () => {
                                 onClick={handleRegisterMedicalStaffModel}
                                 className="bg-blue-500 mb-3 text-lg float-end text-white dark:bg-transparent hover:text-white dark:shadow-md dark:shadow-light-white dark:border dark:border-blue-500 dark:text-gray-500 hover:bg-blue-700  font-bold py-2 px-4 rounded-lg top-4 right-4"
                             >
-                                Add Teacher
+                                Add Accountant
                             </button>
-                            <TeacherTable />
+                            <AccountantTable />
                             <Alert />
                             <Loading />
                         </div>
@@ -129,7 +128,7 @@ const RegisterTeacher = () => {
                                 </div>
 
                                 <div className="flex flex-row justify-between items-center">
-                                    <p className="font-semibold text-gray-600">Register Teacher</p>
+                                    <p className="font-semibold text-gray-600">Register Accountant</p>
                                     <button
                                         type="button"
                                         onClick={closeModal}
@@ -156,7 +155,7 @@ const RegisterTeacher = () => {
 
                                 <div className="mt-4">
                                     <label htmlFor="MCPublicAddress" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
-                                        Teacher Name:
+                                        Accountant Name:
                                     </label>
                                     <input
                                         className="mt-1 px-3 py-1.5 md:py-2 w-full border dark:border-solid dark:border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding"
@@ -169,30 +168,6 @@ const RegisterTeacher = () => {
                                     />
                                 </div>
                                 
-                                <div className="mt-4">
-                                    <label htmlFor="MCPublicAddress" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
-                                        Subject Name:
-                                    </label>
-                                    <select
-                                        className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                        name="teacherSubject"
-                                        onChange={(e) => setTeacherSubjects(e.target.value)}
-                                        value={teacherSubject}
-                                        required
-                                    >
-                                        <option value="" disabled>Select teacher subjects</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="English">English</option>
-                                        <option value="Kiswahili">Kiswahili</option>
-                                        <option value="Civics">Civics</option>
-                                        <option value="History">History</option>
-                                    </select>
-                                </div>
-
                                 <div className="mt-4">
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
                                         Email:
@@ -258,5 +233,5 @@ const RegisterTeacher = () => {
     )
 }
 
-export default RegisterTeacher
+export default RegisterAccountant
 

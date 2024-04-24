@@ -7,13 +7,13 @@ import {
   setAlert,
 } from '../../../store'
 import { useState } from 'react'
-// import { manufacturerLogin, systemOwnerLogin } from '../../../BlockchainService'
 import Alert from '../../../+homedirectory/components/Alert';
 import Loading from '../../../+homedirectory/components/Loading';
 import { FaArrowRightToBracket } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
-import { FaAngleDoubleRight, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import heroGradu from "../../../assets/teacher.jpg"
+import { teacherLogin } from '../../../BlockchainService';
 
 const TeacherLogin     = () => {
   const navigate = useNavigate();
@@ -47,14 +47,14 @@ const TeacherLogin     = () => {
       const LoginCredentials = { publicAddress: user.publicAddress, password: user.password }
 
       setLoadingMsg('Intializing transaction...')
-      const result = await TeacherLogin    (LoginCredentials)
+      const result = await teacherLogin(LoginCredentials)
       console.log(result)
 
       if (result) {
         setAlert('Login successfully...', 'green')
         setTimeout(() => {
-          navigate('/manufacturer/dashboard');
-          // window.location.href = "/damu-salama/dashboard"
+          navigate('/teacher/dashboard');
+          // window.location.href = "/teacher/dashboard"
         }, 2000);
         resetForm()
       } else {

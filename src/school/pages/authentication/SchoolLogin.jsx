@@ -10,7 +10,6 @@ import { useState } from 'react'
 // import { manufacturerLogin, systemOwnerLogin } from '../../../BlockchainService'
 import Alert from '../../../+homedirectory/components/Alert';
 import Loading from '../../../+homedirectory/components/Loading';
-import { FaArrowRightToBracket } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import heroGradu from "../../../assets/gradu.jpg"

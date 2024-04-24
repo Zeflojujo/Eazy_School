@@ -7,13 +7,13 @@ import {
   setAlert,
 } from '../../../store'
 import { useState } from 'react'
-// import { manufacturerLogin, systemOwnerLogin } from '../../../BlockchainService'
 import Alert from '../../../+homedirectory/components/Alert';
 import Loading from '../../../+homedirectory/components/Loading';
 import { FaArrowRightToBracket } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import heroGradu from "../../../assets/gradu.jpg"
+import { studentLogin } from '../../../BlockchainService';
 
 const StudentLogin = () => {
   const navigate = useNavigate();
@@ -38,23 +38,23 @@ const StudentLogin = () => {
     // console.log(isDisabled)
   }, [user])
 
-  const handleManugacturerLogin = async (e) => {
+  const handleStudentLogin = async (e) => {
     e.preventDefault();
 
-    setGlobalState('loading', { show: true, msg: 'System Owner is Login...' })
+    setGlobalState('loading', { show: true, msg: 'Student is Login...' })
 
     try {
       const LoginCredentials = { publicAddress: user.publicAddress, password: user.password }
 
       setLoadingMsg('Intializing transaction...')
-      const result = await StudentLogin(LoginCredentials)
+      const result = await studentLogin(LoginCredentials)
       console.log(result)
 
       if (result) {
         setAlert('Login successfully...', 'green')
         setTimeout(() => {
-          navigate('/manufacturer/dashboard');
-          // window.location.href = "/damu-salama/dashboard"
+          navigate('/student/dashboard');
+          // window.location.href = "/student/dashboard"
         }, 2000);
         resetForm()
       } else {
@@ -62,7 +62,7 @@ const StudentLogin = () => {
       }
 
     } catch (error) {
-      console.log('Error registering donor: ', error)
+      console.log('Error registering student: ', error)
       setAlert('Invalid publicAddress or password...', 'red')
     }
   }
@@ -91,7 +91,7 @@ const StudentLogin = () => {
                 <Loading />
                 <h1 className="text-2xl md:text-3xl lg:text-3.5xl text-gray-700 font-semibold mb-4">Student Login</h1>
                 <hr className="mb-3 text-gray-600 border-2 border-gray-400" />
-                <form className="text-lg" onSubmit={handleManugacturerLogin}>
+                <form className="text-lg" onSubmit={handleStudentLogin}>
                 <div className="mb-4">
                     <label htmlFor="publicAddress" className='text-gray-800 text-lg'>Public Address:</label>
                     <input
