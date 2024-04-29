@@ -2,12 +2,21 @@ import { useEffect, useState } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./+homedirectory/pages/Home";
+import "./index.css";
 
 import {
   isWallectConnected,
   displayStudents,
   displayTeachers,
-  displayAccountants
+  displayAccountants,
+  displayStudentClass,
+  displayStudentYear,
+  displayStudentCombination,
+  displayStudentSubject,
+  displaySubjectDetails,
+  displayExamType,
+  displayFeeCategoryAmount,
+  displayFeeCategories
 } from "./BlockchainService";
 
 import { useGlobalState } from "./store";
@@ -25,6 +34,14 @@ import RegisterStudent from "./school/pages/RegisterStudent";
 import RegisterTeacher from "./school/pages/RegisterTeacher";
 import ChatbotApp from "./chatbot/ChatbotApp";
 import RegisterAccountant from "./school/pages/RegisterAccountant";
+import RegisterStudents from "./school/pages/RegisterStudents";
+import FeeCategoryAmount from "./school/pages/FeeCategoryAmount";
+import FeeCategory from "./school/pages/FeeCategory";
+import StudentClass from "./school/pages/StudentClass";
+import StudentCombination from "./school/pages/StudentCombination";
+import StudentYear from "./school/pages/StudentYear";
+import ExamType from "./school/pages/ExamType";
+import StudentSubject from "./school/pages/StudentSubject";
 
 function App() {
   const [connectedAccount] = useGlobalState("connectedAccount")
@@ -36,6 +53,14 @@ function App() {
       await displayStudents();
       await displayTeachers();
       await displayAccountants();
+      await displayStudentClass();
+      await displayStudentYear();
+      await displayStudentCombination();
+      await displayStudentSubject();
+      await displaySubjectDetails();
+      await displayFeeCategories();
+      await displayExamType();
+      await displayFeeCategoryAmount();
     };
     isConnected();
   }, [connectedAccount, connctAccount]);
@@ -52,8 +77,16 @@ function App() {
         <Route path="/school/login" element={<SchoolLogin />} />
         <Route path="/school/dashboard" element={<SchoolDashboard />} />
         <Route path="/school/student" element={<RegisterStudent />} />
+        <Route path="/school/students" element={<RegisterStudents />} />
         <Route path="/school/teacher" element={<RegisterTeacher />} />
         <Route path="/school/accountant" element={<RegisterAccountant />} />
+        <Route path="/school/fee-amount" element={<FeeCategoryAmount />} />
+        <Route path="/school/fee-category" element={<FeeCategory />} />
+        <Route path="/school/student-class" element={<StudentClass />} />
+        <Route path="/school/combination" element={<StudentCombination />} />
+        <Route path="/school/year" element={<StudentYear />} />
+        <Route path="/school/exam-type" element={<ExamType />} />
+        <Route path="/school/student-subject" element={<StudentSubject />} />
         
         {/* teacher Routes */}
         <Route path="/teacher/login" element={<TeacherLogin />} />

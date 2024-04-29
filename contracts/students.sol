@@ -3,8 +3,6 @@ pragma solidity ^0.8.19;
 import "./AccessControl.sol";
 
 contract Students is AccessControl {
-    
-    enum Combination {Science, Arts, Business, None}
 
     event deletedStudent(address indexed teacherAddress);
     
@@ -23,38 +21,66 @@ contract Students is AccessControl {
     }
 
     struct Student {
-        Combination combination;
         address studentAddress;
-        string fullName;
+        string firstName;
+        string MiddleName;
+        string lastName;
         string examNumber;
-        string standardLevel;
-        uint256 age;
+        string gender;
+        string religion;
+        string dob;
+        string classLevel;
+        string combination;
         string phoneNumber;
+        string studentLocation;
+        uint year;
         string password;
         bool isRegistered;
         bool isLogin;
         bool isDeleted;
-        mapping(uint8 => SubjectScores) termResults; // 1: First Term, 2: Mid Term, 3: Third Term
+        // string imageUrl;
+        // mapping(uint8 => SubjectScores) termResults; // 1: First Term, 2: Mid Term, 3: Third Term
     }
 
     mapping(address => Student) public students;
     address[] public studentAddressArray;
 
-    function registerStudent(address _studentAddress, string memory _fullName, string memory _examNumber, string memory _standardLevel, uint256 _age, string memory _phoneNumber, string memory _password) public {
-        Student storage student = students[_studentAddress];
-        student.combination = Combination.None;
-        student.studentAddress = _studentAddress;
-        student.fullName = _fullName;
-        student.examNumber = _examNumber;
-        student.standardLevel = _standardLevel;
-        student.age = _age;
-        student.phoneNumber = _phoneNumber;
-        student.password = _password;
-        student.isRegistered = true;
-        student.isLogin = false;
-        student.isDeleted = false;
+    function registerStudent(
+        address _studentAddress, 
+        string memory _fullName, 
+        string memory _fatherName;
+        string memory _motherName;
+        string memory _examNumber;
+        string memory _gender;
+        string memory _religion;
+        string memory _dob, 
+        string memory _classLevel;
+        string memory _combination;
+        string memory _studentLocation;
+        uint256 _year,
+        string memory _phoneNumber, 
+        string memory _password
+        ) public {
+            Student storage student = students[_studentAddress];
+            student.studentAddress = _studentAddress;
+            student.fullName = _fullName;
+            student.fatherName = _fatherName;
+            student.motherName = _motherName;
+            student.examNumber = _examNumber;
+            student.gender = _gender;
+            student.religion = _religion;
+            student.dob = _dob;
+            student.classLevel = _classLevel;
+            student.combination = _combination;
+            student.studentLocation = _studentLocation;
+            student.year = _year;
+            student.phoneNumber = _phoneNumber;
+            student.password = _password;
+            student.isRegistered = true;
+            student.isLogin = false;
+            student.isDeleted = false;
 
-        studentAddressArray.push(_studentAddress);
+            studentAddressArray.push(_studentAddress);
     }
 
     function deleteStudent(address _studentAddress) external {

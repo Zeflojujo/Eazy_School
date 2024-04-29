@@ -3,6 +3,7 @@ import { setGlobalState, getGlobalState } from "./store";
 import studentAbi from "./abis/Students.json";
 import accountantAbi from "./abis/Accountants.json";
 import teacherAbi from "./abis/Teachers.json";
+import adminAbi from "./abis/Admins.json";
 
 const { ethereum } = window;
 window.web3 = new Web3(ethereum);
@@ -15,6 +16,19 @@ const getEtheriumContract = async () => {
 
   if (networkData) {
     const contract = new web3.eth.Contract(accountantAbi.abi, networkData.address);
+    return contract;
+  } else {
+    return null;
+  }
+};
+
+const getAdminContract = async () => {
+  const web3 = window.web3;
+  const networkId = await window.web3.eth.net.getId();
+  const networkData = adminAbi.networks[networkId];
+
+  if (networkData) {
+    const contract = new web3.eth.Contract(adminAbi.abi, networkData.address);
     return contract;
   } else {
     return null;
@@ -245,6 +259,128 @@ const deleteAccountant = async ({ accountantAddress }) => {
   }
 };
 
+const addStudentClass = async ({
+  classLevel
+}) => {
+  try {
+    const contract = await getAdminContract();
+    const account = getGlobalState("connectedAccount");
+
+    await contract.methods.addStudentClass(classLevel).send({from: account, gas: 1000000})
+    
+    return true;
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
+  const addStudentYear = async ({
+    year,
+  }) => {
+    try {
+      const contract = await getAdminContract();
+      const account = getGlobalState("connectedAccount");
+  
+      await contract.methods.addStudentYear( year ).send({from: account, gas: 1000000})
+      
+      return true;
+    } catch (error) {
+        console.log(error.message)
+    }
+  }
+
+const addStudentCombination = async ({
+  combination
+}) => {
+  try {
+    const contract = await getAdminContract();
+    const account = getGlobalState("connectedAccount");
+
+    await contract.methods.addStudentCombination(combination).send({from: account, gas: 1000000})
+    
+    return true;
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
+const addStudentSubject = async ({
+  subjectName
+}) => {
+  try {
+    const contract = await getAdminContract();
+    const account = getGlobalState("connectedAccount");
+
+    await contract.methods.addStudentSubject(subjectName).send({from: account, gas: 1000000})
+    
+    return true;
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
+const addSubjectDetails = async ({
+  subjectName
+}) => {
+  try {
+    const contract = await getAdminContract();
+    const account = getGlobalState("connectedAccount");
+
+    await contract.methods.addSubjectDetails(subjectName).send({from: account, gas: 1000000})
+    
+    return true;
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
+const addExamType = async ({
+  examType
+}) => {
+  try {
+    const contract = await getAdminContract();
+    const account = getGlobalState("connectedAccount");
+
+    await contract.methods.addExamType(examType).send({from: account, gas: 1000000})
+    
+    return true;
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
+const addFeeCategory = async ({
+  categoryName
+}) => {
+  try {
+    const contract = await getAdminContract();
+    const account = getGlobalState("connectedAccount");
+
+    await contract.methods.addFeeCategory(categoryName).send({from: account, gas: 1000000})
+    
+    return true;
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
+const addFeeCategoryAmount = async ({
+  feeCategory,
+  classLevel,
+  amount
+}) => {
+  try {
+    const contract = await getAdminContract();
+    const account = getGlobalState("connectedAccount");
+
+    await contract.methods.addFeeAmount(feeCategory,classLevel,amount).send({from: account, gas: 1000000})
+    
+    return true;
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
 const systemOwnerLogin = async ({ publicAddress, password }) => {
   try {
     const contract = await getStudentContract();
@@ -371,6 +507,255 @@ const displayManufacturersData = async () => {
       }
     };
 
+    const displayStudentClass = async () => {
+      try {
+        // if (!ethereum) return console.log("Please install Metamask");
+    
+        const contract = await getAdminContract();
+    
+        const studentClassArray = await contract.methods.getStudentClassArray().call();
+    
+        const studentClassData = [];
+        // console.log("productsArray: ", productsArray)
+    
+        if (studentClassArray.length === 0) {
+          console.log("NO DATA");
+        }
+    
+        for (let i = 0; i < studentClassArray.length; i++) {
+          const studentClass = studentClassArray[i];
+
+          const _studentClassDetails = await contract.methods.getStudentClass(studentClass).call();
+          // console.log("let me see product details: ",_studentClassDetails);
+          if (!_studentClassDetails.isDeleted) {
+            studentClassData.push(_studentClassDetails);
+          }
+        }
+    
+        setGlobalState("studentClasses", studentClassData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const displayStudentYear = async () => {
+      try {
+        // if (!ethereum) return console.log("Please install Metamask");
+    
+        const contract = await getAdminContract();
+    
+        const studentYearArray = await contract.methods.getStudentYearsArray().call();
+    
+        const studentYearData = [];
+        // console.log("productsArray: ", productsArray)
+    
+        if (studentYearArray.length === 0) {
+          console.log("NO DATA");
+        }
+    
+        for (let i = 0; i < studentYearArray.length; i++) {
+          const studentYear = studentYearArray[i];
+
+          const _studentYearDetails = await contract.methods.getStudentYears(studentYear).call();
+          // console.log("let me see product details: ",_studentYearDetails);
+          if (!_studentYearDetails.isDeleted) {
+            studentYearData.push(_studentYearDetails);
+          }
+        }
+    
+        setGlobalState("studentYears", studentYearData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    
+
+    const displayFeeCategoryAmount = async () => {
+      try {
+        // if (!ethereum) return console.log("Please install Metamask");
+    
+        const contract = await getAdminContract();
+    
+        const studentFeeAmountArray = await contract.methods.getFeeAmountArray().call();
+    
+        const studentFeeAmountData = [];
+        // console.log("productsArray: ", productsArray)
+    
+        if (studentFeeAmountArray.length === 0) {
+          console.log("NO DATA");
+        }
+    
+        for (let i = 0; i < studentFeeAmountArray.length; i++) {
+          const studentFeeAmount = studentFeeAmountArray[i];
+
+          const _studentFeeAmountDetails = await contract.methods.getFeeAmount(studentFeeAmount).call();
+          // console.log("let me see product details: ",_studentFeeAmountDetails);
+          if (!_studentFeeAmountDetails.isDeleted) {
+            studentFeeAmountData.push(_studentFeeAmountDetails);
+          }
+        }
+    
+        setGlobalState("studentFeeAmounts", studentFeeAmountData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const displayStudentCombination = async () => {
+      try {
+        // if (!ethereum) return console.log("Please install Metamask");
+    
+        const contract = await getAdminContract();
+    
+        const studentCombinationArray = await contract.methods.getStudentCombinationArray().call();
+    
+        const studentCombinationData = [];
+        // console.log("studentCombinationArray: ", studentCombinationArray)
+    
+        if (studentCombinationArray.length === 0) {
+          console.log("NO DATA");
+        }
+    
+        for (let i = 0; i < studentCombinationArray.length; i++) {
+          const studentCombination = studentCombinationArray[i];
+
+          const _studentCombinationDetails = await contract.methods.getStudentCombination(studentCombination).call();
+          // console.log("let me see product details: ",_studentCombinationDetails);
+          // if (!_studentCombinationDetails.isDeleted) {
+            studentCombinationData.push(_studentCombinationDetails);
+          // }
+        }
+    
+        setGlobalState("studentCombinations", studentCombinationData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const displayExamType = async () => {
+      try {
+        // if (!ethereum) return console.log("Please install Metamask");
+    
+        const contract = await getAdminContract();
+    
+        const studentExamTypeArray = await contract.methods.getExamTypeArray().call();
+    
+        const studentExamTypeData = [];
+        console.log("studentExamTypeArray: ", studentExamTypeArray)
+    
+        if (studentExamTypeArray.length === 0) {
+          console.log("NO DATA");
+        }
+    
+        for (let i = 0; i < studentExamTypeArray.length; i++) {
+          const studentExamType = studentExamTypeArray[i];
+
+          const _studentExamTypeDetails = await contract.methods.getExamType(studentExamType).call();
+          // console.log("let me see product details: ",_studentExamTypeDetails);
+          // if (!_studentExamTypeDetails.isDeleted) {
+            studentExamTypeData.push(_studentExamTypeDetails);
+          // }
+        }
+    
+        setGlobalState("studentExamTypes", studentExamTypeData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const displayStudentSubject = async () => {
+      try {
+        // if (!ethereum) return console.log("Please install Metamask");
+    
+        const contract = await getAdminContract();
+    
+        const studentSubjectArray = await contract.methods.getStudentSubjectArray().call();
+    
+        const studentSubjectData = [];
+        // console.log("studentSubjectArray: ", studentSubjectArray)
+    
+        if (studentSubjectArray.length === 0) {
+          console.log("NO DATA");
+        }
+    
+        for (let i = 0; i < studentSubjectArray.length; i++) {
+          const studentSubject = studentSubjectArray[i];
+
+          const _studentSubjectDetails = await contract.methods.getStudentSubject(studentSubject).call();
+          // console.log("let me see product details: ",_studentSubjectDetails);
+          // if (!_studentSubjectDetails.isDeleted) {
+            studentSubjectData.push(_studentSubjectDetails);
+          // }
+        }
+    
+        setGlobalState("studentSubjects", studentSubjectData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const displaySubjectDetails = async () => {
+      try {
+        // if (!ethereum) return console.log("Please install Metamask");
+    
+        const contract = await getAdminContract();
+    
+        const studentSubjectDetailArray = await contract.methods.getSubjectDetailsArray().call();
+    
+        const studentSubjectDetailData = [];
+        // console.log("studentSubjectDetailArray: ", studentSubjectDetailArray)
+    
+        if (studentSubjectDetailArray.length === 0) {
+          console.log("NO DATA");
+        }
+    
+        for (let i = 0; i < studentSubjectDetailArray.length; i++) {
+          const studentSubjectDetail = studentSubjectDetailArray[i];
+
+          const _studentSubjectDetailDetails = await contract.methods.getSubjectDetail(studentSubjectDetail).call();
+          // console.log("let me see product details: ",_studentSubjectDetailDetails);
+          // if (!_studentSubjectDetailDetails.isDeleted) {
+            studentSubjectDetailData.push(_studentSubjectDetailDetails);
+          // }
+        }
+    
+        setGlobalState("studentSubjectDetails", studentSubjectDetailData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const displayFeeCategories = async () => {
+      try {
+        // if (!ethereum) return console.log("Please install Metamask");
+    
+        const contract = await getAdminContract();
+    
+        const feeCategoryArray = await contract.methods.getFeeCategoryArray().call();
+    
+        const feeCategoryData = [];
+        // console.log("feeCategoryArray: ", feeCategoryArray)
+    
+        if (feeCategoryArray.length === 0) {
+          console.log("NO DATA");
+        }
+    
+        for (let i = 0; i < feeCategoryArray.length; i++) {
+          const feeCategory = feeCategoryArray[i];
+
+          const _feeCategoryDetails = await contract.methods.getFeeCategory(feeCategory).call();
+          // console.log("let me see product details: ",_feeCategoryDetails);
+          // if (!_feeCategoryDetails.isDeleted) {
+            feeCategoryData.push(_feeCategoryDetails);
+          // }
+        }
+    
+        setGlobalState("feeCategories", feeCategoryData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     const displayStudents = async () => {
       try {
         // if (!ethereum) return console.log("Please install Metamask");
@@ -467,19 +852,17 @@ const displayManufacturersData = async () => {
         }
       }
 
-    // const displayDetailsForScannedItem = async (qrHash) => {
+    // const displayFeeCategory = async (feeCategoryId) => {
     //   try {
     //     // if (!ethereum) return console.log("Please install Metamask");
     
-    //     const contract = await getEtheriumContract();
-    //     const medicalCenterAddress = getGlobalState("connectedAccount");
+    //     const contract = await getAdminContract();
+    //     const feeCat = getGlobalState("connectedAccount");
     
-    //     const detailsForScannedItem = await contract.methods
-    //       .getProduct(qrHash)
-    //       .call();
-    //     // console.log("Medical Center :", _medicalCenter);
+    //     const feeCategoryDetails = await contract.methods.getFeeCategory(feeCategoryId).call();
+    //     // console.log("Fee Category :", feeCategoryDetails);
     
-    //     setGlobalState("detailsForScannedItem", detailsForScannedItem);
+    //     setGlobalState("feeCategory", feeCategoryDetails);
     //   } catch (error) {
     //     console.log(error);
     //   }
@@ -552,10 +935,27 @@ export {
     verifyPaymentCheck,
     registerStudent,
     registerTeacher,
+    addStudentClass,
+    addStudentYear,
+    addStudentCombination,
+    addStudentSubject,
+    addSubjectDetails,
+    addExamType,
+    addFeeCategory,
+    addFeeCategoryAmount,
     registerAccountant,
     displayStudents,
     displayTeachers,
     displayAccountants,
+    displayStudentClass,
+    displayStudentYear,
+    displayStudentCombination,
+    displayStudentSubject,
+    displaySubjectDetails,
+    displayFeeCategories,
+    // displayFeeCategory,
+    displayExamType,
+    displayFeeCategoryAmount,
     deleteStudent,
     deleteTeacher,
     deleteAccountant,

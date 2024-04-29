@@ -3,10 +3,12 @@ import React from "react"
 import { MdDashboard } from "react-icons/md"
 import { IoIosArrowForward } from "react-icons/io"
 import { NavLink } from "react-router-dom"
-import { FaGraduationCap } from "react-icons/fa";
+import { FaGraduationCap, FaInfoCircle, FaUser } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
 import { MdAccountBalance } from "react-icons/md";
 import { PiStudentBold } from "react-icons/pi";
+import { FaCrosshairs } from "react-icons/fa6";
+import "./SchoolSidebar.css";
 
 // import "./Sidebar.css"
 
@@ -16,9 +18,12 @@ const SchoolSidebar = ({ isOpen, toggleSidebar }) => {
 
     const Menus = [
         { title: "Dashboard", link: "/school/dashboard", icon: <MdDashboard /> },
-        { title: "Student", link: "/school/student", icon: <PiStudentBold /> },
-        { title: "Teacher", link: "/school/teacher", icon: <GiTeacher /> },
-        { title: "Accountant", link: "/school/accountant", icon: <MdAccountBalance /> },
+        // { title: "Manage User", link: "/school/admin", icon: <FaUser /> },
+        // { title: "Mange Profile", link: "/school/profile", icon: <FaInfoCircle /> },
+        { title: "Setup Management", link: "/school/student-class", icon: <FaCrosshairs /> },
+        { title: "Manage Student", link: "/school/student", icon: <PiStudentBold /> },
+        { title: "Manage Teacher", link: "/school/teacher", icon: <GiTeacher /> },
+        { title: "Manage Accountant", link: "/school/accountant", icon: <MdAccountBalance /> },
         // { title: "Blood Checking", link: "/medical-center/donate-blood-to-medicalcenter", icon: <FaKeycdn /> },
         // { title: "Medical Records", link: "/medical-center/blood-supplied", icon: <FaChartPie /> },
     ]

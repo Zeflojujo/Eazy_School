@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 contract AccessControl {
-    address immutable internal owner;
+    address internal owner;
     bool locked;
 
     constructor() {
