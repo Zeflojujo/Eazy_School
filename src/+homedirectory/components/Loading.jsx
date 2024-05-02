@@ -12,13 +12,13 @@ const Loading = () => {
         >
             <div
                 className="flex flex-col justify-center
-        items-center shadow-xl 
-        shadow-blue-600 dark:shadow-[#e32970] rounded-xl  bg-gray-700 text-gray-900 dark:bg-[#151c25] dark:text-gray-300 
+        items-center shadow-md 
+        shadow-blue-600 dark:shadow-blue-600 rounded-xl  bg-gray-700 text-gray-900 dark:bg-[#151c25] dark:text-gray-300 
         min-w-min px-10 pb-2"
             >
                 <div className="flex flex-row justify-center items-center">
                     <div className="lds-dual-ring scale-50"></div>
-                    <p className="text-lg text-white">Processing...</p>
+                    <p className="text-lg text-white">Execution...</p>
                 </div>
                 <small className="text-white">{loading.msg}</small>
             </div>

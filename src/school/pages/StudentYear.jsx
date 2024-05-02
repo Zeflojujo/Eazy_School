@@ -70,7 +70,7 @@ const StudentYear = () => {
 
         try {
 
-            setLoadingMsg('Intializing transaction...')
+            setLoadingMsg('Executing transaction...')
             const result = await addStudentYear(studentYearCredentials)
             console.log(result)
 

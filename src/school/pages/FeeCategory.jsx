@@ -73,7 +73,7 @@ const FeeCategory = () => {
 
         try {
 
-            setLoadingMsg('Intializing transaction...')
+            setLoadingMsg('Executing transaction...')
             const result = await addFeeCategory(registerStudentCredentials)
             console.log(result)
 

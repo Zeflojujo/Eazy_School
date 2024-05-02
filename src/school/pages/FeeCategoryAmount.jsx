@@ -79,7 +79,7 @@ const FeeCategoryAmount = () => {
 
         try {
 
-            setLoadingMsg('Intializing transaction...')
+            setLoadingMsg('Executing transaction...')
             // const password = user.lastName;
             const result = await addFeeCategoryAmount(registerStudentCredentials)
             console.log(result)

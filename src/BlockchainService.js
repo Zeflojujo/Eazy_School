@@ -159,7 +159,6 @@ const registerStudents = async ({
     firstName,
     middleName,
     lastName,
-    examNumber,
     gender,
     religion,
     dob,
@@ -174,7 +173,7 @@ const registerStudents = async ({
     const contract = await getStudentContract();
     const account = getGlobalState("connectedAccount");
 
-    await contract.methods.registerStudent(publicAddress, firstName, middleName, lastName, examNumber, gender, religion, dob, classLevel, combination, phoneNumber, studentLocation, year, password).send({from: account, gas: 1000000})
+    await contract.methods.registerStudent(publicAddress, firstName, middleName, lastName, gender, religion, dob, classLevel, combination, phoneNumber,Number(year), studentLocation, password).send({from: account, gas: 1000000})
     
     return true;
   } catch (error) {

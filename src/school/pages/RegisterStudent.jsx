@@ -44,7 +44,7 @@ const RegisterStudent = () => {
 
         try {
 
-            setLoadingMsg('Intializing transaction...')
+            setLoadingMsg('Executing transaction...')
             const password = "12345678"
             const result = await registerStudents({ publicAddress, name, examNumber, classLevel, age, phoneNumber, password })
             console.log(result)

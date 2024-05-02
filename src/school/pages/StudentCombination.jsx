@@ -72,7 +72,7 @@ const StudentCombination = () => {
 
         try {
 
-            setLoadingMsg('Intializing transaction...')
+            setLoadingMsg('Executing transaction...')
             // const password = user.lastName;
             const result = await addStudentCombination(studentClassCredentials)
             console.log(result)

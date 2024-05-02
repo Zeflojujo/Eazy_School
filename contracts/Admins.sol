@@ -290,13 +290,13 @@ contract Admins is AccessControl {
     }
 
     function getFeeAmount(uint256 _feeAmountId) external view returns(
-        uint256 feeAmountID,
+        uint256 feeAmountIdentity,
         string memory categoryName,
         string memory studentClass,
         uint256 amount
     ) {
         FeeAmount memory feeAmount = feeAmounts[_feeAmountId];
-        feeAmountID = feeAmount.feeAmountId;
+        feeAmountIdentity = feeAmount.feeAmountId;
         categoryName = feeAmount.feeCategoryName;
         studentClass = feeAmount.studentClass;
         amount = feeAmount.amount;

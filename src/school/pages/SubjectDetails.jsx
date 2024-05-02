@@ -78,7 +78,7 @@ const StudentDetails = () => {
 
         try {
 
-            setLoadingMsg('Intializing transaction...')
+            setLoadingMsg('Executing transaction...')
             // const password = user.lastName;
             const result = await addSubjectDetails(subjectDetailsCredentials)
             console.log(result)

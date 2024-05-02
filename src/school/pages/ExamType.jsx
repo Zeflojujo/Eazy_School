@@ -72,7 +72,7 @@ const ExamType = () => {
 
         try {
 
-            setLoadingMsg('Intializing transaction...')
+            setLoadingMsg('Executing transaction...')
             // const password = user.lastName;
             const result = await addExamType(studentClassCredentials)
             console.log(result)
