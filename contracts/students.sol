@@ -68,7 +68,7 @@ contract Students is AccessControl {
             student.firstName = _firstName;
             student.middleName = _middleName;
             student.lastName = _lastName;
-            student.examNumber = "s1253"._year.studentId;
+            student.examNumber = string(abi.encodePacked("s1253-", _year,"-", studentId));
             student.gender = _gender;
             student.religion = _religion;
             student.dob = _dob;
@@ -102,24 +102,24 @@ contract Students is AccessControl {
         students[_studentAddress].isLogin = true;
     }
 
-    function addTermResult(address _studentAddress, uint8 _term, uint256 _biology, uint256 _physics, uint256 _mathematics, uint256 _chemistry, uint256 _geography, uint256 _history, uint256 _civics, uint256 _english, uint256 _kiswahili) public {
-        SubjectScores memory scores = SubjectScores({
-            biology: _biology,
-            physics: _physics,
-            mathematics: _mathematics,
-            chemistry: _chemistry,
-            geography: _geography,
-            history: _history,
-            civics: _civics,
-            english: _english,
-            kiswahili: _kiswahili,
-            average: 0,
-            grade: ""
-        });
+    // function addTermResult(address _studentAddress, uint8 _term, uint256 _biology, uint256 _physics, uint256 _mathematics, uint256 _chemistry, uint256 _geography, uint256 _history, uint256 _civics, uint256 _english, uint256 _kiswahili) public {
+    //     SubjectScores memory scores = SubjectScores({
+    //         biology: _biology,
+    //         physics: _physics,
+    //         mathematics: _mathematics,
+    //         chemistry: _chemistry,
+    //         geography: _geography,
+    //         history: _history,
+    //         civics: _civics,
+    //         english: _english,
+    //         kiswahili: _kiswahili,
+    //         average: 0,
+    //         grade: ""
+    //     });
 
-        students[_studentAddress].termResults[_term] = scores;
-        calculateAverageAndGrade(_studentAddress, _term);
-    }
+    //     students[_studentAddress].termResults[_term] = scores;
+    //     calculateAverageAndGrade(_studentAddress, _term);
+    // }
 
     function getStudentArray() external view returns(address[] memory) {
         return studentAddressArray;
@@ -128,42 +128,55 @@ contract Students is AccessControl {
     function getStudent(address _studentAddress) external view returns(
         address studentAddress, 
         string memory firstName, 
+        string memory middleName, 
+        string memory lastName, 
         string memory examNumber, 
+        string memory gender, 
+        string memory religion, 
+        string memory dob, 
         string memory classLevel, 
-        uint256 age, 
+        string memory combination, 
+        string memory studentLocation, 
+        uint256 year, 
         string memory phoneNumber,
         bool isDeleted 
         ) {
         Student storage student = students[_studentAddress];
         studentAddress = student.studentAddress;
         firstName = student.firstName;
+        middleName = student.middleName;
+        lastName = student.lastName;
         examNumber = student.examNumber;
-        classLevel = student.standardLevel;
-        age = student.age;
+        gender = student.gender;
+        religion = student.religion;
+        dob = student.dob;
+        classLevel = student.classLevel;
+        combination = student.combination;
+        studentLocation = student.studentLocation;
+        year = student.year;
         phoneNumber = student.phoneNumber;
         isDeleted = student.isDeleted;
-
     }
 
-    function calculateAverageAndGrade(address _studentAddress, uint8 _term) private {
-        Student storage student = students[_studentAddress];
-        SubjectScores storage scores = student.termResults[_term];
+    // function calculateAverageAndGrade(address _studentAddress, uint8 _term) private {
+    //     Student storage student = students[_studentAddress];
+    //     SubjectScores storage scores = student.termResults[_term];
 
-        uint256 totalScore = scores.biology + scores.physics + scores.mathematics + scores.chemistry + scores.geography + scores.history + scores.civics + scores.english + scores.kiswahili;
-        uint256 numberOfSubjects = 9; // Total number of subjects
+    //     uint256 totalScore = scores.biology + scores.physics + scores.mathematics + scores.chemistry + scores.geography + scores.history + scores.civics + scores.english + scores.kiswahili;
+    //     uint256 numberOfSubjects = 9; // Total number of subjects
 
-        scores.average = totalScore / numberOfSubjects;
+    //     scores.average = totalScore / numberOfSubjects;
 
-        if (scores.average >= 80) {
-            scores.grade = "A";
-        } else if (scores.average >= 70) {
-            scores.grade = "B";
-        } else if (scores.average >= 50) {
-            scores.grade = "C";
-        } else if (scores.average >= 35) {
-            scores.grade = "D";
-        } else {
-            scores.grade = "F";
-        }
-    }
+    //     if (scores.average >= 80) {
+    //         scores.grade = "A";
+    //     } else if (scores.average >= 70) {
+    //         scores.grade = "B";
+    //     } else if (scores.average >= 50) {
+    //         scores.grade = "C";
+    //     } else if (scores.average >= 35) {
+    //         scores.grade = "D";
+    //     } else {
+    //         scores.grade = "F";
+    //     }
+    // }
 }

@@ -178,7 +178,7 @@ const RegisterStudents = () => {
                                     transition-transform duration-300 ${modal}`}
                     >
 
-                        <div className="shadow-lg rounded-xl w-11/12 md:w-4/5 h-7/12 p-6 bg-gray-100 shadow-blue-600 dark:bg-[#232b35] dark:shadow-blue-600">
+                        <div className="shadow-md rounded-xl w-11/12 md:w-4/5 h-7/12 p-6 bg-gray-100 shadow-blue-600 dark:bg-[#232b35] dark:shadow-blue-600">
                             <div className="flex flex-row justify-between items-center">
                                 <h1 className="text-2xl md:text-3xl lg:text-3.5xl text-gray-400 font-semibold mb-4">Student Registration Form</h1>
                                 <button
@@ -194,92 +194,86 @@ const RegisterStudents = () => {
                             <form className="text-lg" onSubmit={handleStudentRegistration}>
 
                                 <div className="mb-4">
-                                    <h1 className="text-gray-300 text-xl font-semibold md:text-2xl">Account Details:</h1>
+                                    <h1 className="text-gray-400 text-xl font-semibold md:text-2xl mb-2">Student Details:</h1>
                                     <hr className="mb-3 text-gray-600 border-1 border-gray-500" />
                                 </div>
 
                                 <div className="grid md:grid-cols-3 gap-x-2 mb-4 w-full mt-4">
                                     <div className="mb-4">
-                                        <label htmlFor="publicAddress" className='text-gray-500 text-lg'>Wallet Public Address:</label>
+                                        <label htmlFor="publicAddress" className='text-gray-400 text-lg'>Wallet Public Address:</label>
                                         <input
-                                        id="publicAddress"
-                                        type="publicAddress"
-                                        value={user.publicAddress}
-                                        className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                        // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
-                                        onChange={(e) => setUser({ ...user, publicAddress: e.target.value })}
-                                        placeholder="publicAddress"
+                                            id="publicAddress"
+                                            type="publicAddress"
+                                            value={user.publicAddress}
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-400 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
+                                            onChange={(e) => setUser({ ...user, publicAddress: e.target.value })}
+                                            placeholder="publicAddress"
                                         />
                                     </div>
                                     <div className="mb-4">
-                                        <label htmlFor="firstName" className='text-gray-500 text-lg'>First Name:</label>
+                                        <label htmlFor="firstName" className='text-gray-400 text-lg'>First Name:</label>
                                         <input
-                                        id="firstName"
-                                        type="firstName"
-                                        value={user.firstName}
-                                        className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                        // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
-                                        onChange={(e) => setUser({ ...user, firstName: e.target.value })}
-                                        placeholder="firstName"
+                                            id="firstName"
+                                            type="firstName"
+                                            value={user.firstName}
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-400 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
+                                            onChange={(e) => setUser({ ...user, firstName: e.target.value })}
+                                            placeholder="firstName"
                                         />
                                     </div>
                                     <div className="mb-4">
-                                        <label htmlFor="middleName" className='text-gray-500 text-lg'>Middle Name:</label>
+                                        <label htmlFor="middleName" className='text-gray-400 text-lg'>Middle Name:</label>
                                         <input
-                                        id="middleName"
-                                        type="middleName"
-                                        value={user.middleName}
-                                        className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                        // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
-                                        onChange={(e) => setUser({ ...user, middleName: e.target.value })}
-                                        placeholder="middleName"
+                                            id="middleName"
+                                            type="middleName"
+                                            value={user.middleName}
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-400 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
+                                            onChange={(e) => setUser({ ...user, middleName: e.target.value })}
+                                            placeholder="middleName"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="grid md:grid-cols-3 gap-x-2 mb-4 w-full mt-4">
                                     <div className="mb-4">
-                                        <label htmlFor="lastName" className='text-gray-500 text-lg'>Last Name:</label>
+                                        <label htmlFor="lastName" className='text-gray-400 text-lg'>Last Name:</label>
                                         <input
-                                        id="lastName"
-                                        type="lastName"
-                                        value={user.lastName}
-                                        className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                        // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
-                                        onChange={(e) => setUser({ ...user, lastName: e.target.value })}
-                                        placeholder="lastName"
+                                            id="lastName"
+                                            type="lastName"
+                                            value={user.lastName}
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-400 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
+                                            onChange={(e) => setUser({ ...user, lastName: e.target.value })}
+                                            placeholder="lastName"
                                         />
                                     </div>
 
-                                    <div className="mt-4">
-                                        <label htmlFor="religion" className="block text-lg font-medium text-gray-600 dark:text-gray-300">
-                                            Student Religion:
-                                        </label>
-                                        <select
-                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                    <div className="mb-4">
+                                        <label htmlFor="phoneNumber" className='text-lg text-gray-400'>Phone Number:</label>
+                                        <input
+                                            id="phoneNumber"
+                                            type="phoneNumber"
+                                            value={user.phoneNumber}
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-400 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
                                             // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
-                                            name="religion"
-                                            type="text"
-                                            onChange={(e) => setUser({...user, religion: e.target.value})}
-                                            value={user.religion}
-                                            required
-                                        >
-                                            <option value="" disabled>Select Student religion</option>
-                                            <option value="Christianity">Christianity</option>
-                                            <option value="Islamic">Islamic</option>
-                                        </select>
+                                            onChange={(e) => setUser({ ...user, phoneNumber: e.target.value })}
+                                            placeholder="phoneNumber"
+                                        />
                                     </div>
 
                                     <div className="mb-4">
-                                        <label htmlFor="dob" className='text-lg text-gray-500'>Date of Birth:</label>
+                                        <label htmlFor="dob" className='text-lg text-gray-400'>Date of Birth:</label>
                                         <input
-                                        id="dob"
-                                        type="date"
-                                        value={user.dob}
-                                        className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                        // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
-                                        onChange={(e) => setUser({ ...user, dob: e.target.value })}
-                                        placeholder="dob"
+                                            id="dob"
+                                            type="date"
+                                            value={user.dob}
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-400 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
+                                            onChange={(e) => setUser({ ...user, dob: e.target.value })}
+                                            placeholder="dob"
                                         />
                                     </div>
                                     
@@ -292,11 +286,11 @@ const RegisterStudents = () => {
 
                                 <div className="grid md:grid-cols-3 gap-x-2 mb-4 w-full mt-4">
                                     <div className="mt-4">
-                                        <label htmlFor="classLevel" className="block text-lg font-medium text-gray-600 dark:text-gray-300">
+                                        <label htmlFor="classLevel" className="block text-lg font-medium text-gray-600 dark:text-gray-400">
                                             Student Class:
                                         </label>
                                         <select
-                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-400 bg-clip-padding appearance-none"
                                             // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
                                             name="classLevel"
                                             type="text"
@@ -312,11 +306,11 @@ const RegisterStudents = () => {
                                     </div>
 
                                     <div className="mt-4">
-                                        <label htmlFor="combination" className="block text-lg font-medium text-gray-600 dark:text-gray-300">
+                                        <label htmlFor="combination" className="block text-lg font-medium text-gray-600 dark:text-gray-400">
                                             Student Combination:
                                         </label>
                                         <select
-                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-400 bg-clip-padding appearance-none"
                                             name="combination"
                                             type="text"
                                             onChange={(e) => setUser({...user, combination: e.target.value})}
@@ -329,40 +323,48 @@ const RegisterStudents = () => {
                                             ))}
                                         </select>
                                     </div>
-                                
-                                    <div className="mb-4">
-                                        <label htmlFor="phoneNumber" className='text-lg text-gray-500'>Phone Number:</label>
-                                        <input
-                                        id="phoneNumber"
-                                        type="phoneNumber"
-                                        value={user.phoneNumber}
-                                        className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                        // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
-                                        onChange={(e) => setUser({ ...user, phoneNumber: e.target.value })}
-                                        placeholder="phoneNumber"
-                                        />
+
+                                    <div className="mt-4">
+                                        <label htmlFor="religion" className="block text-lg font-medium text-gray-600 dark:text-gray-400">
+                                            Student Religion:
+                                        </label>
+                                        <select
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-400 bg-clip-padding appearance-none"
+                                            // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
+                                            name="religion"
+                                            type="text"
+                                            onChange={(e) => setUser({...user, religion: e.target.value})}
+                                            value={user.religion}
+                                            required
+                                        >
+                                            <option value="" disabled>Select Student religion</option>
+                                            <option value="Christianity">Christianity</option>
+                                            <option value="Islamic">Islamic</option>
+                                        </select>
                                     </div>
+                                
+                                    
                                 </div>
 
                                 <div className="grid md:grid-cols-3 gap-x-2 mb-4 w-full mt-4">
                                     
                                     <div className="mb-4">
-                                        <label htmlFor="studentLocation" className='text-lg text-gray-500'>studentLocation:</label>
+                                        <label htmlFor="studentLocation" className='text-lg text-gray-400'>studentLocation:</label>
                                         <input
-                                        id="studentLocation"
-                                        type="studentLocation"
-                                        value={user.studentLocation}
-                                        className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                        onChange={(e) => setUser({ ...user, studentLocation: e.target.value })}
-                                        placeholder="studentLocation"
+                                            id="studentLocation"
+                                            type="studentLocation"
+                                            value={user.studentLocation}
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-400 bg-clip-padding appearance-none"
+                                            onChange={(e) => setUser({ ...user, studentLocation: e.target.value })}
+                                            placeholder="studentLocation"
                                         />
                                     </div>
                                     <div className="mt-4">
-                                        <label htmlFor="classLevel" className="block text-lg font-medium text-gray-600 dark:text-gray-300">
+                                        <label htmlFor="classLevel" className="block text-lg font-medium text-gray-600 dark:text-gray-400">
                                             Student Gender:
                                         </label>
                                         <select
-                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-400 bg-clip-padding appearance-none"
                                             // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
                                             name="gender"
                                             type="text"
@@ -376,11 +378,11 @@ const RegisterStudents = () => {
                                         </select>
                                     </div>
                                     <div className="mt-4">
-                                        <label htmlFor="year" className="block text-lg font-medium text-gray-600 dark:text-gray-300">
+                                        <label htmlFor="year" className="block text-lg font-medium text-gray-600 dark:text-gray-400">
                                             Student Year:
                                         </label>
                                         <select
-                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-400 bg-clip-padding appearance-none"
                                             name="year"
                                             type="number"
                                             onChange={(e) => setUser({...user, year: e.target.value})}

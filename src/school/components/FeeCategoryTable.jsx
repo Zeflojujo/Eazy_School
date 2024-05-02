@@ -7,11 +7,12 @@ import swal from "sweetalert";
 import { BiEdit } from 'react-icons/bi';
 
 const FeeCategoryTable = () => {
-  const [feeCategories] = useGlobalState("feeCategories");
   const [studentFeeAmounts] = useGlobalState("studentFeeAmounts");
   const [hoveredRow, setHoveredRow] = useState(null);
-  const [allFeeAmounts, setAllFeeAmounts] = useState([])
+  const [allFeeCategoryAmount, setAllFeeCategory] = useState([])
   const [end, setEnd] = useState(6)
+
+  console.log(studentFeeAmounts)
 
   const handleMouseEnter = (rowIndex) => {
     setHoveredRow(rowIndex);
@@ -21,12 +22,12 @@ const FeeCategoryTable = () => {
     setHoveredRow(null);
   };
 
-  const getFeeAmounts = () => {
+  const getFeeCategoryAmounts = () => {
     return studentFeeAmounts.slice(0, end)
   }
 
   useEffect(() => {
-    setAllFeeAmounts(getFeeAmounts())
+    setAllFeeCategory(getFeeCategoryAmounts())
     console.log(studentFeeAmounts)
   }, [studentFeeAmounts, end])
 
@@ -88,17 +89,17 @@ const FeeCategoryTable = () => {
               </tr>
             </thead>
             <tbody>
-              {allFeeAmounts.map((feeAmount, index) => (
+              {allFeeCategoryAmount.map((feeCategoryAmount, index) => (
                 <tr
                   key={index}
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{index + 1}</td>
-                  <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{feeAmount.feeAmountName}</td>
+                  <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{feeCategoryAmount.feeAmountName}</td>
 
-                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteFeeAmountsHandler(feeAmount.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><BiEdit size={17} />Edit</button></td>
-                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteFeeAmountsHandler(feeAmount.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><MdDelete size={17} />Delete</button></td>
+                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteFeeAmountsHandler(feeCategoryAmount.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><BiEdit size={17} />Edit</button></td>
+                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteFeeAmountsHandler(feeCategoryAmount.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><MdDelete size={17} />Delete</button></td>
                 </tr>
               ))}
             </tbody>

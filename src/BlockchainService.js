@@ -589,7 +589,7 @@ const displayManufacturersData = async () => {
         // console.log("productsArray: ", productsArray)
     
         if (studentFeeAmountArray.length === 0) {
-          console.log("NO DATA");
+          console.log("DATA HAKUNA");
         }
     
         for (let i = 0; i < studentFeeAmountArray.length; i++) {
@@ -597,9 +597,9 @@ const displayManufacturersData = async () => {
 
           const _studentFeeAmountDetails = await contract.methods.getFeeAmount(studentFeeAmount).call();
           // console.log("let me see product details: ",_studentFeeAmountDetails);
-          if (!_studentFeeAmountDetails.isDeleted) {
+          // if (!_studentFeeAmountDetails.isDeleted) {
             studentFeeAmountData.push(_studentFeeAmountDetails);
-          }
+          // }
         }
     
         setGlobalState("studentFeeAmounts", studentFeeAmountData);
