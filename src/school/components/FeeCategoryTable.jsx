@@ -7,12 +7,10 @@ import swal from "sweetalert";
 import { BiEdit } from 'react-icons/bi';
 
 const FeeCategoryTable = () => {
-  const [studentFeeAmounts] = useGlobalState("studentFeeAmounts");
+  const [feeCategories] = useGlobalState("feeCategories");
   const [hoveredRow, setHoveredRow] = useState(null);
-  const [allFeeCategoryAmount, setAllFeeCategory] = useState([])
+  const [allFeeCategory, setAllFeeCategory] = useState([])
   const [end, setEnd] = useState(6)
-
-  console.log(studentFeeAmounts)
 
   const handleMouseEnter = (rowIndex) => {
     setHoveredRow(rowIndex);
@@ -22,14 +20,14 @@ const FeeCategoryTable = () => {
     setHoveredRow(null);
   };
 
-  const getFeeCategoryAmounts = () => {
-    return studentFeeAmounts.slice(0, end)
+  const getFeeCategories = () => {
+    return feeCategories.slice(0, end)
   }
 
   useEffect(() => {
-    setAllFeeCategory(getFeeCategoryAmounts())
-    console.log(studentFeeAmounts)
-  }, [studentFeeAmounts, end])
+    setAllFeeCategory(getFeeCategories())
+    console.log(feeCategories)
+  }, [feeCategories, end])
 
   const deleteFeeAmountsHandler = async (feeCategorieId) => {
     console.log("The feeCategorieId deleted is: ", feeCategorieId)
@@ -89,17 +87,17 @@ const FeeCategoryTable = () => {
               </tr>
             </thead>
             <tbody>
-              {allFeeCategoryAmount.map((feeCategoryAmount, index) => (
+              {allFeeCategory.map((feeCategory, index) => (
                 <tr
                   key={index}
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{index + 1}</td>
-                  <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{feeCategoryAmount.feeAmountName}</td>
+                  <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{feeCategory.feeCategoryName}</td>
 
-                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteFeeAmountsHandler(feeCategoryAmount.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><BiEdit size={17} />Edit</button></td>
-                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteFeeAmountsHandler(feeCategoryAmount.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><MdDelete size={17} />Delete</button></td>
+                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteFeeAmountsHandler(feeCategory.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><BiEdit size={17} />Edit</button></td>
+                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteFeeAmountsHandler(feeCategory.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><MdDelete size={17} />Delete</button></td>
                 </tr>
               ))}
             </tbody>

@@ -491,11 +491,11 @@ const displayManufacturersData = async () => {
         const qrCodeHashArray = await contract.methods.getManfItemIDList().call();
     
         const qrCodeData = [];
-        console.log("QrCodeData: ", qrCodeHashArray)
+        // console.log("QrCodeData: ", qrCodeHashArray)
     
-        if (qrCodeHashArray.length === 0) {
-          console.log("NO DATA");
-        }
+        // if (qrCodeHashArray.length === 0) {
+        //   console.log("NO DATA");
+        // }
     
         for (let i = 0; i < qrCodeHashArray.length; i++) {
           const qrCodeHashID = qrCodeHashArray[i];
@@ -525,9 +525,9 @@ const displayManufacturersData = async () => {
         const studentClassData = [];
         // console.log("productsArray: ", productsArray)
     
-        if (studentClassArray.length === 0) {
-          console.log("NO DATA");
-        }
+        // if (studentClassArray.length === 0) {
+        //   console.log("NO DATA");
+        // }
     
         for (let i = 0; i < studentClassArray.length; i++) {
           const studentClass = studentClassArray[i];
@@ -556,9 +556,9 @@ const displayManufacturersData = async () => {
         const studentYearData = [];
         // console.log("productsArray: ", productsArray)
     
-        if (studentYearArray.length === 0) {
-          console.log("NO DATA");
-        }
+        // if (studentYearArray.length === 0) {
+        //   console.log("NO DATA");
+        // }
     
         for (let i = 0; i < studentYearArray.length; i++) {
           const studentYear = studentYearArray[i];
@@ -586,7 +586,7 @@ const displayManufacturersData = async () => {
         const studentFeeAmountArray = await contract.methods.getFeeAmountArray().call();
     
         const studentFeeAmountData = [];
-        // console.log("productsArray: ", productsArray)
+        console.log("studentFeeAmountArray: ", studentFeeAmountArray)
     
         if (studentFeeAmountArray.length === 0) {
           console.log("DATA HAKUNA");
@@ -619,9 +619,9 @@ const displayManufacturersData = async () => {
         const studentCombinationData = [];
         // console.log("studentCombinationArray: ", studentCombinationArray)
     
-        if (studentCombinationArray.length === 0) {
-          console.log("NO DATA");
-        }
+        // if (studentCombinationArray.length === 0) {
+        //   console.log("NO DATA");
+        // }
     
         for (let i = 0; i < studentCombinationArray.length; i++) {
           const studentCombination = studentCombinationArray[i];
@@ -648,11 +648,11 @@ const displayManufacturersData = async () => {
         const studentExamTypeArray = await contract.methods.getExamTypeArray().call();
     
         const studentExamTypeData = [];
-        console.log("studentExamTypeArray: ", studentExamTypeArray)
+        // console.log("studentExamTypeArray: ", studentExamTypeArray)
     
-        if (studentExamTypeArray.length === 0) {
-          console.log("NO DATA");
-        }
+        // if (studentExamTypeArray.length === 0) {
+        //   console.log("NO DATA");
+        // }
     
         for (let i = 0; i < studentExamTypeArray.length; i++) {
           const studentExamType = studentExamTypeArray[i];

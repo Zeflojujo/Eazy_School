@@ -7,10 +7,9 @@ import swal from "sweetalert";
 import { BiEdit } from 'react-icons/bi';
 
 const FeeAmountTable = () => {
-  const [students] = useGlobalState("students");
-  const [feeCategories] = useGlobalState("feeCategories");
+  const [studentFeeAmounts] = useGlobalState("studentFeeAmounts");
   const [hoveredRow, setHoveredRow] = useState(null);
-  const [allStudents, setAllStudents] = useState([])
+  const [allStudentFeeAmounts, setAllStudentFeeAmounts] = useState([])
   const [end, setEnd] = useState(6)
 
   const handleMouseEnter = (rowIndex) => {
@@ -22,13 +21,13 @@ const FeeAmountTable = () => {
   };
 
   const getStudents = () => {
-    return students.slice(0, end)
+    return studentFeeAmounts.slice(0, end)
   }
 
   useEffect(() => {
-    setAllStudents(getStudents())
-    console.log(students)
-  }, [students, end])
+    setAllStudentFeeAmounts(getStudents())
+    console.log(studentFeeAmounts)
+  }, [studentFeeAmounts, end])
 
   const deleteStudentHandler = async (studentAddress) => {
     console.log("donor deleted public address is: ", studentAddress)
@@ -90,19 +89,19 @@ const FeeAmountTable = () => {
               </tr>
             </thead>
             <tbody>
-              {allStudents.map((student, index) => (
+              {allStudentFeeAmounts.map((feeCategoryAmount, index) => (
                 <tr
                   key={index}
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{index + 1}</td>
-                  <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{student.categoryName}</td>
-                  <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{student.studentClass}</td>
-                  <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{student.amount}</td>
+                  <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{feeCategoryAmount.categoryName}</td>
+                  <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{feeCategoryAmount.studentClass}</td>
+                  <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{feeCategoryAmount.amount.toString()}</td>
 
-                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteStudentHandler(student.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><BiEdit size={17} />Edit</button></td>
-                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteStudentHandler(student.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><MdDelete size={17} />Delete</button></td>
+                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteStudentHandler(feeCategoryAmount.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><BiEdit size={17} />Edit</button></td>
+                  <td className={`w-20 py-2 px-4 text-gray-700 text-base border-b ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}><button onClick={() => deleteStudentHandler(feeCategoryAmount.feeAmountID)} className='border border-solid bg-red-400 hover:bg-red-500 active:bg-red-400 px-3 py-1 border-r-2 text-white dark:bg-transparent dark:text-gray-500 gap-1 flex items-center dark:border-red-500'><MdDelete size={17} />Delete</button></td>
                 </tr>
               ))}
             </tbody>

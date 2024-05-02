@@ -87,7 +87,7 @@ contract Admins is AccessControl {
     uint256[] examTypeArray;
 
     uint256 feeCategoryId;
-    uint256 feeAmountId;
+    uint256 feeAmountID;
     uint256 classId;
     uint256 yearId;
     uint256 combinationId;
@@ -273,16 +273,16 @@ contract Admins is AccessControl {
         feeCategoryName = feeCategory.feeCategoryName;
     }
 
-    function addFeeAmount(string memory _feeCategoryName, string memory _studentClass, uint _amount) external {
-        feeAmountId++;
-        feeAmounts[feeAmountId] = FeeAmount({
-            feeAmountId: feeAmountId,
+    function addFeeAmount(string memory _feeCategoryName, string memory _studentClass, uint256 _amount) external {
+        feeAmountID++;
+        feeAmounts[feeAmountID] = FeeAmount({
+            feeAmountId: feeAmountID,
             feeCategoryName: _feeCategoryName,
             studentClass: _studentClass,
             amount: _amount
         });
 
-        feeAmounArray.push(feeAmountId);
+        feeAmounArray.push(feeAmountID);
     }
 
     function getFeeAmountArray() external view returns(uint256[] memory) {
