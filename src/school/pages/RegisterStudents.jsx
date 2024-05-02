@@ -9,7 +9,7 @@ import {
     } from '../../store'
 import { useEffect, useState } from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { registerStudent } from '../../BlockchainService'
+import { registerStudents } from '../../BlockchainService'
 import medicalCenter from "../../assets/study.jpg"
 import Alert from "../../+homedirectory/components/Alert"
 import Loading from "../../+homedirectory/components/Loading"
@@ -36,7 +36,6 @@ const RegisterStudents = () => {
         firstName: "",
         middleName: "",
         lastName: "",
-        examNumber: "",
         gender: "",
         religion: "",
         dob: "",
@@ -60,45 +59,6 @@ const RegisterStudents = () => {
         console.log(user)
     }, [user, years])
 
-    const handleManugacturerLogin = async (e) => {
-        e.preventDefault();
-
-        setGlobalState('loading', { show: true, msg: 'System Owner is Login...' })
-
-        try {
-            const registerManCredentials = {
-                publicAddress: user.publicAddress,
-                firstName: user.firstName,
-                middleName: user.middleName,
-                lastName: user.lastName,
-                examNumber: user.examNumber,
-                gender: user.gender,
-                religion: user.religion,
-                dob: user.dob,
-                classLevel: user.classLevel,
-                combination: user.combination,
-                phoneNumber: user.phoneNumber,
-                studentLocation: user.studentLocation,
-                year: user.year
-            }
-
-            setLoadingMsg('Intializing transaction...')
-            const result = await registerStudent(registerManCredentials)
-            console.log(result)
-
-            if (result) {
-            setAlert('Manufacturer is registered successfully...', 'green')
-            resetForm()
-            } else {
-            throw Error
-            }
-
-        } catch (error) {
-            console.log('Error registering donor: ', error)
-            setAlert('Manufacturer registration failed..!', 'red')
-        }
-    }
-
 
     const toggleSidebar = () => {
         setSidebarOpen(!isSidebarOpen)
@@ -116,7 +76,6 @@ const RegisterStudents = () => {
             firstName: user.firstName,
             middleName: user.middleName,
             lastName: user.lastName,
-            examNumber: user.examNumber,
             gender: user.gender,
             religion: user.religion,
             dob: user.dob,
@@ -124,11 +83,11 @@ const RegisterStudents = () => {
             combination: user.combination,
             phoneNumber: user.phoneNumber,
             studentLocation: user.studentLocation,
-            year: user.year,
+            year: Number(user.year),
             password: user.lastName
         }
 
-        if (!user.publicAddress === "" || !user.firstName === "" || !user.middleName === "" || !user.lastName === "" || !user.examNumber === "" || !user.gender === ""
+        if (!user.publicAddress === "" || !user.firstName === "" || !user.middleName === "" || !user.lastName === "" || !user.gender === ""
         || !user.religion === "" || !user.dob === "" || !user.classLevel || !user.combination === "" || !user.phoneNumber === ""  || !user.studentLocation === "" || !user.year === "") return
 
         setGlobalState('modal', 'scale-0')
@@ -138,7 +97,7 @@ const RegisterStudents = () => {
 
             setLoadingMsg('Intializing transaction...')
             // const password = user.lastName;
-            const result = await registerStudent(registerStudentCredentials)
+            const result = await registerStudents(registerStudentCredentials)
             console.log(result)
 
             if (result) {
@@ -161,13 +120,17 @@ const RegisterStudents = () => {
         }
     }
 
+    const closeModal = () => {
+        setGlobalState('modal', 'scale-0')
+        resetForm()
+    }
+
     const resetForm = () => {
         setUser({
             studentAddress: "",
             firstName: "",
             middleName: "",
             lastName: "",
-            examNumber: "",
             gender: "",
             religion: "",
             dob: "",
@@ -216,7 +179,16 @@ const RegisterStudents = () => {
                     >
 
                         <div className="shadow-lg rounded-xl w-11/12 md:w-4/5 h-7/12 p-6 bg-gray-100 shadow-blue-600 dark:bg-[#232b35] dark:shadow-blue-600">
-                            <h1 className="text-2xl md:text-3xl lg:text-3.5xl text-gray-400 font-semibold mb-4">Student Registration Form</h1>
+                            <div className="flex flex-row justify-between items-center">
+                                <h1 className="text-2xl md:text-3xl lg:text-3.5xl text-gray-400 font-semibold mb-4">Student Registration Form</h1>
+                                <button
+                                    type="button"
+                                    onClick={closeModal}
+                                    className="border-0 bg-transparent focus:outline-none"
+                                >
+                                    <FaTimes className="text-gray-400" />
+                                </button>
+                            </div>
                             <hr className="mb-3 text-gray-600 border-2 border-gray-500" />
 
                             <form className="text-lg" onSubmit={handleStudentRegistration}>
@@ -345,7 +317,6 @@ const RegisterStudents = () => {
                                         </label>
                                         <select
                                             className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                            // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
                                             name="combination"
                                             type="text"
                                             onChange={(e) => setUser({...user, combination: e.target.value})}
@@ -360,7 +331,7 @@ const RegisterStudents = () => {
                                     </div>
                                 
                                     <div className="mb-4">
-                                        <label htmlFor="phoneNumber" className='text-lg text-gray-500'>phoneNumber:</label>
+                                        <label htmlFor="phoneNumber" className='text-lg text-gray-500'>Phone Number:</label>
                                         <input
                                         id="phoneNumber"
                                         type="phoneNumber"
@@ -374,18 +345,7 @@ const RegisterStudents = () => {
                                 </div>
 
                                 <div className="grid md:grid-cols-3 gap-x-2 mb-4 w-full mt-4">
-                                    <div className="mb-4">
-                                        <label htmlFor="examNumber" className='text-lg text-gray-500'>Exam Number:</label>
-                                        <input
-                                            id="examNumber"
-                                            type="examNumber"
-                                            value={user.examNumber}
-                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                            // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
-                                            onChange={(e) => setUser({ ...user, examNumber: e.target.value })}
-                                            placeholder="examNumber"
-                                        />
-                                    </div>
+                                    
                                     <div className="mb-4">
                                         <label htmlFor="studentLocation" className='text-lg text-gray-500'>studentLocation:</label>
                                         <input
@@ -415,9 +375,6 @@ const RegisterStudents = () => {
                                             <option value="Female">Female</option>
                                         </select>
                                     </div>
-
-                                </div>
-                                <div>
                                     <div className="mt-4">
                                         <label htmlFor="year" className="block text-lg font-medium text-gray-600 dark:text-gray-300">
                                             Student Year:
@@ -425,16 +382,18 @@ const RegisterStudents = () => {
                                         <select
                                             className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
                                             name="year"
+                                            type="number"
                                             onChange={(e) => setUser({...user, year: e.target.value})}
                                             value={user.year}
                                             required
                                         >
                                             <option value="" disabled>Select Year of Study</option>
-                                            {allYears.map((years, index) => (
-                                                <option key={index} value={years.year}>{years.year}</option>
+                                            {years.map((year, index) => (
+                                                <option key={index} value={year.year.toString()}>{year.year.toString()}</option>
                                             ))}
                                         </select>
                                     </div>
+
                                 </div>
 
                                 <button

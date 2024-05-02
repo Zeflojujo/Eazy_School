@@ -23,7 +23,7 @@ contract Students is AccessControl {
     struct Student {
         address studentAddress;
         string firstName;
-        string MiddleName;
+        string middleName;
         string lastName;
         string examNumber;
         string gender;
@@ -45,28 +45,30 @@ contract Students is AccessControl {
     mapping(address => Student) public students;
     address[] public studentAddressArray;
 
+    uint256 studentId;
+
     function registerStudent(
         address _studentAddress, 
-        string memory _fullName, 
-        string memory _fatherName;
-        string memory _motherName;
-        string memory _examNumber;
-        string memory _gender;
-        string memory _religion;
+        string memory _firstName, 
+        string memory _middleName,
+        string memory _lastName,
+        string memory _gender,
+        string memory _religion,
         string memory _dob, 
-        string memory _classLevel;
-        string memory _combination;
-        string memory _studentLocation;
+        string memory _classLevel,
+        string memory _combination,
+        string memory _studentLocation,
         uint256 _year,
         string memory _phoneNumber, 
         string memory _password
         ) public {
+            studentId++;
             Student storage student = students[_studentAddress];
             student.studentAddress = _studentAddress;
-            student.fullName = _fullName;
-            student.fatherName = _fatherName;
-            student.motherName = _motherName;
-            student.examNumber = _examNumber;
+            student.firstName = _firstName;
+            student.middleName = _middleName;
+            student.lastName = _lastName;
+            student.examNumber = "s1253"._year.studentId;
             student.gender = _gender;
             student.religion = _religion;
             student.dob = _dob;
@@ -125,7 +127,7 @@ contract Students is AccessControl {
 
     function getStudent(address _studentAddress) external view returns(
         address studentAddress, 
-        string memory fullName, 
+        string memory firstName, 
         string memory examNumber, 
         string memory classLevel, 
         uint256 age, 
@@ -134,7 +136,7 @@ contract Students is AccessControl {
         ) {
         Student storage student = students[_studentAddress];
         studentAddress = student.studentAddress;
-        fullName = student.fullName;
+        firstName = student.firstName;
         examNumber = student.examNumber;
         classLevel = student.standardLevel;
         age = student.age;
@@ -162,18 +164,6 @@ contract Students is AccessControl {
             scores.grade = "D";
         } else {
             scores.grade = "F";
-        }
-    }
-
-    function parseCombination(string memory _combination) private pure returns (Combination) {
-        if (keccak256(bytes(_combination)) == keccak256(bytes("Science"))) {
-            return Combination.Science;
-        } else if (keccak256(bytes(_combination)) == keccak256(bytes("Arts"))) {
-            return Combination.Arts;
-        } else if (keccak256(bytes(_combination)) == keccak256(bytes("Business"))) {
-            return Combination.Business;
-        }else{
-            return Combination.None;
         }
     }
 }

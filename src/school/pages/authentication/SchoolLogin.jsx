@@ -13,6 +13,7 @@ import Loading from '../../../+homedirectory/components/Loading';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import heroGradu from "../../../assets/gradu.jpg"
+import { systemOwnerLogin } from '../../../BlockchainService';
 
 const SchoolLogin = () => {
   const navigate = useNavigate();
@@ -46,13 +47,13 @@ const SchoolLogin = () => {
       const LoginCredentials = { publicAddress: user.publicAddress, password: user.password }
 
       setLoadingMsg('Intializing transaction...')
-      const result = await SchoolLogin(LoginCredentials)
+      const result = await systemOwnerLogin(LoginCredentials)
       console.log(result)
 
       if (result) {
         setAlert('Login successfully...', 'green')
         setTimeout(() => {
-          navigate('/manufacturer/dashboard');
+          navigate('/school/dashboard');
           // window.location.href = "/damu-salama/dashboard"
         }, 2000);
         resetForm()

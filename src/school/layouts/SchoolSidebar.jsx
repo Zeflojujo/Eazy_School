@@ -21,7 +21,7 @@ const SchoolSidebar = ({ isOpen, toggleSidebar }) => {
         // { title: "Manage User", link: "/school/admin", icon: <FaUser /> },
         // { title: "Mange Profile", link: "/school/profile", icon: <FaInfoCircle /> },
         { title: "Setup Management", link: "/school/student-class", icon: <FaCrosshairs /> },
-        { title: "Manage Student", link: "/school/student", icon: <PiStudentBold /> },
+        { title: "Manage Student", link: "/school/students", icon: <PiStudentBold /> },
         { title: "Manage Teacher", link: "/school/teacher", icon: <GiTeacher /> },
         { title: "Manage Accountant", link: "/school/accountant", icon: <MdAccountBalance /> },
         // { title: "Blood Checking", link: "/medical-center/donate-blood-to-medicalcenter", icon: <FaKeycdn /> },

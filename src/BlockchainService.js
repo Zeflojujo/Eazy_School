@@ -154,20 +154,27 @@ const verifyPaymentCheck = async ({
   }
 }
 
-const registerStudent = async ({
-  publicAddress,
-  name,
-  examNumber,
-  classLevel,
-  age,
-  phoneNumber,
-  password
+const registerStudents = async ({
+    publicAddress,
+    firstName,
+    middleName,
+    lastName,
+    examNumber,
+    gender,
+    religion,
+    dob,
+    classLevel,
+    combination,
+    phoneNumber,
+    studentLocation,
+    year,
+    password
 }) => {
   try {
     const contract = await getStudentContract();
     const account = getGlobalState("connectedAccount");
 
-    await contract.methods.registerStudent(publicAddress, name, examNumber, classLevel, age, phoneNumber, password).send({from: account, gas: 1000000})
+    await contract.methods.registerStudent(publicAddress, firstName, middleName, lastName, examNumber, gender, religion, dob, classLevel, combination, phoneNumber, studentLocation, year, password).send({from: account, gas: 1000000})
     
     return true;
   } catch (error) {
@@ -383,7 +390,7 @@ const addFeeCategoryAmount = async ({
 
 const systemOwnerLogin = async ({ publicAddress, password }) => {
   try {
-    const contract = await getStudentContract();
+    const contract = await getAdminContract();
     const account = getGlobalState("connectedAccount");
 
     await contract.methods
@@ -933,7 +940,7 @@ export {
     studentLogin,
     teacherLogin,
     verifyPaymentCheck,
-    registerStudent,
+    registerStudents,
     registerTeacher,
     addStudentClass,
     addStudentYear,

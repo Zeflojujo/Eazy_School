@@ -8,7 +8,7 @@ import {
 } from '../../store'
 import { useState } from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { registerStudent } from '../../BlockchainService'
+import { registerStudents } from '../../BlockchainService'
 import medicalCenter from "../../assets/study.jpg"
 import Alert from "../../+homedirectory/components/Alert"
 import Loading from "../../+homedirectory/components/Loading"
@@ -46,7 +46,7 @@ const RegisterStudent = () => {
 
             setLoadingMsg('Intializing transaction...')
             const password = "12345678"
-            const result = await registerStudent({ publicAddress, name, examNumber, classLevel, age, phoneNumber, password })
+            const result = await registerStudents({ publicAddress, name, examNumber, classLevel, age, phoneNumber, password })
             console.log(result)
 
             if (result) {
