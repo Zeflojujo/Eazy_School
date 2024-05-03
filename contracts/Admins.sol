@@ -61,6 +61,12 @@ contract Admins is AccessControl {
         uint256 passMark;
     }
 
+    struct Announcement {
+        uint256 announcementId;
+        string title;
+        string description;
+    }
+
 
     SystemOwner private sysowner;
 
@@ -75,6 +81,7 @@ contract Admins is AccessControl {
     mapping(uint256 => SubjectDetail) private subjectDetails;
     mapping(uint256 => Designation) private designations;
     mapping(uint256 => ExamType) private examTypes;
+    mapping(uint256 => Announcement) private announcements;
 
     uint256[] studentClassArray;
     uint256[] feeCategoryArray;
@@ -85,6 +92,7 @@ contract Admins is AccessControl {
     uint256[] subjectDetailArray;
     uint256[] designationArray;
     uint256[] examTypeArray;
+    uint256[] announcementArray;
 
     uint256 feeCategoryId;
     uint256 feeAmountID;
@@ -95,6 +103,7 @@ contract Admins is AccessControl {
     uint256 subjectDetailId;
     uint256 designationId;
     uint256 examTypeId;
+    uint256 announcementID;
 
     constructor() {
         sysowner = SystemOwner(owner, "admin", false, true);
@@ -103,6 +112,31 @@ contract Admins is AccessControl {
 
     function changeAdmin(address newAdmin) public onlyOwner {
         owner = newAdmin;
+    }
+
+    function createAnnouncement(string memory _title, string memory _description) external {
+        announcementID++;
+        announcements[announcementID] = Announcement({
+            announcementId: announcementID,
+            title: _title,
+            description: _description
+        });
+        announcementArray.push(announcementID);
+    }
+
+    function getAnnouncementArray() external view returns(uint256[] memory) {
+        return announcementArray;
+    }
+
+    function getAnnouncements(uint256 _announcementId) external view returns(
+        uint256 announcementIDD,
+        string memory title,
+        string memory description
+    ) {
+        Announcement memory announcement = announcements[_announcementId];
+        announcementIDD = announcement.announcementId;
+        title = announcement.title;
+        description = announcement.description;
     }
 
     function addStudentClass(string memory _classLevel) external {

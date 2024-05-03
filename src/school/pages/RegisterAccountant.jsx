@@ -8,7 +8,7 @@ import {
 } from '../../store'
 import { useState } from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { registerStudent, registerTeacher } from '../../BlockchainService'
+import { registerAccountant, registerStudent, registerTeacher } from '../../BlockchainService'
 import medicalCenter from "../../assets/background.jpg"
 import Alert from "../../+homedirectory/components/Alert"
 import Loading from "../../+homedirectory/components/Loading"
@@ -29,7 +29,7 @@ const RegisterAccountant = () => {
         setSidebarOpen(!isSidebarOpen)
     }
 
-    const handleRegisterMedicalStaffModel = () => {
+    const handleRegisterAccountantModal = () => {
         setGlobalState('modal', 'scale-100')
     }
 
@@ -39,20 +39,20 @@ const RegisterAccountant = () => {
         if (!publicAddress || !name || !email || !phoneNumber) return
 
         setGlobalState('modal', 'scale-0')
-        setGlobalState('loading', { show: true, msg: 'Registering Student...' })
+        setGlobalState('loading', { show: true, msg: 'Registering Accountant...' })
 
         try {
 
             setLoadingMsg('Executing transaction...')
             const password = "12345678"
-            const result = await registerTeacher({ publicAddress, name, email, phoneNumber, password })
+            const result = await registerAccountant({ publicAddress, name, email, phoneNumber, password })
             console.log("result: ", result)
 
             if (result) {
                 resetForm()
                 swal({  
                     title: "Good job!",  
-                    text: "Teacher registered successfully...!",  
+                    text: "Accountant registered successfully...!",  
                     icon: "success",  
                     button: "Okay",  
                 }); 
@@ -64,7 +64,7 @@ const RegisterAccountant = () => {
 
         } catch (error) {
             console.log('Error registering teacher: ', error);
-            setAlert('Teacher registration failed...', 'red')
+            setAlert('Accountant registration failed...', 'red')
         }
     }
 
@@ -76,6 +76,7 @@ const RegisterAccountant = () => {
     const resetForm = () => {
         setPublicAddress('')
         setName('')
+        setEmail('')
         setPhoneNumber('')
     }
 
@@ -99,7 +100,7 @@ const RegisterAccountant = () => {
                         {/* MedicalCenterTable component is included */}
                         <div className="w-4/5">
                             <button
-                                onClick={handleRegisterMedicalStaffModel}
+                                onClick={handleRegisterAccountantModal}
                                 className="bg-blue-500 mb-3 text-lg float-end text-white dark:bg-transparent hover:text-white dark:shadow-md dark:shadow-light-white dark:border dark:border-blue-500 dark:text-gray-500 hover:bg-blue-700  font-bold py-2 px-4 rounded-lg top-4 right-4"
                             >
                                 Add Accountant
@@ -115,7 +116,7 @@ const RegisterAccountant = () => {
                                     justify-center bg-black bg-opacity-50 transform
                                     transition-transform duration-300 ${modal}`}
                     >
-                        <div className="shadow-lg rounded-xl w-11/12 md:w-2/5 h-7/12 p-6 bg-gray-100 shadow-blue-600 dark:bg-[#151c25] dark:shadow-[#e32970]">
+                        <div className="shadow-md rounded-xl w-11/12 md:w-2/5 h-7/12 p-6 bg-gray-100 shadow-blue-600 dark:bg-[#151c25] dark:shadow-blue-600">
                             <form className="flex flex-col">
                                 <div className="flex flex-row justify-center items-center rounded-xl mt-5">
                                     <div className="shrink-0 rounded-xl overflow-hidden h-32 w-full mb-8">

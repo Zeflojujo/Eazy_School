@@ -59,7 +59,6 @@ contract Students is AccessControl {
         string memory _combination,
         string memory _studentLocation,
         uint256 _year,
-        string memory _phoneNumber, 
         string memory _password
         ) public {
             studentId++;
@@ -76,7 +75,6 @@ contract Students is AccessControl {
             student.combination = _combination;
             student.studentLocation = _studentLocation;
             student.year = _year;
-            student.phoneNumber = _phoneNumber;
             student.password = _password;
             student.isRegistered = true;
             student.isLogin = false;
@@ -138,7 +136,6 @@ contract Students is AccessControl {
         string memory combination, 
         string memory studentLocation, 
         uint256 year, 
-        string memory phoneNumber,
         bool isDeleted 
         ) {
         Student storage student = students[_studentAddress];
@@ -154,7 +151,6 @@ contract Students is AccessControl {
         combination = student.combination;
         studentLocation = student.studentLocation;
         year = student.year;
-        phoneNumber = student.phoneNumber;
         isDeleted = student.isDeleted;
     }
 

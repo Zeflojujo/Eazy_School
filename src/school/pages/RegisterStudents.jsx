@@ -41,7 +41,6 @@ const RegisterStudents = () => {
         dob: "",
         classLevel: "",
         combination: "",
-        phoneNumber: "",
         studentLocation: "",
         year: "",
     })
@@ -51,7 +50,7 @@ const RegisterStudents = () => {
         setAllCombination(combinations)
         setAllClassLevel(classLevels)
         if (user.publicAddress === "" || user.firstName === "" || user.middleName === "" || user.lastName === "" || user.examNumber === "" || user.gender === ""
-            || user.religion === "" || user.dob === "" || !user.classLevel || user.combination === "" || user.phoneNumber === ""  || user.studentLocation === "" || user.year === "") {
+            || user.religion === "" || user.dob === "" || !user.classLevel || user.combination === "" || user.studentLocation === "" || user.year === "") {
             setIsDisabled(true);
         } else {
             setIsDisabled(false)
@@ -81,14 +80,13 @@ const RegisterStudents = () => {
             dob: user.dob,
             classLevel: user.classLevel,
             combination: user.combination,
-            phoneNumber: user.phoneNumber,
             studentLocation: user.studentLocation,
             year: Number(user.year),
             password: user.lastName
         }
 
         if (!user.publicAddress === "" || !user.firstName === "" || !user.middleName === "" || !user.lastName === "" || !user.gender === ""
-        || !user.religion === "" || !user.dob === "" || !user.classLevel || !user.combination === "" || !user.phoneNumber === ""  || !user.studentLocation === "" || !user.year === "") return
+        || !user.religion === "" || !user.dob === "" || !user.classLevel || !user.combination === ""  || !user.studentLocation === "" || !user.year === "") return
 
         setGlobalState('modal', 'scale-0')
         setGlobalState('loading', { show: true, msg: 'Registering Student...' })
@@ -115,8 +113,8 @@ const RegisterStudents = () => {
             }
 
         } catch (error) {
-            console.log('Error registering medical center file: ', error)
-            setAlert('MedicalCenter registration failed...', 'red')
+            console.log('Error registering student file: ', error)
+            setAlert('Student registration failed...', 'red')
         }
     }
 
@@ -136,7 +134,6 @@ const RegisterStudents = () => {
             dob: "",
             classLevel: "",
             combination: "",
-            phoneNumber: "",
             studentLocation: "",
             year: "",
         })
@@ -237,7 +234,7 @@ const RegisterStudents = () => {
                                     </div>
                                 </div>
 
-                                <div className="grid md:grid-cols-3 gap-x-2 mb-4 w-full mt-4">
+                                <div className="grid md:grid-cols-2 gap-x-2 mb-4 w-full mt-4">
                                     <div className="mb-4">
                                         <label htmlFor="lastName" className='text-gray-400 text-lg'>Last Name:</label>
                                         <input
@@ -248,19 +245,6 @@ const RegisterStudents = () => {
                                             // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
                                             onChange={(e) => setUser({ ...user, lastName: e.target.value })}
                                             placeholder="lastName"
-                                        />
-                                    </div>
-
-                                    <div className="mb-4">
-                                        <label htmlFor="phoneNumber" className='text-lg text-gray-400'>Phone Number:</label>
-                                        <input
-                                            id="phoneNumber"
-                                            type="phoneNumber"
-                                            value={user.phoneNumber}
-                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-400 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
-                                            // className="w-full border-2 border-gray-500 focus:border-blue-300 py-2 px-4 bg-gray-300 mt-2 text-lg text-gray-900 rounded-lg"
-                                            onChange={(e) => setUser({ ...user, phoneNumber: e.target.value })}
-                                            placeholder="phoneNumber"
                                         />
                                     </div>
 

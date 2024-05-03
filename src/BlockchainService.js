@@ -164,7 +164,6 @@ const registerStudents = async ({
     dob,
     classLevel,
     combination,
-    phoneNumber,
     studentLocation,
     year,
     password
@@ -173,7 +172,7 @@ const registerStudents = async ({
     const contract = await getStudentContract();
     const account = getGlobalState("connectedAccount");
 
-    await contract.methods.registerStudent(publicAddress, firstName, middleName, lastName, gender, religion, dob, classLevel, combination, phoneNumber,Number(year), studentLocation, password).send({from: account, gas: 1000000})
+    await contract.methods.registerStudent(publicAddress, firstName, middleName, lastName, gender, religion, dob, classLevel, combination, studentLocation,Number(year), password).send({from: account, gas: 1000000})
     
     return true;
   } catch (error) {
@@ -242,7 +241,9 @@ const registerAccountant = async ({
     const contract = await getAccountantContract();
     const account = getGlobalState("connectedAccount");
 
-    await contract.methods.registerAccountant(publicAddress, name, email, phoneNumber, password).send({from: account, gas: 1000000})
+    console.log(publicAddress, name, email, phoneNumber, password)
+
+    await contract.methods.registerAccountant(publicAddress, name).send({from: account, gas: 1000000})
     
     return true;
   } catch (error) {
@@ -264,6 +265,22 @@ const deleteAccountant = async ({ accountantAddress }) => {
     console.log(error.message);
   }
 };
+
+const createAnnouncement = async ({
+  title,
+  description
+}) => {
+  try {
+    const contract = await getAdminContract();
+    const account = getGlobalState("connectedAccount");
+
+    await contract.methods.createAnnouncement(title, description).send({from: account, gas: 1000000})
+    
+    return true;
+  } catch (error) {
+      console.log(error.message)
+  }
+}
 
 const addStudentClass = async ({
   classLevel
@@ -539,6 +556,37 @@ const displayManufacturersData = async () => {
         }
     
         setGlobalState("studentClasses", studentClassData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const displayAnnouncements = async () => {
+      try {
+        // if (!ethereum) return console.log("Please install Metamask");
+    
+        const contract = await getAdminContract();
+    
+        const getAnnouncementArray = await contract.methods.getAnnouncementArray().call();
+    
+        const announcementData = [];
+        // console.log("productsArray: ", productsArray)
+    
+        // if (getAnnouncementArray.length === 0) {
+        //   console.log("NO DATA");
+        // }
+    
+        for (let i = 0; i < getAnnouncementArray.length; i++) {
+          const getAnnouncement = getAnnouncementArray[i];
+
+          const _announcementDetails = await contract.methods.getAnnouncement(getAnnouncement).call();
+          // console.log("let me see product details: ",_announcementDetails);
+          if (!_announcementDetails.isDeleted) {
+            announcementData.push(_announcementDetails);
+          }
+        }
+    
+        setGlobalState("announcements", announcementData);
       } catch (error) {
         console.log(error);
       }

@@ -19,7 +19,7 @@ const Header = () => {
       >
         <li className="mx-4 cursor-pointer"><Link className='text-blue-500 font-bold border-b-4 border-blue-500 border-spacing-1 hover:text-blue-500' to="/teacher/login">Home</Link></li>
         <li className="mx-4 cursor-pointer"><Link className='text-gray-600 font-bold hover:text-blue-500 hover:border-b-4 hover:border-blue-500 hover:border-spacing-1' to="/teacher/login">Teacher</Link></li>
-        <li className="mx-4 cursor-pointer"><Link className='text-gray-600 font-bold hover:text-blue-500 hover:border-b-4 hover:border-blue-500 hover:border-spacing-1' to="/student/login">Student</Link></li>
+        <li className="mx-4 cursor-pointer"><Link className='text-gray-600 font-bold hover:text-blue-500 hover:border-b-4 hover:border-blue-500 hover:border-spacing-1' to="/parent/login">Parent</Link></li>
         <li className="mx-4 cursor-pointer"><Link className='text-gray-600 font-bold hover:text-blue-500 hover:border-b-4 hover:border-blue-500 hover:border-spacing-1' to="/accountant/login">Accountant</Link></li>
         <li className="mx-4 cursor-pointer"><Link className='text-gray-600 font-bold hover:text-blue-500 hover:border-b-4 hover:border-blue-500 hover:border-spacing-1' to="/assistant">Assistant</Link></li>
       </ul>

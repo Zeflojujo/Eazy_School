@@ -1,6 +1,6 @@
 import React from "react"
 // import { FaAngleLeft } from "react-icons/fa6";
-import { MdDashboard } from "react-icons/md"
+import { MdAnnouncement, MdDashboard } from "react-icons/md"
 import { IoIosArrowForward } from "react-icons/io"
 import { NavLink } from "react-router-dom"
 import { FaGraduationCap, FaInfoCircle, FaUser } from "react-icons/fa";
@@ -24,7 +24,7 @@ const SchoolSidebar = ({ isOpen, toggleSidebar }) => {
         { title: "Manage Student", link: "/school/students", icon: <PiStudentBold /> },
         { title: "Manage Teacher", link: "/school/teacher", icon: <GiTeacher /> },
         { title: "Manage Accountant", link: "/school/accountant", icon: <MdAccountBalance /> },
-        // { title: "Blood Checking", link: "/medical-center/donate-blood-to-medicalcenter", icon: <FaKeycdn /> },
+        // { title: "Announcements", link: "/school/announcements", icon: <MdAnnouncement /> },
         // { title: "Medical Records", link: "/medical-center/blood-supplied", icon: <FaChartPie /> },
     ]
 

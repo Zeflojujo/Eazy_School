@@ -37,7 +37,7 @@ const Categories = () => {
               className="h-60 w-full object-cover shadow-lg shadow-black rounded-lg mb-3"
             />
             <h4 className="text-gray-700 font-semibold">School</h4>
-            <p className="text-gray-600 text-xs my-1">Collect blood units from Donors and ship it to the Authorized Medical Center</p>
+            <p className="text-gray-600 text-xs my-1">School administration dashboard will be access by login to the administration page. Please click below to access the administrator login page.</p>
             <div className="flex justify-center items-center mt-3 text-gray-700">
               <Link
               to="/school/login"
@@ -56,7 +56,7 @@ const Categories = () => {
               className="h-60 w-full object-cover shadow-lg shadow-black rounded-lg mb-3"
             />
             <h4 className="text-gray-700 font-semibold">Accountant</h4>
-            <p className="text-gray-600 text-xs my-1">Donor who donate blood at the collection point</p>
+            <p className="text-gray-600 text-xs my-1">School accountant who have a mandete to manage the whole process of school fees payments</p>
             <div className="flex justify-center items-center mt-3 text-gray-700">
               <Link
                 to="/accountant/login"
@@ -75,7 +75,7 @@ const Categories = () => {
               className="h-60 w-full object-cover shadow-lg shadow-black rounded-lg mb-3"
             />
             <h4 className="text-gray-700 font-semibold">Teacher</h4>
-            <p className="text-gray-600 text-xs my-1">Shipping active blood from one medical center to another</p>
+            <p className="text-gray-600 text-xs my-1">Dashboard for all teachers in eazy-school management system should be login by click the below link!</p>
             <div className="flex justify-center items-center mt-3 text-gray-700">
 
               <Link
@@ -95,8 +95,8 @@ const Categories = () => {
               alt="blood"
               className="h-60 w-full object-cover shadow-lg shadow-black rounded-lg mb-3"
             />
-            <h4 className="text-gray-700 font-semibold">Student</h4>
-            <p className="text-gray-600 text-xs my-1">Collect Blood Samples from the Authorized collection point and use it in need for patients</p>
+            <h4 className="text-gray-700 font-semibold">Parent</h4>
+            <p className="text-gray-600 text-xs my-1">Please use the wallet address registered to your student account to login as parent.</p>
             <div className="flex justify-center items-center mt-3 text-gray-700">
               <Link
               to="/student/login"

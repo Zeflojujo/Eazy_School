@@ -89,7 +89,7 @@ const StudentLogin = () => {
             <div className="w-5/6 md:w-3/5 mb-16 lg:w-2/5 p-6 md:p-8 rounded-lg text-gray-700 bg-gray-200 shadow-lg shadow-blue-600">
                 <Alert />
                 <Loading />
-                <h1 className="text-2xl md:text-3xl lg:text-3.5xl text-gray-700 font-semibold mb-4">Student Login</h1>
+                <h1 className="text-2xl md:text-3xl lg:text-3.5xl text-gray-700 font-semibold mb-4">Parent Login</h1>
                 <hr className="mb-3 text-gray-600 border-2 border-gray-400" />
                 <form className="text-lg" onSubmit={handleStudentLogin}>
                 <div className="mb-4">

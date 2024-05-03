@@ -14,7 +14,7 @@ const Alert = () => {
     >
       <div
         className="flex flex-col justify-center items-center
-        shadow-xl shadow-blue-600 dark:shadow-[#e32970] rounded-xl  bg-gray-700 text-gray-900 dark:bg-[#151c25] dark:text-gray-300
+        shadow-md shadow-blue-600 dark:shadow-blue-600 rounded-xl  bg-gray-700 text-gray-900 dark:bg-[#151c25] dark:text-gray-300
         min-w-min py-3 px-10"
       >                        
         {alert.color == 'red' ? (

@@ -77,17 +77,17 @@ const AccountantTable = () => {
         <div className="shadow-md overflow-x-auto" style={{ zIndex: '-999' }}>
           <table className="min-w-full overflow-x-auto  bg-white border-b border-gray-700 dark:bg-[#212936] dark:text-gray-300 dark:border-gray-700">
             <thead className='bg-gray-50 border-b-2 border-gray-200 dark:bg-gray-900 dark:gray-300'>
-              <tr className='border-none'>
-                <th className="py-2 px-4 border-b text-start text-lg">ID</th>
-                <th className="py-2 px-4 border-b text-start text-lg">Public Address</th>
-                <th className="py-2 px-4 border-b text-start text-lg uppercase">Accountant Name</th>
-                <th className="py-2 px-4 border-b text-start text-lg uppercase">Class Level</th>
-                <th className="py-2 px-4 border-b text-start text-lg uppercase">Phone Number</th>
-                <th className="py-2 px-4 border-b text-start text-lg uppercase">Exam Number</th>
-                <th className="py-2 px-4 border-b text-start text-lg uppercase">Age</th>
+              <tr className='border-none flex items-center'>
+                <th className="py-2 px-4 text-start text-lg">ID</th>
+                <th className="py-2 px-4 text-start text-lg">Public Address</th>
+                <th className="py-2 px-4 text-start text-lg uppercase">Accountant Name</th>
+                <th className="py-2 px-4 text-start text-lg uppercase">Class Level</th>
+                <th className="py-2 px-4 text-start text-lg uppercase">Phone Number</th>
+                <th className="py-2 px-4 text-start text-lg uppercase">Exam Number</th>
+                <th className="py-2 px-4 text-start text-lg uppercase">Age</th>
 
-                <th className="py-2 px-4 border-b text-start text-lg flex col-span-2 justify-center uppercase">Actions</th>
-                <th className="py-2 px-4 border-b text-start"></th>
+                <th className="py-2 px-4 text-start text-lg flex col-span-2 justify-center uppercase">Actions</th>
+                <th className="py-2 px-4 text-start"></th>
               </tr>
             </thead>
             <tbody>

@@ -42,6 +42,7 @@ import StudentCombination from "./school/pages/StudentCombination";
 import StudentYear from "./school/pages/StudentYear";
 import ExamType from "./school/pages/ExamType";
 import StudentSubject from "./school/pages/StudentSubject";
+import CreateAnnouncements from "./school/pages/CreateAnnouncements";
 
 function App() {
   const [connectedAccount] = useGlobalState("connectedAccount")
@@ -87,13 +88,14 @@ function App() {
         <Route path="/school/year" element={<StudentYear />} />
         <Route path="/school/exam-type" element={<ExamType />} />
         <Route path="/school/student-subject" element={<StudentSubject />} />
+        <Route path="/school/announcements" element={<CreateAnnouncements />} />
         
         {/* teacher Routes */}
         <Route path="/teacher/login" element={<TeacherLogin />} />
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
         
         {/* Student Routes */}
-        <Route path="/student/login" element={<StudentLogin />} />
+        <Route path="/parent/login" element={<StudentLogin />} />
         <Route path="/student/dashboard" element={<StudentDashboard />} />
 
         {/* Accountant Routes */}
