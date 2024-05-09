@@ -243,7 +243,7 @@ const registerAccountant = async ({
 
     console.log(publicAddress, name, email, phoneNumber, password)
 
-    await contract.methods.registerAccountant(publicAddress, name).send({from: account, gas: 1000000})
+    await contract.methods.registerAccountant(publicAddress, name, email, phoneNumber, password).send({from: account, gas: 1000000})
     
     return true;
   } catch (error) {
@@ -570,7 +570,7 @@ const displayManufacturersData = async () => {
         const getAnnouncementArray = await contract.methods.getAnnouncementArray().call();
     
         const announcementData = [];
-        // console.log("productsArray: ", productsArray)
+        console.log("getAnnouncementArray: ", getAnnouncementArray)
     
         // if (getAnnouncementArray.length === 0) {
         //   console.log("NO DATA");
@@ -579,7 +579,7 @@ const displayManufacturersData = async () => {
         for (let i = 0; i < getAnnouncementArray.length; i++) {
           const getAnnouncement = getAnnouncementArray[i];
 
-          const _announcementDetails = await contract.methods.getAnnouncement(getAnnouncement).call();
+          const _announcementDetails = await contract.methods.getAnnouncements(getAnnouncement).call();
           // console.log("let me see product details: ",_announcementDetails);
           if (!_announcementDetails.isDeleted) {
             announcementData.push(_announcementDetails);
@@ -997,6 +997,7 @@ export {
     addExamType,
     addFeeCategory,
     addFeeCategoryAmount,
+    createAnnouncement,
     registerAccountant,
     displayStudents,
     displayTeachers,
@@ -1007,9 +1008,9 @@ export {
     displayStudentSubject,
     displaySubjectDetails,
     displayFeeCategories,
-    // displayFeeCategory,
     displayExamType,
     displayFeeCategoryAmount,
+    displayAnnouncements,
     deleteStudent,
     deleteTeacher,
     deleteAccountant,

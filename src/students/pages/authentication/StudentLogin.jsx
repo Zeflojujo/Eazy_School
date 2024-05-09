@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {
-  // useGlobalState,
   setGlobalState,
   setLoadingMsg,
   setAlert,
@@ -10,7 +9,6 @@ import { useState } from 'react'
 import Alert from '../../../+homedirectory/components/Alert';
 import Loading from '../../../+homedirectory/components/Loading';
 import { FaArrowRightToBracket } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import heroGradu from "../../../assets/gradu.jpg"
 import { studentLogin } from '../../../BlockchainService';
@@ -35,7 +33,6 @@ const StudentLogin = () => {
     } else {
       setIsDisabled(false)
     }
-    // console.log(isDisabled)
   }, [user])
 
   const handleStudentLogin = async (e) => {
@@ -46,7 +43,7 @@ const StudentLogin = () => {
     try {
       const LoginCredentials = { publicAddress: user.publicAddress, password: user.password }
 
-      setLoadingMsg('Intializing transaction...')
+      setLoadingMsg('Executing transaction...')
       const result = await studentLogin(LoginCredentials)
       console.log(result)
 
@@ -62,7 +59,7 @@ const StudentLogin = () => {
       }
 
     } catch (error) {
-      console.log('Error registering student: ', error)
+      console.log('Error student login: ', error)
       setAlert('Invalid publicAddress or password...', 'red')
     }
   }
@@ -128,12 +125,6 @@ const StudentLogin = () => {
                 >
                     Login <FaArrowRightToBracket />
                 </button>
-                <div className="mt-4 flex justify-center items-center">
-                    <span className="text-gray-300 text-sm md:text-base lg:text-lg">Don't have an Accout?</span>
-                    <Link to="/manufacturer/register" className="text-sm md:text-base lg:text-lg text-blue-500 font-bold p-2 rounded hover:underline">
-                    Sign-Up
-                    </Link>
-                </div>
                 </form>
             </div>
         </div>        

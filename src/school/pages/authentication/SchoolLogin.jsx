@@ -10,7 +10,6 @@ import { useState } from 'react'
 // import { manufacturerLogin, systemOwnerLogin } from '../../../BlockchainService'
 import Alert from '../../../+homedirectory/components/Alert';
 import Loading from '../../../+homedirectory/components/Loading';
-import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import heroGradu from "../../../assets/gradu.jpg"
 import { systemOwnerLogin } from '../../../BlockchainService';
@@ -128,12 +127,6 @@ const SchoolLogin = () => {
                 >
                     Login
                 </button>
-                <div className="mt-4 flex justify-center items-center">
-                    <span className="text-gray-300 text-sm md:text-base lg:text-lg">Don't have an Accout?</span>
-                    <Link to="/manufacturer/register" className="text-sm md:text-base lg:text-lg text-blue-500 font-bold p-2 rounded hover:underline">
-                    Sign-Up
-                    </Link>
-                </div>
                 </form>
             </div>
         </div>        

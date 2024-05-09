@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {
-  // useGlobalState,
   setGlobalState,
   setLoadingMsg,
   setAlert,
@@ -10,7 +9,6 @@ import { useState } from 'react'
 import Alert from '../../../+homedirectory/components/Alert';
 import Loading from '../../../+homedirectory/components/Loading';
 import { FaArrowRightToBracket } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import heroGradu from "../../../assets/teacher.jpg"
 import { teacherLogin } from '../../../BlockchainService';
@@ -38,7 +36,7 @@ const TeacherLogin     = () => {
     // console.log(isDisabled)
   }, [user])
 
-  const handleManugacturerLogin = async (e) => {
+  const handleTeacherLogin = async (e) => {
     e.preventDefault();
 
     setGlobalState('loading', { show: true, msg: 'System Owner is Login...' })
@@ -91,7 +89,7 @@ const TeacherLogin     = () => {
                 <Loading />
                 <h1 className="text-2xl md:text-3xl lg:text-3.5xl text-gray-700 font-semibold mb-4">Teacher Login</h1>
                 <hr className="mb-3 text-gray-600 border-2 border-gray-400" />
-                <form className="text-lg" onSubmit={handleManugacturerLogin}>
+                <form className="text-lg" onSubmit={handleTeacherLogin}>
                 <div className="mb-4">
                     <label htmlFor="publicAddress" className='text-gray-800 text-lg'>Public Address:</label>
                     <input
@@ -128,13 +126,7 @@ const TeacherLogin     = () => {
                 >
                     Login <FaArrowRightToBracket />
                 </button>
-                <div className="mt-4 flex justify-center items-center">
-                    <span className="text-gray-300 text-sm md:text-base lg:text-lg">Don't have an Accout?</span>
-                    <Link to="/manufacturer/register" className="text-sm md:text-base lg:text-lg text-blue-500 font-bold p-2 rounded hover:underline">
-                    Sign-Up
-                    </Link>
-                </div>
-                </form>
+              </form>
             </div>
         </div>        
             

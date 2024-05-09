@@ -10881,12 +10881,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xB2d92c7e1E93feABd64A213506B3188c23231497",
-      "transactionHash": "0x189b82cc65ce4472e3800ef04bbc753ee5db28e9e4621644f3abccbe7cb8e2ec"
+      "address": "0xcF8F18E28305d5d55fA3f859D229dF9947F2802f",
+      "transactionHash": "0xcae9ae0ef89c29ccb846dc127cb3f95eb1bbc52075b5609f75bd3ac8fda4f10c"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-05-03T09:31:45.393Z",
+  "updatedAt": "2023-11-21T22:53:53.438Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

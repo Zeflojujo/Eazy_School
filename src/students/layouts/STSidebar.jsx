@@ -1,9 +1,10 @@
 import React from "react"
 // import { FaAngleLeft } from "react-icons/fa6";
-import { MdBloodtype, MdDashboard } from "react-icons/md"
+import { MdAnnouncement, MdBloodtype, MdDashboard } from "react-icons/md"
 import { FaBook } from "react-icons/fa"
 import { IoIosArrowForward } from "react-icons/io"
 import { NavLink } from "react-router-dom"
+import { AiFillInsurance } from "react-icons/ai"
 
 // import "./Sidebar.css"
 
@@ -12,8 +13,10 @@ const STSidebar = ({ isOpen, toggleSidebar }) => {
     // const [selected, setSelected] = useState(true);
 
     const Menus = [
-        { title: "Dashboard", link: "/donor/dashboard", icon: <MdDashboard /> },
-        { title: "Donation Record", link: "/donor/records", icon: <FaBook /> },
+        { title: "Dashboard", link: "/student/dashboard", icon: <MdDashboard /> },
+        { title: "Academic", link: "/student/academic", icon: <FaBook /> },
+        { title: "Finance", link: "/student/finance", icon: <AiFillInsurance /> },
+        { title: "Announcements", link: "/student/announcements", icon: <MdAnnouncement /> },
     ]
 
     return (

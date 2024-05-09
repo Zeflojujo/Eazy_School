@@ -66,7 +66,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -143,7 +144,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -182,7 +184,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"accountantAddress\",\"type\":\"address\"}],\"name\":\"deletedAccountant\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_accountantAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_password\",\"type\":\"string\"}],\"name\":\"accountantLogin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"accountants\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"accountantAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"phoneNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"password\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isRegistered\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isLogin\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isDeleted\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_accountantAddress\",\"type\":\"address\"}],\"name\":\"deleteAccountant\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_accountantAddress\",\"type\":\"address\"}],\"name\":\"getAccountant\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"accountantAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"phoneNumber\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isDeleted\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAccountantArray\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_accountantAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_phoneNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_password\",\"type\":\"string\"}],\"name\":\"registerAccountant\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Accountants.sol\":\"Accountants\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"project:/contracts/AccessControl.sol\":{\"keccak256\":\"0xfed04c9fd271eb2ca4d1a0cc82a6c7b80d30b81b004371162d1caf8ee466008f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f0dafbd90d64aecc9f9f085d34d1ccd80386d7d52c30077d3bd455e02dfcf013\",\"dweb:/ipfs/QmUYQYZCtczniBwGRnTKQ2DuPxjkgarbr2A2SFR2pKCJGr\"]},\"project:/contracts/Accountants.sol\":{\"keccak256\":\"0x45aa6318af8faefd15d7e4d638c9be8fdd4e9c52ad81b4bb7e2c5ab224ded138\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://67374eaad36df714a41600dd0c77e09cf8d0e767b4326c4131511bfdff157f3a\",\"dweb:/ipfs/QmUUArkS2LPpbdYiBAAe8pGqiD4bQSFje7uREVK4jQK6aF\"]}},\"version\":1}",
@@ -2766,9 +2769,17 @@
     "name": "solc",
     "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x9184758D10123618cABB1D68Dd2162f306e369Ab",
+      "transactionHash": "0x68443fdd812cc613d602cc61e158c1b17a226899c32cbb6bd1989607c59747e0"
+    }
+  },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-05-03T09:31:30.009Z",
+  "updatedAt": "2023-11-21T22:53:53.425Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -64,12 +64,10 @@ const StudentTable = () => {
     <>
 
       <div className="mb-4">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2 dark:text-gray-400">Student Subjects Lists</h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-2 dark:text-gray-400">Students Lists</h1>
       </div>
 
       <div className="p-4">
-
-
 
         {/* <CreateNewsModal showModal={isModalOpen} closeModal={closeModal} /> */}
 

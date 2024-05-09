@@ -16,7 +16,8 @@ import {
   displaySubjectDetails,
   displayExamType,
   displayFeeCategoryAmount,
-  displayFeeCategories
+  displayFeeCategories,
+  displayAnnouncements
 } from "./BlockchainService";
 
 import { useGlobalState } from "./store";
@@ -43,6 +44,8 @@ import StudentYear from "./school/pages/StudentYear";
 import ExamType from "./school/pages/ExamType";
 import StudentSubject from "./school/pages/StudentSubject";
 import CreateAnnouncements from "./school/pages/CreateAnnouncements";
+import Academic from "./students/pages/Academic";
+import UploadStudentResult from "./teachers/pages/UploadStudentResult";
 
 function App() {
   const [connectedAccount] = useGlobalState("connectedAccount")
@@ -62,6 +65,7 @@ function App() {
       await displayFeeCategories();
       await displayExamType();
       await displayFeeCategoryAmount();
+      await displayAnnouncements();
     };
     isConnected();
   }, [connectedAccount, connctAccount]);
@@ -93,10 +97,12 @@ function App() {
         {/* teacher Routes */}
         <Route path="/teacher/login" element={<TeacherLogin />} />
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+        <Route path="/teacher/upload-result" element={<UploadStudentResult />} />
         
         {/* Student Routes */}
         <Route path="/parent/login" element={<StudentLogin />} />
         <Route path="/student/dashboard" element={<StudentDashboard />} />
+        <Route path="/student/academic" element={<Academic />} />
 
         {/* Accountant Routes */}
         <Route path="/accountant/login" element={<AccountantLogin />} />
@@ -104,7 +110,6 @@ function App() {
 
         {/* Academic Routes */}
         <Route path="/academic/login" element={<AcademicLogin />} />
-        <Route path="/academic/dashboard" element={<AcademicDashboard />} />
 
         {/* ChatbotApp */}
         <Route path="/assistant" element={<ChatbotApp />} />

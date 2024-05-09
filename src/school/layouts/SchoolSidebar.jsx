@@ -24,7 +24,7 @@ const SchoolSidebar = ({ isOpen, toggleSidebar }) => {
         { title: "Manage Student", link: "/school/students", icon: <PiStudentBold /> },
         { title: "Manage Teacher", link: "/school/teacher", icon: <GiTeacher /> },
         { title: "Manage Accountant", link: "/school/accountant", icon: <MdAccountBalance /> },
-        // { title: "Announcements", link: "/school/announcements", icon: <MdAnnouncement /> },
+        { title: "Announcements", link: "/school/announcements", icon: <MdAnnouncement /> },
         // { title: "Medical Records", link: "/medical-center/blood-supplied", icon: <FaChartPie /> },
     ]
 

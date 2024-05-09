@@ -5,7 +5,7 @@ import { deleteStudent } from '../../BlockchainService';
 import swal from "sweetalert";
 import { BiEdit } from 'react-icons/bi';
 
-const AnnouncementsTable = () => {
+const AnnounceTable = () => {
   const [announcements] = useGlobalState("announcements");
   const [hoveredRow, setHoveredRow] = useState(null);
   const [allAnnouncements, setAllAnnouncements] = useState([])
@@ -113,4 +113,4 @@ const AnnouncementsTable = () => {
   );
 };
 
-export default AnnouncementsTable;
+export default AnnounceTable;

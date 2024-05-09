@@ -19,14 +19,9 @@ const TSidebar = ({ isOpen, toggleSidebar }) => {
     // const [selected, setSelected] = useState(true);
 
     const Menus = [
-        { title: "Dashboard", link: "/damu-salama/dashboard", icon: <MdDashboard /> },
-        { title: "Collection Point", link: "/damu-salama/collection-point", icon: <GiImpactPoint /> },
-        { title: "Medical Center", link: "/damu-salama/medical-center", icon: <MdAddHomeWork /> },
-        {
-            title: "Transporter",
-            link: "/damu-salama/transporter",
-            icon: <FaCableCar />,
-        },
+        { title: "Dashboard", link: "/teacher/dashboard", icon: <MdDashboard /> },
+        { title: "Upload Result", link: "/teacher/upload-result", icon: <GiImpactPoint /> },
+        { title: "Profile", link: "/teacher/profile", icon: <MdAddHomeWork /> },
         // { title: "Blood Checking", link: "/medical-center/donate-blood-to-medicalcenter", icon: <FaKeycdn /> },
         // { title: "Medical Records", link: "/medical-center/blood-supplied", icon: <FaChartPie /> },
     ]

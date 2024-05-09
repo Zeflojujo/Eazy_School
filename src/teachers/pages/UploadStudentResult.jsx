@@ -1,5 +1,5 @@
-import Sidebar from "../layouts/SchoolSidebar"
-import DashboardHeader from "../layouts/SchoolHeader"
+import Sidebar from "../layouts/TSidebar"
+import DashboardHeader from "../layouts/THeader"
 import {
     useGlobalState,
     setGlobalState,
@@ -8,50 +8,51 @@ import {
 } from '../../store'
 import { useState } from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { registerAccountant, registerStudent, registerTeacher } from '../../BlockchainService'
+import { registerStudent, registerTeacher } from '../../BlockchainService'
 import medicalCenter from "../../assets/background.jpg"
 import Alert from "../../+homedirectory/components/Alert"
 import Loading from "../../+homedirectory/components/Loading"
 import swal from "sweetalert";
-import AccountantTable from "../components/AccountantTable"
 
-const RegisterAccountant = () => {
+const UploadStudentResult = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(true)
     const [modal] = useGlobalState('modal')
     const [publicAddress, setPublicAddress] = useState('')
+    const [teacherSubject, setTeacherSubjects] = useState([])
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
+
    
 
     const toggleSidebar = () => {
         setSidebarOpen(!isSidebarOpen)
     }
 
-    const handleRegisterAccountantModal = () => {
+    const handleRegisterMedicalStaffModel = () => {
         setGlobalState('modal', 'scale-100')
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (!publicAddress || !name || !email || !phoneNumber) return
+        if (!publicAddress || !name || !teacherSubject || !email || !phoneNumber) return
 
         setGlobalState('modal', 'scale-0')
-        setGlobalState('loading', { show: true, msg: 'Registering Accountant...' })
+        setGlobalState('loading', { show: true, msg: 'Registering Student...' })
 
         try {
 
             setLoadingMsg('Executing transaction...')
             const password = "12345678"
-            const result = await registerAccountant({ publicAddress, name, email, phoneNumber, password })
+            const result = await registerTeacher({ publicAddress, name, teacherSubject, email, phoneNumber, password })
             console.log("result: ", result)
 
             if (result) {
                 resetForm()
                 swal({  
                     title: "Good job!",  
-                    text: "Accountant registered successfully...!",  
+                    text: "Teacher registered successfully...!",  
                     icon: "success",  
                     button: "Okay",  
                 }); 
@@ -63,7 +64,7 @@ const RegisterAccountant = () => {
 
         } catch (error) {
             console.log('Error registering teacher: ', error);
-            setAlert('Accountant registration failed...', 'red')
+            setAlert('Teacher registration failed...', 'red')
         }
     }
 
@@ -75,7 +76,6 @@ const RegisterAccountant = () => {
     const resetForm = () => {
         setPublicAddress('')
         setName('')
-        setEmail('')
         setPhoneNumber('')
     }
 
@@ -99,12 +99,12 @@ const RegisterAccountant = () => {
                         {/* MedicalCenterTable component is included */}
                         <div className="w-4/5">
                             <button
-                                onClick={handleRegisterAccountantModal}
+                                onClick={handleRegisterMedicalStaffModel}
                                 className="bg-blue-500 mb-3 text-lg float-end text-white dark:bg-transparent hover:text-white dark:shadow-md dark:shadow-light-white dark:border dark:border-blue-500 dark:text-gray-500 hover:bg-blue-700  font-bold py-2 px-4 rounded-lg top-4 right-4"
                             >
-                                Add Accountant
+                                Add Teacher
                             </button>
-                            <AccountantTable />
+                            {/* <StudentResultTable /> */}
                             <Alert />
                             <Loading />
                         </div>
@@ -115,7 +115,7 @@ const RegisterAccountant = () => {
                                     justify-center bg-black bg-opacity-50 transform
                                     transition-transform duration-300 ${modal}`}
                     >
-                        <div className="shadow-md rounded-xl w-11/12 md:w-2/5 h-7/12 p-6 bg-gray-100 shadow-blue-600 dark:bg-[#151c25] dark:shadow-blue-600">
+                        <div className="shadow-lg rounded-xl w-11/12 md:w-2/5 h-7/12 p-6 bg-gray-100 shadow-blue-600 dark:bg-[#151c25] dark:shadow-[#e32970]">
                             <form className="flex flex-col">
                                 <div className="flex flex-row justify-center items-center rounded-xl mt-5">
                                     <div className="shrink-0 rounded-xl overflow-hidden h-32 w-full mb-8">
@@ -128,7 +128,7 @@ const RegisterAccountant = () => {
                                 </div>
 
                                 <div className="flex flex-row justify-between items-center">
-                                    <p className="font-semibold text-gray-600">Register Accountant</p>
+                                    <p className="font-semibold text-gray-600">Register Teacher</p>
                                     <button
                                         type="button"
                                         onClick={closeModal}
@@ -155,7 +155,7 @@ const RegisterAccountant = () => {
 
                                 <div className="mt-4">
                                     <label htmlFor="MCPublicAddress" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
-                                        Accountant Name:
+                                        Teacher Name:
                                     </label>
                                     <input
                                         className="mt-1 px-3 py-1.5 md:py-2 w-full border dark:border-solid dark:border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding"
@@ -168,6 +168,30 @@ const RegisterAccountant = () => {
                                     />
                                 </div>
                                 
+                                <div className="mt-4">
+                                    <label htmlFor="MCPublicAddress" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
+                                        Subject Name:
+                                    </label>
+                                    <select
+                                        className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                        name="teacherSubject"
+                                        onChange={(e) => setTeacherSubjects(e.target.value)}
+                                        value={teacherSubject}
+                                        required
+                                    >
+                                        <option value="" disabled>Select teacher subjects</option>
+                                        <option value="Biology">Biology</option>
+                                        <option value="Mathematics">Mathematics</option>
+                                        <option value="Physics">Physics</option>
+                                        <option value="Chemistry">Chemistry</option>
+                                        <option value="Geography">Geography</option>
+                                        <option value="English">English</option>
+                                        <option value="Kiswahili">Kiswahili</option>
+                                        <option value="Civics">Civics</option>
+                                        <option value="History">History</option>
+                                    </select>
+                                </div>
+
                                 <div className="mt-4">
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
                                         Email:
@@ -233,5 +257,5 @@ const RegisterAccountant = () => {
     )
 }
 
-export default RegisterAccountant
+export default UploadStudentResult
 

@@ -20,21 +20,6 @@ const Hero = () => {
                     alt="donate blooc"
                     className="h-1/2 w-full object-cover"
                 />
-                {/* <div className="flex justify-start items-center mt-10 p-20"> */}
-                    {/* <Identicon
-            // string={connectedAccount ? connectedAccount : 'Connect Your Wallet'}
-            size={50}
-            className="h-10 w-10 object-contain rounded-full mr-3"
-          /> */}
-                    {/* <div>
-                        <p className="text-white font-semibold">
-                            {connectedAccount
-                                ? truncate(connectedAccount, 4, 4, 11)
-                                : 'Connect Your Wallet'}
-                        </p>
-                        <small className="text-pink-800 font-bold">@you</small>
-                    </div> */}
-                {/* </div> */}
             </div>
             <div className="md:w-3/6 w-full py-10">
                 <div>
@@ -49,7 +34,7 @@ const Hero = () => {
 
                 <div className="flex flex-row mt-5">
                     <Link
-                        to="/student/login"
+                        to="/parent/login"
                         className="shadow-lg shadow-blue-800 text-white bg-blue-600
                                     hover:bg-blue-700
                                     rounded-full cursor-pointer py-2 px-4"
