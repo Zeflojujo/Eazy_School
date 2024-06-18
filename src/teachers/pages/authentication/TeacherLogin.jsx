@@ -44,7 +44,7 @@ const TeacherLogin     = () => {
     try {
       const LoginCredentials = { publicAddress: user.publicAddress, password: user.password }
 
-      setLoadingMsg('Intializing transaction...')
+      setLoadingMsg('Executing transaction...')
       const result = await teacherLogin(LoginCredentials)
       console.log(result)
 

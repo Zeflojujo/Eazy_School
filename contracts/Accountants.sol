@@ -15,7 +15,7 @@ contract Accountants is AccessControl{
         bool isRegistered;
         bool isLogin;
         bool isDeleted;
-    }
+    } 
 
     mapping(address => Accountant) public accountants;
 
@@ -70,4 +70,9 @@ contract Accountants is AccessControl{
         phoneNumber = accountant.phoneNumber;
         isDeleted = accountant.isDeleted;
     }
+
+    // function addStudentFee(address _schoolAddress, address _schoolAddress, string memory _paymentType, uint256 _amount) public {
+    //     Accountant memory accountant = accountants[_]
+
+    // }
 }

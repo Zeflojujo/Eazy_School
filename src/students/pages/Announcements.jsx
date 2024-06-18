@@ -1,5 +1,5 @@
-import Sidebar from "../layouts/SchoolSidebar"
-import DashboardHeader from "../layouts/SchoolHeader"
+import Sidebar from "../layouts/STSidebar"
+import DashboardHeader from "../layouts/STHeader"
 import { useState } from 'react'
 import AnnounceTable from "../components/AnnounceTable"
 

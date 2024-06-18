@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
-
 import "./AccessControl.sol";
 
-contract Teachers is AccessControl {
+contract Teacherss is AccessControl{
 
     event deletedTeacher(address indexed teacherAddress);
 
@@ -20,16 +19,16 @@ contract Teachers is AccessControl {
     }
 
     mapping(address => Teacher) public teachers;
+
     address[] private teacherAddressArray;
 
-    function registerTeacher(
-        address _teacherAddress, 
-        string memory _name, 
-        string memory _subjects, // Changed to accept an array of subjects
-        string memory _email, 
-        string memory _phoneNumber, 
-        string memory _password
-    ) public {
+    // Students public studentsContract;
+
+    // constructor(address studentsContractAddress_) {
+    //     studentsContract = Students(studentsContractAddress_);
+    // }
+
+    function registerTeacher(address _teacherAddress, string memory _name, string memory _subjects, string memory _email, string memory _phoneNumber, string memory _password) public {
         teachers[_teacherAddress] = Teacher({
             teacherAddress: _teacherAddress,
             name: _name,
@@ -53,9 +52,11 @@ contract Teachers is AccessControl {
         emit deletedTeacher(_teacherAddress);
     }
 
-    function teacherLogin(address _teacherAddress, string memory _password) external {
+    function  teacherLogin(address _teacherAddress, string memory _password) external {
         require(teachers[_teacherAddress].isRegistered == true, "Your not registered yet!");
+        // require(teachers[_teacherAddress].isLogin == false, "Your Already login");
         require(compareString(teachers[_teacherAddress].password, _password), "Invalid address or password");
+        
         teachers[_teacherAddress].isLogin = true;
     }
 
@@ -79,13 +80,4 @@ contract Teachers is AccessControl {
         phoneNumber = teacher.phoneNumber;
         isDeleted = teacher.isDeleted;
     }
-
-    // function isTeachingSubject(address _teacherAddress, string memory _subject) public view returns (bool) {
-    //     require(teachers[_teacherAddress].isRegistered, "Teacher is not registered");
-    //     string memory subjects = teachers[_teacherAddress].subjects;
-    //     if (keccak256(abi.encodePacked(subjects[i])) == keccak256(abi.encodePacked(_subject))) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
 }

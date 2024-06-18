@@ -17,7 +17,9 @@ import {
   displayExamType,
   displayFeeCategoryAmount,
   displayFeeCategories,
-  displayAnnouncements
+  displayAnnouncements,
+  displayFirstTermResult,
+  displayStudent,
 } from "./BlockchainService";
 
 import { useGlobalState } from "./store";
@@ -46,6 +48,10 @@ import StudentSubject from "./school/pages/StudentSubject";
 import CreateAnnouncements from "./school/pages/CreateAnnouncements";
 import Academic from "./students/pages/Academic";
 import UploadStudentResult from "./teachers/pages/UploadStudentResult";
+import TStudents from "./teachers/pages/TStudents";
+import Announcements from "./students/pages/Announcements";
+import StudentFinance from "./students/pages/StudentFinance";
+import AccountantFinance from "./accountant/pages/AccountantFinance";
 
 function App() {
   const [connectedAccount] = useGlobalState("connectedAccount")
@@ -66,6 +72,8 @@ function App() {
       await displayExamType();
       await displayFeeCategoryAmount();
       await displayAnnouncements();
+      // await displayFirstTermResult();
+      await displayStudent();
     };
     isConnected();
   }, [connectedAccount, connctAccount]);
@@ -94,19 +102,23 @@ function App() {
         <Route path="/school/student-subject" element={<StudentSubject />} />
         <Route path="/school/announcements" element={<CreateAnnouncements />} />
         
-        {/* teacher Routes */}
+        {/* Teacher Routes */}
         <Route path="/teacher/login" element={<TeacherLogin />} />
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+        <Route path="/teacher/Students" element={<TStudents />} />
         <Route path="/teacher/upload-result" element={<UploadStudentResult />} />
         
         {/* Student Routes */}
         <Route path="/parent/login" element={<StudentLogin />} />
         <Route path="/student/dashboard" element={<StudentDashboard />} />
         <Route path="/student/academic" element={<Academic />} />
+        <Route path="/student/announcements" element={<Announcements />} />
+        <Route path="student/finance" element={<StudentFinance />} />
 
         {/* Accountant Routes */}
         <Route path="/accountant/login" element={<AccountantLogin />} />
         <Route path="/accountant/dashboard" element={<AccountantDashboard />} />
+        <Route path="/accountant/finance" element={<AccountantFinance />} />
 
         {/* Academic Routes */}
         <Route path="/academic/login" element={<AcademicLogin />} />

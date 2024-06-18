@@ -44,7 +44,7 @@ const AccountantLogin     = () => {
     try {
       const LoginCredentials = { publicAddress: user.publicAddress, password: user.password }
 
-      setLoadingMsg('Intializing transaction...')
+      setLoadingMsg('Executing transaction...')
       const result = await AccountantLogin    (LoginCredentials)
       console.log(result)
 

@@ -40,7 +40,7 @@ const RegisterTeacher = () => {
         if (!publicAddress || !name || !teacherSubject || !email || !phoneNumber) return
 
         setGlobalState('modal', 'scale-0')
-        setGlobalState('loading', { show: true, msg: 'Registering Student...' })
+        setGlobalState('loading', { show: true, msg: 'Registering Teacher...' })
 
         try {
 

@@ -99,7 +99,7 @@ const Categories = () => {
             <p className="text-gray-600 text-xs my-1">Please use the wallet address registered to your student account to login as parent.</p>
             <div className="flex justify-center items-center mt-3 text-gray-700">
               <Link
-              to="/student/login"
+              to="/parent/login"
                 className="flex justify-center items-center gap-2 shadow-lg shadow-blue-800 text-white text-sm bg-blue-600
                   hover:bg-blue-700 cursor-pointer rounded-full px-4 py-1"
               >

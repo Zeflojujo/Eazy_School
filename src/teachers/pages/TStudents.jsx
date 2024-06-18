@@ -1,0 +1,308 @@
+import Sidebar from "../layouts/TSidebar"
+import DashboardHeader from "../layouts/THeader"
+import {
+      setGlobalState,
+      setLoadingMsg,
+      setAlert,
+      useGlobalState,
+      truncate,
+    } from '../../store'
+import { useEffect, useState } from 'react'
+import { FaTimes } from 'react-icons/fa'
+import { registerStudents } from '../../BlockchainService'
+import medicalCenter from "../../assets/study.jpg"
+import Alert from "../../+homedirectory/components/Alert"
+import Loading from "../../+homedirectory/components/Loading"
+import ResultTable from "../components/ResultTable"
+import swal from "sweetalert";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Link } from "react-router-dom"
+import TStudentTable from "../components/TStudentTable"
+
+
+const TStudents = () => {
+    const [isSidebarOpen, setSidebarOpen] = useState(true)
+    const [modal] = useGlobalState('modal')
+    const [classLevels] = useGlobalState("studentClasses");
+    const [studentSubjects] = useGlobalState("studentSubjects");
+    const [combinations] = useGlobalState("studentCombinations");
+    const [years] = useGlobalState("studentYears");
+    const [allYears, setAllYears] = useState([])
+    const [allClassLevel, setAllClassLevel] = useState([])
+    const [allSubjects, setAllSubjects] = useState([])
+
+    console.log("subject:", studentSubjects);
+
+    const [isDisabled, setIsDisabled] = useState(true)
+
+    const [user, setUser] = useState({
+        studentAddress: "",
+        subjectName: "",
+        middleName: "",
+        lastName: "",
+        gender: "",
+        marks: "",
+        classLevel: "",
+        year: "",
+    })
+
+    useEffect(() => {
+        setAllYears(years)
+        setAllClassLevel(studentSubjects)
+        setAllSubjects(classLevels)
+        if (user.publicAddress === "" || user.subjectName === "" || user.middleName === "" || user.lastName === "" || user.examNumber === "" || user.gender === ""
+            || user.religion === "" || user.dob === "" || !user.classLevel || user.combination === "" || user.classLevel === "" || user.year === "") {
+            setIsDisabled(true);
+        } else {
+            setIsDisabled(false)
+        }
+        console.log(user)
+    }, [user, years])
+
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!isSidebarOpen)
+    }
+
+    const handleRegisterMedicalStaffModel = () => {
+        setGlobalState('modal', 'scale-100')
+    }
+
+    const handleStudentRegistration = async (e) => {
+        e.preventDefault()
+
+        const registerStudentCredentials = {
+            publicAddress: user.publicAddress,
+            subjectName: user.subjectName,
+            middleName: user.middleName,
+            lastName: user.lastName,
+            gender: user.gender,
+            religion: user.religion,
+            dob: user.dob,
+            classLevel: user.classLevel,
+            combination: user.combination,
+            classLevel: user.classLevel,
+            year: Number(user.year),
+            password: user.lastName
+        }
+
+        if (!user.publicAddress === "" || !user.subjectName === "" || !user.middleName === "" || !user.lastName === "" || !user.gender === ""
+        || !user.religion === "" || !user.dob === "" || !user.classLevel || !user.combination === ""  || !user.classLevel === "" || !user.year === "") return
+
+        setGlobalState('modal', 'scale-0')
+        setGlobalState('loading', { show: true, msg: 'Registering Student...' })
+
+        try {
+
+            setLoadingMsg('Executing transaction...')
+            // const password = user.lastName;
+            const result = await registerStudents(registerStudentCredentials)
+            console.log(result)
+
+            if (result) {
+                resetForm()
+                swal({  
+                    title: "Good job!",  
+                    text: "Student registered successfully...!",  
+                    icon: "success",  
+                    button: "Okay",  
+                });  
+                window.location.reload()
+                // setAlert('Student is registered successfully...', 'green')
+            } else {
+                throw Error
+            }
+
+        } catch (error) {
+            console.log('Error registering student file: ', error)
+            setAlert('Student registration failed...', 'red')
+        }
+    }
+
+    const closeModal = () => {
+        setGlobalState('modal', 'scale-0')
+        resetForm()
+    }
+
+    const resetForm = () => {
+        setUser({
+            studentAddress: "",
+            subjectName: "",
+            middleName: "",
+            lastName: "",
+            gender: "",
+            religion: "",
+            dob: "",
+            combination: "",
+            classLevel: "",
+            year: "",
+        })
+    }
+
+    return (
+        <div className="flex min-h-screen dark:bg-[#212936] dark:text-gray-300">
+            {/* Sidebar component is included */}
+            <div className="relative">
+                <Sidebar toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
+            </div>
+            <div className="flex flex-col w-full gap-y-4 text-3xl semibold h-full">
+                <div className="mb-16">
+                    {/* Header component is included */}
+                    <DashboardHeader toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
+                </div>
+
+                {/* ViewFakeProduct page should be created here */}
+                <div className="flex flex-col justify-center items-center mx-auto w-full">
+                    {/* Header component is included */}
+
+                    {/* <div className="flex flex-col justify-center items-center mx-1 md:mx-4 overflow-hidden z-0 my-11 w-full">
+                        {/* MedicalCenterTable component is included */}
+                        <div className="w-4/5">
+                            <TStudentTable />
+                            <Alert />
+                            <Loading />
+                        </div>            
+                    {/* </div>  */}
+                    <div
+                        className={`fixed top-0 left-0 w-screen h-screen flex items-center
+                                    justify-center bg-black bg-opacity-50 transform
+                                    transition-transform duration-300 ${modal}`}
+                    >
+
+                        <div className="shadow-md rounded-xl w-11/12 md:w-4/5 h-7/12 p-6 bg-gray-100 shadow-blue-600 dark:bg-[#232b35] dark:shadow-blue-600">
+                            <div className="flex flex-row justify-between items-center">
+                                <h1 className="text-2xl md:text-3xl lg:text-3.5xl text-gray-400 font-semibold mb-4">Student Registration Form</h1>
+                                <button
+                                    type="button"
+                                    onClick={closeModal}
+                                    className="border-0 bg-transparent focus:outline-none"
+                                >
+                                    <FaTimes className="text-gray-400" />
+                                </button>
+                            </div>
+                            <hr className="mb-3 text-gray-600 border-2 border-gray-500" />
+
+                            <form className="text-lg" onSubmit={handleStudentRegistration}>
+
+                                <div className="mb-4">
+                                    <h1 className="text-gray-400 text-xl font-semibold md:text-2xl mb-2">Student Details:</h1>
+                                    <hr className="mb-3 text-gray-600 border-1 border-gray-500" />
+                                </div>
+
+                                <div className="grid md:grid-cols-3 gap-x-2 mb-4 w-full mt-4">
+                                    <div className="mb-4">
+                                        <label htmlFor="publicAddress" className='text-gray-400 text-lg'>Wallet Public Address:</label>
+                                        <input
+                                            id="publicAddress"
+                                            type="publicAddress"
+                                            value={user.publicAddress}
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-400 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            onChange={(e) => setUser({ ...user, publicAddress: e.target.value })}
+                                            placeholder="publicAddress"
+                                        />
+                                    </div>
+                                    <div className="mt-4">
+                                        <label htmlFor="subjectName" className="block text-lg font-medium text-gray-600 dark:text-gray-400">
+                                            Subject Name:
+                                        </label>
+                                        <select
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-400 bg-clip-padding appearance-none"
+                                            name="subjectName"
+                                            type="text"
+                                            onChange={(e) => setUser({...user, subjectName: e.target.value})}
+                                            value={user.subjectName}
+                                            required
+                                        >
+                                            <option value="" disabled>Select Student subjectName</option>
+                                            {allSubjects.map((subjectS, index) => (
+                                                <option key={index} value={subjectS.subjectName}>{subjectS.subjectName}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label htmlFor="middleName" className='text-gray-400 text-lg'>Middle Name:</label>
+                                        <input
+                                            id="middleName"
+                                            type="middleName"
+                                            value={user.middleName}
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-400 rounded-md dark:bg-transparent text-gray-700 bg-clip-padding appearance-none"
+                                            onChange={(e) => setUser({ ...user, middleName: e.target.value })}
+                                            placeholder="middleName"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="grid md:grid-cols-3 gap-x-2 mb-4 w-full mt-4">
+                                    
+                                    <div className="mt-4">
+                                        <label htmlFor="classLevel" className="block text-lg font-medium text-gray-600 dark:text-gray-400">
+                                            Student Class:
+                                        </label>
+                                        <select
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-400 bg-clip-padding appearance-none"
+                                            name="classLevel"
+                                            type="text"
+                                            onChange={(e) => setUser({...user, classLevel: e.target.value})}
+                                            value={user.classLevel}
+                                            required
+                                        >
+                                            <option value="" disabled>Select Student classLevel</option>
+                                            {allClassLevel.map((classLevel, index) => (
+                                                <option key={index} value={classLevel.classLevelName}>{classLevel.classLevel}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                    <div className="mb-4">
+                                        <label htmlFor="marks" className='text-lg text-gray-400'>Marks:</label>
+                                        <input
+                                            id="marks"
+                                            type="marks"
+                                            value={user.marks}
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-400 bg-clip-padding appearance-none"
+                                            onChange={(e) => setUser({ ...user, marks: e.target.value })}
+                                            placeholder="marks"
+                                        />
+                                    </div>
+                                   
+                                    <div className="mt-4">
+                                        <label htmlFor="year" className="block text-lg font-medium text-gray-600 dark:text-gray-400">
+                                            Student Year:
+                                        </label>
+                                        <select
+                                            className="mt-1 px-3 py-1.5 md:py-2 w-full border border-solid border-gray-600 rounded-md dark:bg-transparent text-gray-400 bg-clip-padding appearance-none"
+                                            name="year"
+                                            type="number"
+                                            onChange={(e) => setUser({...user, year: e.target.value})}
+                                            value={user.year}
+                                            required
+                                        >
+                                            <option value="" disabled>Select Year of Study</option>
+                                            {years.map((year, index) => (
+                                                <option key={index} value={year.year.toString()}>{year.year.toString()}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className={`flex gap-1 items-center text-white justify-center bg-blue-500 hover:bg-blue-600 
+                                                focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 
+                                                py-2.5 text-center me-2 dark:bg-blue-500 dark:hover:bg-blue-600 
+                                                dark:focus:ring-blue-300 w-full mt-5 ${isDisabled === true ? 'px-4 py-2 rounded-md cursor-not-allowed opacity-50' : ""}`}
+                                    disabled={isDisabled}
+                                >
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default TStudents

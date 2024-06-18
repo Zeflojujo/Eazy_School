@@ -37,8 +37,8 @@ const AccountantContract = artifacts.require("Accountants");
 const AdminContract = artifacts.require("Admins");
 
 module.exports = function (deployer) {
-    return deployer.deploy(StudentContract).then(function () {
-        return deployer.deploy(TeacherContract);
+    return deployer.deploy(StudentContract, TeacherContract.address).then(function () {
+        return deployer.deploy(TeacherContract, StudentContract.address);
     }).then(function () {
         return deployer.deploy(AdminContract);
     }).then(function () {
