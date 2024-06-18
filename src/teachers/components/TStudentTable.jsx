@@ -82,7 +82,7 @@ const TStudentTable = () => {
                  <th className="py-2 px-4 text-start text-lg uppercase">Class Level</th>
                  <th className="py-2 px-4 text-start text-lg uppercase">Combination</th>
                  <th className="py-2 px-4 text-start text-lg uppercase">gender</th>
-                 <th className="py-2 px-4 text-start text-lg uppercase">Exam Number</th>
+                 {/* <th className="py-2 px-4 text-start text-lg uppercase">Exam Number</th> */}
                  <th className="py-2 px-4 text-start text-lg uppercase">Date of Birth</th>
                  <th className="py-2 px-4 text-start text-lg uppercase">Religion</th>
 
@@ -103,7 +103,7 @@ const TStudentTable = () => {
                     <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{student.classLevel}</td>
                     <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{student.combination}</td>
                     <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{student.gender}</td>
-                    <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{student.examNumber}</td>
+                    {/* <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{student.examNumber}</td> */}
                     <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{student.dob}</td>
                     <td className={`py-2 px-4 text-center text-gray-700 text-base border-b dark:text-gray-500 ${hoveredRow === index ? 'bg-gray-200 dark:bg-gray-900' : ''}`}>{student.religion}</td>
  
